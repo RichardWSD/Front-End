@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+	/* 伪类选择器也是选元素，但是它选的是元素的状态 */
+		#link{
+			color: red;
+			font-size: 55px;
+		}
+		#link:hover{
+			color: yellow;
+			font-size: 100px;
+			background: green;
+		}
+		/* 判断的是指向的网址在浏览器中是否被访问过，在浏览器中是否有记录 */
+		#link:visited{
+			color: black;
+			font-size: 25px;
+		}
+		
+	</style>
+	</head>
+	<body>
+		
+		<a href="http://houdunren.com" id="link">后盾人</a>
+		
+		
+	</body>
+</html>

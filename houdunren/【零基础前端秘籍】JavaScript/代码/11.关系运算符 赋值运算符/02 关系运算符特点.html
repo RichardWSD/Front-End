@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script type="text/javascript">
+/*
+1.都是数值的时候，他会正常比较
+2.都是字符串的时候，他会先转换成ASCII码然后进行比较他们的第一个字母。
+3.当一个字符串，另一个是数值的时候，把字符串尝试转换成数值
+	类型，然后进行比较，如果不能转换成数值类型 ，返回假
+4.如果一个数值和布尔值进行比较，会把布尔值转换为数值再进行
+	比较，true为1，false为 0
+	 */
+
+//		if ('孙老师'>'特朗普') {
+//			document.write("成立");
+//		}else{
+//			document.write("不成立");
+//		}
+
+
+//		if ('123'>99) {
+//			document.write("成立");
+//		}else{
+//			document.write("不成立");
+//		}
+
+		var x = 5>1;
+		if (2>x) {
+			document.write("成立");
+		}else{
+			document.write("不成立");
+		}
+
+
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

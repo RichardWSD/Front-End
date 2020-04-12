@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      <span>body</span>
+
+      <script src="https://cdn.bootcss.com/seajs/3.0.2/sea.js"></script>
+
+      <script src="./seajs-config-v1.js"></script>
+      <script>
+//alias为seajs-config-v1里面所代表的的一个模块
+        seajs.use(["alias"] ,function(a){
+          console.log(a.hello())
+        });
+
+        // seajs.use(["jquery"] ,function(a){
+
+        // });
+      </script>
+    </body>
+</html>

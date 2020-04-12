@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+img {
+    border-radius: 50%;
+    /* 可以在caniuse.com这个网站看属性是否需要加前缀 */
+    /* 可以在这里http://tongji.baidu.com/data/browser看中国浏览器市场占比份额 */
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1)
+}

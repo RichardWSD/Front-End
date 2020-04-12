@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+
+    #hd{
+      width: 80%;
+      border: 4px solid orangered;
+      /* flex布局是没有脱离文档流的，这里高度不设置也能撑起父元素高度,而float是脱离文档流的 */
+      height: 500px;
+      margin: 10px auto;
+      /* 指定容器里面的项目排列方式为弹性布局 */
+      display: flex;
+    }
+
+    #hd>div{
+      width: 180px;
+      height: 200px;
+      background: dodgerblue;
+      border: 1px solid purple;
+    }
+  </style>
+</head>
+<body>
+  <div id="hd">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>

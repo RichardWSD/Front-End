@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+#hd{
+    width: 800px;
+    height: 300px;
+    background: purple;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 值是0~1，1是完全不透明，IE不支持这个属性 */
+    opacity: 0.8;
+    /* filter是专门给IE看的，别的浏览器不认识，但是IE认识 */
+    filter: alpha(opacity=30);
+}
+</style>
+<body>
+    <h1>后盾人 人人做后盾</h1>
+    <div id="hd"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<view class="container">
+      <audio id="myAudio" poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" action="{{action}}" controls loop></audio>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioPlay">播放</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioPause">暂停</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioPlaybackRateSpeedUp">调为2倍速</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioPlaybackRateNormal">调为1倍速</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioPlaybackRateSlowDown">调为0.5倍速</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+          </view>
+          <view class="button-wrap">
+              <button type="primary" bindtap="audioStart">回到开头</button>
+          </view>
+</view>

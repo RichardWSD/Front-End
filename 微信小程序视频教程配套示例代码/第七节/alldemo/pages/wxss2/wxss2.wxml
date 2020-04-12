@@ -1,0 +1,7 @@
+<view class="container">
+    <button type="default">测试</button>
+    <view class="test">aaa</view>
+    <view class="test">bbb</view>
+    <view class="test2">ccc</view>
+    
+</view>

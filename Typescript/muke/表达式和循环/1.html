@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getStock(name) {
+            this.name = name;
+            setInterval(function () {
+                console.log("this name is " + this.name);
+            }, 1000);
+        }
+        var stock = new getStock('wri');
+
+        function getStock2(name) {
+            this.name = name;
+            setInterval(() => console.log(`this name is ${this.name}`), 1000);
+        }
+
+        var stock2 = new getStock2('wri2');
+    </script>
+</body>
+
+</html>

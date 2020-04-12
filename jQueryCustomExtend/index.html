@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="./bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf8" src="./jquery-1.9.1.js"></script>
+    <script src="./bootstrap.js"></script>
+</head>
+
+<body>
+    <input type="text" class="limit-decimal" data-limit="3"/>
+    <input type="text" class="limit-integer"/>
+    <input type="text" class="limit-decimal-range"/>
+    <button>$.fn</button>
+</body>
+
+<script type="text/javascript" charset="utf8" src="./customExtend.js"></script>
+<script type="text/javascript" charset="utf8" src="./moment.js"></script>
+<script>
+    var data = [{ id: '1', sku: 'SKU6646464' }, { id: '2', sku: 'SKU664894' }];
+    var arr = $.toArray(data);
+
+    var data2 = {"CreateTime": "\/Date(1541035243543)\/"};
+    var res = $.dateFormat(data2.CreateTime, 'YYYY-MM-DD HH:mm');
+
+    var BigNum = {};
+
+    BigNum.config = function(obj){
+        console.log(obj);
+    }
+
+    BigNum.config("123");
+
+    $.fn.testClick = function () {
+        console.log("testClick");
+        return this;
+    }
+
+    $(window).on('click', function (event) {
+        $(this).testClick();
+        return false;
+    });
+
+    for(var i=0; i< 1;i++)
+    {}
+ 
+    var func = function(){
+        
+    }();
+    alert(i);
+
+    new function(){
+        alert("121");
+    }
+
+</script>   
+
+</html>

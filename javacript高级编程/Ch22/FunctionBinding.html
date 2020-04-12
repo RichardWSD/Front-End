@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+
+<body>
+  <button id="my-btn">吻我</button>
+  <script>
+    var handler = {
+      message: "Event handled",
+      handleClick: function (event) {
+        //return function () {
+          console.log(this.message);
+          console.log(this);
+        //}
+      }
+    };
+    var btn = document.getElementById("my-btn");
+    EventUtil.addHandler(btn, "click", handler.handleClick);
+    // EventUtil.addHandler(btn, "click", function (event) {
+    //   handler.handleClick(event);
+    // });
+  </script>
+</body>
+
+</html>

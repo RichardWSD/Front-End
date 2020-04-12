@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>iframe</h1>
+    <a href="./a.html">hello</a>
+    <iframe src="" id="iframe"></iframe>
+    <button id="btn" disabled>按钮</button>
+</body>
+<script type="text/javascript" charset="utf8" src="../jquery-1.9.1.js"></script>
+<script>
+    $('a').on('click', function(event) {
+// $('#btn').attr('disabled',false);
+var btn = document.getElementById("btn");
+console.log(btn);
+
+    event.preventDefault();//阻止事件的默认行为
+    $('#iframe').attr('src', './a.html');
+})
+    
+</script>
+</html>

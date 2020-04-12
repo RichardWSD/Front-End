@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="./bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./fancybox-1.3.1.css"> -->
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="./jquery-1.9.1.js"></script>
+
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="./jquery.mousewheel.pack.js"></script>
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="./jquery.fancybox.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="./jquery.fancybox.pack.js"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link rel="stylesheet" href="./jquery.fancybox-buttons.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="./jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="./jquery.fancybox-media.js"></script>
+
+    <link rel="stylesheet" href="./jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="./jquery.fancybox-thumbs.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+        <p>
+            <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1669/23976340262_a5ca3859f6_b.jpg" title="Twilight Memories (doraartem)">
+                <img src="http://farm2.staticflickr.com/1669/23976340262_a5ca3859f6_m.jpg" alt=""> </a>
+            <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1459/23610702803_83655c7c56_b.jpg" title="Electrical Power Lines and Pylons disappear over t.. (pautliubomir)">
+                <img src="http://farm2.staticflickr.com/1459/23610702803_83655c7c56_m.jpg" alt=""> </a>
+            <a class="fancybox" rel="gallery1" href="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_b.jpg" title="Morning Godafoss (Brads5)">
+                <img src="http://farm2.staticflickr.com/1617/24108587812_6c9825d0da_m.jpg" alt=""> </a>
+            <a class="fancybox" rel="gallery1" href="http://farm4.staticflickr.com/3691/10185053775_701272da37_b.jpg" title="Vertical - Special Edition! (cedarsphoto)">
+                <img src="http://farm4.staticflickr.com/3691/10185053775_701272da37_m.jpg" alt=""> </a>
+        </p>
+</body>
+<script type="text/javascript">
+        $(document).ready(function() {
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+  </script>
+</html>

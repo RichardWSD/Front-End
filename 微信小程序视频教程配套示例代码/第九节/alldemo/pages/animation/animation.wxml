@@ -1,0 +1,4 @@
+<view class="container">
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
+<button style="margin-top:200px;" bindtap="doAnimation" type="primary">执行动画</button>
+</view>

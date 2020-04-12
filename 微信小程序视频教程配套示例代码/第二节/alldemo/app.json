@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/component/scrollview/scrollview",
+    "pages/component/swiper/swiper",
+    "pages/component/icons/icons",
+    "pages/component/texts/texts",
+    "pages/component/progress/progress"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3E3E40",
+    "navigationBarTitleText": "演示目录",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

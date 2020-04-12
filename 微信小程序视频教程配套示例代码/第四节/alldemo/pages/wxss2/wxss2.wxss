@@ -1,0 +1,11 @@
+.test{
+    border:1px solid red;
+}
+.test2{
+    border:1rpx solid #000;
+    height:10rem;
+    width:628rpx;
+    padding:20rpx;
+    margin:20rpx;
+    color:red;
+}

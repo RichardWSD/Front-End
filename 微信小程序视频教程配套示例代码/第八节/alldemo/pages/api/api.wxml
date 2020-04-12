@@ -1,0 +1,60 @@
+<view class="container">
+
+<text class="topic-group">网络</text>
+<view wx:for="{{requestData}}">{{item.name}}</view>
+<button bindtap="requestFromServer" type="primary">发起请求</button>
+<button bindtap="downLoad" type="primary">下载</button>
+
+<text class="topic-group">图片</text>
+<view>
+<image style="width: 100%; height: 200px; background-color: #eeeeee;"  src="{{imageSrc}}"></image>
+<view class="button-wrap">
+<button bindtap="choosePic" type="primary">选择图片</button>
+</view>
+<view class="button-wrap">
+<button bindtap="viewPic" type="primary">浏览图片</button>
+</view>
+<view class="button-wrap">
+<button bindtap="startRecord" type="primary">录音</button>
+</view>
+</view>
+
+
+<text class="topic-group">背景音乐</text>
+<view>
+    <view class="button-wrap">
+        <button bindtap="showMusic" type="primary">播放背景音乐</button>
+    </view>
+    <view class="button-wrap">
+        <button bindtap="pauseMusic" type="primary">暂停</button>
+    </view>
+     <view class="button-wrap">
+        <button bindtap="stopMusic" type="primary">停止</button>
+    </view>
+</view>
+
+<text class="topic-group">数据缓存</text>
+<button bindtap="setStorage" type="primary">异步设置缓存</button>
+<button bindtap="getStorage" type="primary">异步获取缓存</button>
+<button bindtap="removeStorage" type="primary">异步移除缓存</button>
+<button bindtap="clearStorage" type="primary">异步清除缓存</button>
+<button bindtap="getStorageInfo" type="primary">异步获取缓存信息</button>
+<button bindtap="setStorageSync" type="primary">同步设置缓存</button>
+<button bindtap="getStorageSync" type="primary">同步获取缓存</button>
+<button bindtap="removeStorageSync" type="primary">同步移除缓存</button>
+<button bindtap="clearStorageSync" type="primary">同步清除缓存</button>
+<button bindtap="getStorageInfoSync" type="primary">同步获取缓存信息</button>
+
+<text class="topic-group">位置</text>
+<view>
+    <button bindtap="getLocation" type="primary">获取位置</button>
+    <button bindtap="chooseLocation" type="primary">打开地图选择位置</button>
+</view>
+
+<text class="topic-group">设备</text>
+<view>
+    <button bindtap="getSystemInfo" type="primary">获取设备信息</button>
+    <button bindtap="callPhone" type="primary">拨打电话</button>
+</view>
+
+</view>

@@ -1,0 +1,12 @@
+<view class="container list">
+    <view class="list-item" wx:for="{{listDatas}}">
+        <image src="{{item.headImg}}" class="left"/>
+        <view class="right">
+          <view class="title">
+          <text class="name">{{item.name}}</text>
+          <text class="desc">{{item.desc}}</text>
+          </view>
+          <view class="time">{{item.time}}</view>  
+        </view>
+    </view>
+</view>

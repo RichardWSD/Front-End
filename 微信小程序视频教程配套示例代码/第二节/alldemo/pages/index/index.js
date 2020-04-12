@@ -1,0 +1,30 @@
+Page({
+  data: {
+    userInfo: {}
+  },
+  openScrollView:function(){
+    wx.navigateTo({
+      url:'../component/scrollview/scrollview'
+    });
+  },
+  openSwiper:function(){
+    wx.navigateTo({
+      url:'../component/swiper/swiper'
+    });
+  },
+  openIcon:function(){
+    wx.navigateTo({
+      url:'../component/icons/icons'
+    });
+  },
+  openText:function(){
+    wx.navigateTo({
+      url:'../component/texts/texts'
+    });
+  },
+  openProgress:function(){
+    wx.navigateTo({
+      url:'../component/progress/progress'
+    });
+  }
+})

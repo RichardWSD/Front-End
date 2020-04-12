@@ -1,0 +1,43 @@
+.list{
+    padding:0rpx;
+}
+.list-item{
+    border-bottom:1px solid #cccccc;
+    height:100rpx;
+    display:flex;
+    flex-direction:row;
+    padding:20rpx;
+}
+.left{
+  width:100rpx;
+  height:100rpx;
+}
+.right{
+    border:0rpx solid red;
+    width:590rpx;
+    height:100rpx;
+    margin-left:20rpx;
+    display:flex;
+    flex-direction:row;
+}
+.title{
+  border:0rpx solid blue;
+  height:100rpx;
+  /* 占用容器剩下的宽度 */
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.time{
+  width:160rpx;
+  color:#ccc;
+  font-size:18rpx;
+}
+.name{
+  font-size:30rpx;
+  font-weight:bold;
+  margin-bottom:20rpx;
+}
+.desc{
+  font-size:20rpx;
+}

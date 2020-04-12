@@ -1,0 +1,22 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/component/scrollview/scrollview",
+    "pages/component/swiper/swiper",
+    "pages/component/icons/icons",
+    "pages/component/texts/texts",
+    "pages/component/progress/progress",
+    "pages/component/forms/forms",
+    "pages/component/actions/actions",
+    "pages/component/audio/audio",
+    "pages/component/video/video",
+    "pages/component/images/images"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3E3E40",
+    "navigationBarTitleText": "演示目录",
+    "navigationBarTextStyle":"white"
+  },
+  "debug":true
+}

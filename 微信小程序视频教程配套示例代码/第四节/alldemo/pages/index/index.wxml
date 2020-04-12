@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <button type="primary" bindtap="openScrollView">scroll-view</button>
+  <button type="primary" bindtap="openSwiper">swiper</button>
+  <button type="primary" bindtap="openIcon">icon</button>
+  <button type="primary" bindtap="openText">text</button>
+  <button type="primary" bindtap="openProgress">progress</button>
+  <button type="primary" bindtap="openForms">form</button>
+  <button type="primary" bindtap="openActions">action</button>
+  <navigator url="../component/actions/actions">navigator</navigator>
+  <button type="primary" bindtap="openAudio">audio</button>
+  <button type="primary" bindtap="openVideo">video</button>
+  <button type="primary" bindtap="openImage">image</button>
+</view>

@@ -1,0 +1,9 @@
+.button-wrap{
+  padding:10rpx;
+}
+.topic-group{
+    flex-direction:row;
+    background:#e5e5e5;
+    padding:10rpx;
+    margin-top:15px;
+} 

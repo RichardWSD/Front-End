@@ -1,0 +1,5 @@
+<view class="container">
+<text>Hello wechet app</text>
+<button type="default" bindtap="anyfunction">测试</button>
+<text>{{mytext2.num}}</text>
+</view>

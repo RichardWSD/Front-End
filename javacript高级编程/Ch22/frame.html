@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div id="myDiv" style="position:absolute;width:100px;height:100px;left:0px;top:100px;background:blue;"></div>
+    <script type="text/javascript">
+      setTimeout(function(){
+
+         var div = document.getElementById("myDiv"),
+             left = parseInt(div.style.left) + 5;
+         div.style.left = left + "px";
+
+         if (left < 200){
+             setTimeout(arguments.callee, 50);
+         }
+
+      }, 50);
+
+
+  </script>
+</body>
+</html>

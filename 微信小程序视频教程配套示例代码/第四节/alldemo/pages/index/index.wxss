@@ -1,0 +1,7 @@
+/**index.wxss**/
+.showbutton{
+  width:100%;
+}
+.navigator-hover{
+  color:red;
+}

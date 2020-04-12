@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./datatables.css">
+    <link rel="stylesheet" type="text/css" href="./dataTables.bootstrap.css">
+</head>
+
+<body>
+    <table id="example" class="table">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script type="text/javascript" charset="utf8" src="./jquery-1.9.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="./datatables.js"></script>
+    <script type="text/javascript">
+        function Employee(name, position, salary, office) {
+            this.name = name;
+            this.position = position;
+            this.salary = salary;
+            this.office = office;
+        };
+        $('#example').DataTable({
+            data: [
+                new Employee("Tiger Nixon", "System Architect", "$3,120", "Edinburgh"),
+                new Employee("Garrett Winters", "Director", "$5,300", "Edinburgh")
+            ],
+            columns: [
+                { data: 'name' },
+                { data: 'salary' },
+                { data: 'office' },
+                { data: 'position' }
+            ]
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<view class="container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view>
+        <button type="primary" bindtap="changeIndicatorDots"> indicator-dots </button>
+        <button type="primary" bindtap="changeAutoplay"> autoplay </button>
+    </view>
+    <view>
+        <slider bindchange="intervalChange" show-value min="500" max="2000"/> interval
+        <slider bindchange="durationChange" show-value min="1000" max="10000"/> duration
+    </view>
+</view>

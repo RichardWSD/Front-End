@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //仅 Firefox 中
+    setTimeout(function (diff) {
+      debugger;
+      if (diff > 0) {
+        //晚调用
+      } else if (diff < 0) {
+        //早调用
+      } else {
+        //调用及时
+      }
+    }, 250);
+  </script>
+</body>
+
+</html>

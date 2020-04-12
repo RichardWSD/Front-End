@@ -1,0 +1,24 @@
+<view class="container">
+    <view>
+        <text>vertical scroll</text>
+        <scroll-view scroll-y class="scroll-view-y" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}">
+            <view id="green" class="scroll-view-item bc_green"></view>
+            <view id="red"  class="scroll-view-item bc_red"></view>
+            <view id="yellow" class="scroll-view-item bc_yellow"></view>
+            <view id="blue" class="scroll-view-item bc_blue"></view>
+        </scroll-view>
+        <button type="primary" bindtap="tapMove">滚动</button>
+    </view>
+
+    <view>
+        <text>horizontal scroll</text>
+        <scroll-view  scroll-x style="width: 100%">
+            <view class="scroll-view_H">
+                <view  class="scroll-view-item_H bc_green"></view>
+                <view  class="scroll-view-item_H bc_red"></view>
+                <view  class="scroll-view-item_H bc_yellow"></view>
+                <view  class="scroll-view-item_H bc_blue"></view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

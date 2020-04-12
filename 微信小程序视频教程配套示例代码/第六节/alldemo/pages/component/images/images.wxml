@@ -1,0 +1,8 @@
+<view class="container">
+        <view wx:for="{{array}}" wx:for-item="item">
+            <view>{{item.text}}</view>
+            <view>
+                <image style="demoimg" mode="{{item.mode}}" src="{{src}}"></image>
+            </view>
+        </view>
+</view>

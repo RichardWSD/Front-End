@@ -1,0 +1,122 @@
+<!--logs.wxml-->
+<import src="../public/tpl.wxml"/>
+<view class="container">
+  <text class="topic-group">简单绑定</text>
+  <view class="topic-item"> {{ message }} </view>
+  <view class="topic-item"> {{ message2.abc }} </view>
+
+  <text class="topic-group">组件属性</text>
+  <view id="item-{{id}}" class="topic-item">通过工具查看属性</view>
+
+  <text class="topic-group">控制属性</text>
+  <text bindtap="switchCondition">切换condition</text>
+  <view wx:if="{{condition}}" class="topic-item">condition为true会显示</view>
+
+  <text class="topic-group">三元运算</text>
+  <view hidden="{{flag==1 ? true : false}}" class="topic-item"> {{ flag }} </view>
+
+  <text class="topic-group">算数运算</text>
+  <view class="topic-item"> {{a + b}} + {{c}} + d </view>
+  <view class="topic-item"> {{a + b+c}}</view>
+
+  <text class="topic-group">逻辑判断</text>
+  <view wx:if="{{length > 5}}" class="topic-item">{{ length }} </view>
+  <view wx:if="{{arr.length > 5}}" class="topic-item">{{ arr.length }} </view>
+
+  <text class="topic-group">字符串运算</text>
+  <view  class="topic-item">{{"hello " + name}}</view>
+
+  <text class="topic-group">数组组合</text>
+  <view wx:for="{{[zero, 1, 2, 3, 4]}}"> {{item}} </view>
+  <!--js的数据类型-->
+
+  
+
+  <text class="topic-group">使用对象</text>
+  <template is="objectCombine1" data="{{for: a, bar: b}}"></template>
+
+  <text class="topic-group">对象展开</text>
+  <template is="objectCombine2" data="{{...obj1, ...obj2, e: 5}}"></template>
+
+  <text class="topic-group">对象展开组合方式</text>
+  <template is="objectCombine2" data="{{...obj1, ...obj2, a:length,b, e: 5}}"></template>
+
+
+  <text class="topic-group">条件渲染</text>
+  <view wx:if="{{length > 7}}"> 1 </view>
+  <view wx:elif="{{length > 8}}"> 2 </view>
+  <view wx:else> 3 </view>
+  <view><!--必须要用<view/>与上面的逻辑区别开，否则下面的逻辑不能正常解析-->
+  <block wx:if="{{true}">
+    <text> view1 </text>
+    <text> view2 </text>
+  </block>
+  </view>
+
+
+  <text class="topic-group">列表渲染</text>
+  <!--<view wx:for="{{items}}">
+    {{index}}: {{item.message}}
+  </view>-->
+  <view wx:for="{{items}}" wx:for-index="idx" wx:for-item="itemName">
+    {{idx}}: {{itemName.message}}
+  </view>
+
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+    <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+      <view wx:if="{{i <= j}}">
+        {{i}} * {{j}} = {{i * j}}
+      </view>
+    </view>
+  </view>
+
+ <!-- <block wx:for="{{[1, 2, 3]}}">
+  <view>
+    <text> {{index}}: </text>
+    <text> {{item}} </text>
+    </view>
+  </block>-->
+
+  <text class="topic-group">模板</text>
+
+  <template is="msgItem" data="{{...item}}"/>
+
+  <template is="msgItem" data="{{...item2}}"/>
+  <template name="odd">
+    <view class="red-color"> {{item}} </view>
+  </template>
+  <template name="even">
+    <view class="green-color"> {{item}} </view>
+  </template>
+
+  <block wx:for="{{[1, 2, 3, 4, 5]}}">
+      <template is="{{item % 2 == 0 ? 'even' : 'odd'}}" data="{{item:item}}"/>
+  </block>
+
+
+  <text class="topic-group">事件</text>
+  <view id="tapTest" data-hi-element-hi="MINA" data-hello="MINA2" bindtap="tapName"> Click me! </view>
+
+  <text class="topic-group">事件冒泡</text>
+  <view id="outter" bindtap="handleTap1">
+    outer view
+    <view id="middle" catchtap="handleTap2">
+      middle view
+      <view id="inner" bindtap="handleTap3">
+        inner view
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <text class="topic-group">import引用</text>
+  <template is="item" data="{{text: '使用了import文件中的的template'}}"/>
+
+
+  <text class="topic-group">include引用</text>
+  <include src="../public/tpl.wxml"/>
+  <template is="item" data="{{text: '使用了include文件中的的template,并且不是template的内容也显示了。'}}"/>
+  
+</view>

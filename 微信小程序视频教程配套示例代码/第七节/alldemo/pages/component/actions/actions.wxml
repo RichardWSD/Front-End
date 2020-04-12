@@ -1,0 +1,33 @@
+<view class="container">
+      <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+          <block wx:for="{{actionSheetItems}}">
+              <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}" data-type="istype">{{item}}</action-sheet-item>
+          </block>
+          <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+      </action-sheet>
+      <view>
+        <button type="primary" bindtap="actionSheetTap">弹出action sheet</button>
+      </view>
+      
+      
+      
+      <modal title="标题" confirm-text="确定" no-cancel cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="modalChange" bindcancel="modalChange">
+        这是对话框的内容。
+      </modal>
+      <modal hidden="{{modalHidden2}}" no-cancel bindconfirm="modalChange2">
+        <view> 内容可以插入节点 </view>
+      </modal>
+      <button type="primary" bindtap="modalTap">点击弹出modal</button>
+      <button type="primary" bindtap="modalTap2">点击弹出modal2</button>
+
+
+
+      <loading hidden="{{loadingHidden}}" bindchange="loadingChange">
+           加载中...
+      </loading>
+      <toast hidden="{{toast1Hidden}}"  duration="5000" bindchange="toast1Change">
+        默认
+      </toast>
+      <button type="primary" bindtap="toast1Tap">点击弹出默认toast</button>
+      <button type="primary" bindtap="loadingTap">点击弹出loading</button>
+</view>

@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+     <navigator url="../logs/logs" hover-class="navigator-hover">{{motto}}</navigator>
+     <navigator url="../mypage/mypage" hover-class="navigator-hover">跳转到我的页面</navigator>
+     <button type="default" ontap="goToMypage">跳转到我的页面</button>
+  </view>
+</view>

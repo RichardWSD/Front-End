@@ -1,0 +1,31 @@
+<form [formGroup]="formModel" action="/regist" method="post" (ngSubmit)="onSubmit()">
+  <div>用户名：<input [class.hasError]="formModel.get('userName').invalid && formModel.get('userName').touched" type="text" name="userName" formControlName="userName"></div>
+  <div [hidden]="formModel.get('userName').valid || formModel.get('userName').untouched">
+    <!-- hasError的第一个参数值是返回的错误对象的属性名，第二个参数是要检验的字段的名字 -->
+    <div [hidden]="!formModel.hasError('required', 'userName')">用户名是必填项</div>
+    <div [hidden]="!formModel.hasError('minlength', 'userName')">用户名最小长度是6</div>
+  </div>
+  <div>手机号：<input type="number" name="mobile" formControlName="mobile"></div>
+  <div [hidden]="formModel.get('mobile').valid || formModel.get('mobile').pristine">
+    <div [hidden]="!formModel.hasError('mobile', 'mobile')">请输入正确的手机号</div>
+  </div>
+  <div [hidden]="!formModel.get('mobile').pending">正在校验手机号合法性</div>
+  <div formGroupName="passwordsGroup">
+    <div>密码：<input type="password" name="password" formControlName="password"></div>
+    <!-- 当我们校验一个fromGroup中某个formControl时，第二个参数的值要传一个数组 -->
+    <div [hidden]="!formModel.hasError('minlength', ['passwordsGroup','password'])">密码最小长度是6</div>
+    <div>确认密码：<input type="password" name="pconfirm" formControlName="pconfirm"></div>
+    <div [hidden]="!formModel.hasError('equal', 'passwordsGroup')">
+      {{formModel.getError('equal','passwordsGroup')?.desc}}
+    </div>
+  </div>
+  <button type="submit">注册</button>
+</form>
+<div>
+  {{formModel.status}}
+</div>
+
+<!-- 状态字段
+touched和untouched，用来判断用户是否访问过一个字段（如果表单有任何一个字段touched，这个表单就是touched）
+pristine和dirty，用来判断字段的值是否发生过改变（如果表单有任何一个字段dirty，这个表单就是dirty）
+pending，当一个字段正在异步教验时，这个值为true -->

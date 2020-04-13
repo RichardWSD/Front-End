@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+            <div id="box">
+                    <input type="button" value="按钮" @contextmenu="show()">
+                    <input type="button" value="按钮1" @contextmenu.prevent="show1()">
+
+                    <p>//按钮右击点下去会依次出现 弹窗 1， 还有右击的默认菜单</p>
+                    <p>//按钮1右击只出现 弹窗 2</p>
+                </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>

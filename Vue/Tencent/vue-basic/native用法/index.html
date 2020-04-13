@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 这种原生的标签本来就有click事件,不用加.native,加了反而没效果 -->
+            <!-- 　　<a href="#" v-on:click.native="clickFun">click me</a> -->
+
+            <!-- 我们自定义的组件是没有click事件的,可以通过.native给我们自定义的组件加上原生click事件 -->
+            <my-component v-on:click.native="clickFun"></my-component>
+            </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>

@@ -1,0 +1,18 @@
+<!-- <div class="wrapper">
+  <h2>我是父组件</h2>
+  <div>这个div定义在父组件中</div>
+  <app-child> -->
+    <!-- 这段html会被投影到子组件的ng-content中 -->
+    <!-- <div class="header">这是页头，这个div是父组件投影到子组件的，title是{{title}}</div>
+    <div class="footer">这是页脚，这个div是父组件投影到子组件中的</div>
+  </app-child>
+  <div>{{title}}</div>
+</div> -->
+
+<!-- 这种方式只能用在浏览器中 -->
+<!-- 但是使用ng-content的方式是与平台无关的，可以用在混合app中等，而且ng-content可以定义多个 -->
+<!-- <div [innerHTML]="divContent"></div> -->
+
+<a href="" [routerLink]="['/']">child1</a>
+<a href="" [routerLink]="['/child2']">child2</a>
+<router-outlet></router-outlet>

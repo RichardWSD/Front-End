@@ -1,0 +1,54 @@
+<!-- 纯HTML表单功能不够强大，不能满足我们的业务需求 -->
+<!-- 如果通过angular运行我们的应用，那么angular会自动给form标签加上NgForm指令 -->
+<!-- NgForm指令会创建FormGroup类，这个类会存储我们表单的数据模型 -->
+<!-- ngModel指令会创建FormControl类，但不需要用[()]包起来，但要写name属性，可以声明一个模板本地变量来引用它 -->
+<!-- 标有NgForm指令的html标签会自动发现有NgModel指令的子元素，并将他们添加到表单数据模型中 -->
+<!-- ngModelGroup指令会创建FormGroup类，用于包含表单中的一部分 -->
+<!-- <div ngForm></div>效果和<form action=""></form>效果是一样的 -->
+<!-- 如果不希望angular来处理我们的表单，需要加上一个ngNoForm指令 -->
+<!-- ngForm指令可以被一个模板本地变量引用 -->
+<!-- ngForm会拦截标准的html表单提交事件，用ngSubmit事件来代替它 -->
+<!-- <form #myForm="ngForm" action="/regist" method="post" (ngSubmit)="OnSubmit(myForm.value)"> -->
+<!-- <div>用户名：<input type="text" required pattern="[a-zA-Z0-9]+"></div> -->
+<!-- <div ngModelGroup="userInfo">
+    <div>用户名：<input type="text" #userName="ngModel" ngModel name="userName"></div>
+    <div>手机号：<input type="text"></div>
+  </div>
+  <div>邮政编码：<input type="number" min="100000" max="999999"></div>
+  <div>密码：<input type="password"></div>
+  <div>确认密码：<input type="password"></div>
+  <button type="submit">注册</button>
+</form>
+<div>
+  {{myForm.value | json}}
+</div>
+<div>
+  {{userName.value}}
+</div> -->
+
+<!-- 将校验器方法包装成一个指令在模板式表单中使用 -->
+<!-- novalidate表示不要启动浏览器默认的表单校验 -->
+<form #myForm="ngForm" action="/regist" method="post" (ngSubmit)="OnSubmit(myForm.value, myForm.valid)" novalidate>
+  <!-- 这里的required是angular提供的required指令 -->
+  <div>用户名：<input required minlength="6" type="text" ngModel name="userName"></div>
+  <!-- 这样写会报错，因为模板式表单和响应式表单不同，它的模板的值和状态的变更是异步的，所以之里不能这么用，也因为如此，我们需要多写很多代码 -->
+  <!-- 但是用?.好像就能解决控制台报错的问题，而且本身好像状态变更没什么问题 -->
+  <div [hidden]="myForm.form.get('userName')?.valid || myForm.form.get('userName')?.untouched">
+    <div [hidden]="!myForm.form.hasError('required', 'userName')">用户名是必填项</div>
+    <div [hidden]="!myForm.form.hasError('minlength', 'userName')">用户名最小长度是6</div>
+  </div>
+  <!-- mobile引用指令 -->
+  <div>手机号：<input mobile type="number" ngModel name="mobile"></div>
+  <div [hidden]="myForm.form.get('mobile')?.valid || myForm.form.get('mobile')?.pristine">
+    <div [hidden]="!myForm.form.hasError('mobile', 'mobile')">请输入正确的手机号</div>
+  </div>
+  <div ngModelGroup="passwordsGroup" equal>
+    <div>密码：<input minlength="6" type="password" ngModel name="password"></div>
+    <div [hidden]="!myForm.form.hasError('minlength', ['passwordsGroup','password'])">密码最小长度是6</div>
+    <div>确认密码：<input type="password" ngModel name="pconfirm"></div>
+    <div [hidden]="!myForm.form.hasError('equal', 'passwordsGroup')">
+      {{myForm.form.getError('equal','passwordsGroup')?.desc}}
+    </div>
+  </div>
+  <button type="submit">注册</button>
+</form>

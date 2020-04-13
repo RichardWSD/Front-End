@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>Events</h1>
+            <!-- 注意直接用click并不起作用 -->
+            <!-- 这里的方法如果是没参数的可以不写括号 -->
+            <!-- 可以用<button @click="add(1)">Add a Year</button>这种简写方式 -->
+            <button v-on:click="add(1)">Add a Year</button>
+            <button v-on:click="subtract(1)">Subtract a Year</button>
+            <button v-on:dblclick="add(10)">Add 10 Years</button>
+            <button v-on:dblclick="subtract(10)">Subtract 10 Years</button>
+            <p>My age is {{age}}</p>
+            <div id="canvas" v-on:mousemove="updateXY">{{ x }} , {{ y }}</div>
+        </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>

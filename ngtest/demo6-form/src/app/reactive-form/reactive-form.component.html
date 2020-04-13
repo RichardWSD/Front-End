@@ -1,0 +1,21 @@
+<!-- 注意响应式表单不能在模板中使用模板本地变量 -->
+<!-- form标签什么都不写默认就是用模板表单ngForm指令接管了 -->
+<form action="" [formGroup]="formModel" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="userName">
+  <div formGroupName="dataRange">
+    起始日期：<input type="date" formControlName="from">
+    截止日期：<input type="date" formControlName="to">
+  </div>
+  <div>
+    <ul formArrayName="emails">
+      <li *ngFor="let e of this.formModel.get('emails').controls;let i=index">
+        <input type="text" [formControlName]="i">
+      </li>
+    </ul>
+    <!-- 请始终为按钮规定 type 属性。Internet Explorer 的默认类型是 "button"，而其他浏览器中（包括 W3C 规范）的默认值是 "submit" -->
+    <button (click)="addEmail()" type="button">增加Email</button>
+  </div>
+  <div>
+    <button type="submit">保存</button>
+  </div>
+</form>

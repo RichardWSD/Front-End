@@ -1,0 +1,55 @@
+<p>
+  bind works!
+</p>
+
+<!-- 管道 -->
+<p>我的生日是{{birthday | date:'yyyy-MM-dd HH:mm:ss' | uppercase}}</p>
+<p>圆周率是{{pi | number:'2.1-4'}}</p>
+<p>试试我自己写的管道{{size | multiple:2}}</p>
+
+<!-- 双向绑定 -->
+<!-- 可以这么写实现双向绑定，但太麻烦 -->
+<!-- <input type="text" [value]="name" (input)="doOnInput2($event)">{{name}} -->
+<!-- 用ngModel指令简化写法，盒子里装香蕉 -->
+<!-- 使用ngModel指令需要用在特定的表单元素上，只有这些元素才需要双向绑定 -->
+<input type="text" [(ngModel)]="name">{{name}}
+
+<!-- HMTL属性绑定 -->
+<!-- <table>
+  <tr>
+    <td [attr.colspan]="size">慕课网</td>
+  </tr>
+</table>
+<div [ngStyle]="divStyle">慕课网</div> -->
+<!-- <div [style.font-size.em]="isDev?3:1">慕课网</div> -->
+<!-- <div [style.color]="isDev?'red':'blue'">慕课网</div> -->
+<!-- <div [ngClass]="divClass2">慕课网</div> -->
+<!-- <div class="a b" [class.c]="isBig">慕课网</div> -->
+<!-- <div [class]="divClass">慕课网</div> -->
+
+
+<!-- 注意，这个参数名一定要是$event，否则没数据，绑定方向是从模板到控制器的doOnClick方法 -->
+<!-- <button (click)="doOnClick($event)">点我</button><br> -->
+<!-- 这两种写法等价，插值表达式的写法其实就是DOM属性绑定 -->
+<!-- 绑定方向是从控制器的imgUrl属性到模板的src属性 -->
+<!-- <img [src]="imgUrl" alt=""><br>
+<img src="{{imgUrl}}" alt=""> -->
+
+<!-- 只要出现了disabled这个html属性，不管值是多少，按钮都会被禁用，可以通过增加或移除的这个属性来禁用或启用按钮
+或者通过DOM的disabled属性的true或false来禁用或启用按钮 -->
+<!-- <input type="text" value="Tom" (input)="doOnInput($event)">
+<button [disabled]="aa">点击</button>
+<button (click)="funaa()">控制</button> -->
+
+<!-- HTML属性和DOM属性的关系
+少量HTML 属性和DOM 属性之间有着1:1的映射，如id. 
+eg:有些HTML 属性没有对应的DOM 属性,如colspan. 
+有些DOM 属性没有对应的HTML 属性,如textContent.
+HTML 属性的值指定了初始值; DOM 属性的值表示当前值。
+DOM 属性的值可以改变; HTML 属性的值不能改变。
+模板绑定是通过DOM属性和事件来工作的，而不是HTML 属性。 -->
+
+<!-- HTML属性绑定（当一个属性没有DOM属性时，我们就需要用HTML属性绑定了）
+基本HTML属性绑定：<td [attr.colspan]="tableColspan">Something</td>
+CSS类绑定：<div class="aaa bbb" [class]="someExpression">something</div>，<div [class.special]="isSpecial">something</div>，<div [ngClass]="{aaa:isA,bbb:isB}"></div>
+样式绑定：<button [style.color]="isSpecial?'red':'green'">Red</button>，<div [ngStyle]="{'font-style':this.canSave?'italic':'normal'}"> -->

@@ -1,0 +1,5 @@
+<!-- #child1，#child1是模板本地变量 -->
+<app-child #child1></app-child>
+<app-child #child2></app-child>
+<button (click)="child2.greeting('Jerry')">调用child2的greeting方法</button>
+{{title}}

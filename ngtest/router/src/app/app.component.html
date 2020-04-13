@@ -1,0 +1,13 @@
+<!-- 因为我们可以在导航至某个路由时传递参数，所以这里用数组赋值 -->
+<a href="" [routerLink]="['/home']">主页</a>
+<!-- 在查询参数中传递数据 -->
+<!-- <a href="" [routerLink]="['/product']" [queryParams]="{id: 1}">商品详情</a> -->
+<a href="" [routerLink]="['/product', 1]">商品详情</a>
+<!-- 事件绑定 -->
+<input type="button" value="商品详情" (click)="toProductDetails()">
+<!-- <a href="" [routerLink]="[{outlets:{aux:'chat'}}]">开始聊天</a> -->
+<!-- 当设置了primary属性后，当我们点击开始聊天后，主路由会跳到HomeComponent -->
+<a href="" [routerLink]="[{outlets:{primary:'home',aux:'chat'}}]">开始聊天</a> 
+<a href="" [routerLink]="[{outlets:{aux:null}}]">结束聊天</a>
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>

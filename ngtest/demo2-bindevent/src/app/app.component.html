@@ -1,0 +1,16 @@
+<!-- <div>我是父组件</div>
+<div>
+  <input type="text" placeholder="请输入股票代码" [(ngModel)]="stock">
+  <app-order [stockCode]="stock" [amount]="100"></app-order>
+</div> -->
+
+<!-- 捕获子组件的lastPrice事件 -->
+<!-- <app-price-quote (lastPrice)="priceQuoteHandler($event)"></app-price-quote>
+<div>
+    这是在报价组件外部，股票代码是{{priceQuote.stockCode}}，
+    股票价格是{{priceQuote.lastPrice | number:'2.2-2'}}
+</div> -->
+
+<!-- 这里通过中间人模式实现app-price-quote组件和app-order组件进行通信 -->
+<app-price-quote (buy)="buyHandler($event)"></app-price-quote>
+<app-order [priceQuote]="priceQuote"></app-order>

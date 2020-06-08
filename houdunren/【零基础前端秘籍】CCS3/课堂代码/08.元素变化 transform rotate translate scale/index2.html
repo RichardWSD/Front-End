@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style type="text/css">
+    .box {
+      border: 1px solid #000;
+      overflow: auto;
+      margin: 100px auto;
+    }
+    #wrapper {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      width: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    
+    <button id="zoomIn">zoomIn</button>
+    <button id="zoomOut">zoomOut</button>
+    <button id="rotateLeft">rotateLeft</button>
+    <button id="rotateRight">rotateRight</button>
+    <button id="rotateLeft1">rotateLeft1</button>
+    <button id="rotateRight1">rotateRight1</button>
+
+    <div class="box" id="box" style="width: 500px;height: 400px;">
+      <div id="wrapper" style="width: 100%;height: 100%">
+        <img id="image"
+        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588137183744&di=a71deb9b2a474d4a45f5fa80b32bec96&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg">
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+    let scale = 1;
+    let rotate = 0;
+    let translateX = 0;
+    let translateY = 0;
+
+    const image = document.getElementById("image")
+    const wrapper = document.getElementById("wrapper")
+    const box = document.getElementById("box")
+
+    document.getElementById("zoomIn").onclick = () => zoomImg(1.1);
+
+    document.getElementById("zoomOut").onclick = () => zoomImg(0.9);
+
+    document.getElementById("rotateLeft").onclick = () => rotateImg(rotate - 90);
+
+    document.getElementById("rotateRight").onclick = () => rotateImg(rotate + 90);
+
+    document.getElementById("rotateLeft1").onclick = () => rotateImg(rotate - 1);
+
+    document.getElementById("rotateRight1").onclick = () => rotateImg(rotate + 1);
+
+    // document.getElementById("image").style.transformOrigin = '';
+
+    function setImage() {
+      const boxWidth = box.style.width
+      image.style.width = boxWidth
+      image.style.height  = parseInt(boxWidth) * image.height / image.width +'px'
+    }
+
+    function setWrapper() {
+      const width = parseInt(image.style.width)
+      const height = parseInt(image.style.height)
+      wrapper.style.height =  image.getBoundingClientRect().height + 'px'
+      wrapper.style.width =  image.getBoundingClientRect().width + 'px'
+    }
+
+    function rotateImg(newRotate) {
+      rotate = newRotate;
+      image.style.width ? '' : setImage()
+      image.style.transform = `rotate(${rotate}deg)`;
+      setWrapper()
+    }
+
+    function zoomImg(newScale) {
+      scale = scale * newScale;
+      image.style.width ? '' : setImage() //判断是否需要初始化img宽高
+      image.style.width = parseInt(image.style.width) * newScale + 'px'
+      image.style.height = parseInt(image.style.height) * newScale + 'px'
+      setWrapper()       
+    }
+  </script>
+</body>
+
+</html>

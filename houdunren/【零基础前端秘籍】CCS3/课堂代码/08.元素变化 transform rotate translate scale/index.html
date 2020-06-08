@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style type="text/css">
+    .box {
+      width: 500px;
+      height: 400px;
+      border: 1px solid #000;
+      overflow: auto;
+      margin: 100px auto;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    
+    <button id="zoomIn">zoomIn</button>
+    <button id="zoomOut">zoomOut</button>
+    <button id="rotateLeft">rotateLeft</button>
+    <button id="rotateRight">rotateRight</button>
+    <button id="rotateLeft1">rotateLeft1</button>
+    <button id="rotateRight1">rotateRight1</button>
+
+    <div class="box" id="box">
+      <img id="image"
+        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588137183744&di=a71deb9b2a474d4a45f5fa80b32bec96&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg"
+        style="width: 100%;">
+    </div>
+
+
+  </div>
+
+  <script>
+    let scale = 1;
+    let rotate = 0;
+    let translateX = 0;
+    let translateY = 0;
+    document.getElementById("zoomIn").onclick = () => zoomImg(scale * 1.1);
+
+    document.getElementById("zoomOut").onclick = () => zoomImg(scale * 0.9);
+
+    document.getElementById("rotateLeft").onclick = () => rotateImg(rotate - 90);
+
+    document.getElementById("rotateRight").onclick = () => rotateImg(rotate + 90);
+
+    document.getElementById("rotateLeft1").onclick = () => rotateImg(rotate - 1);
+
+    document.getElementById("rotateRight1").onclick = () => rotateImg(rotate + 1);
+
+    function rotateImg(newRotate) {
+      document.getElementById("image").style.transformOrigin = '';
+      rotate = newRotate;
+      document.getElementById("image").style.transform =
+        `scale(${scale}) rotate(${rotate}deg) translateX(${translateX}) translateY(${translateY})`;
+    }
+
+    function zoomImg(newScale) {
+      scale = newScale;
+      document.getElementById("image").style.transform =
+        `scale(${scale}) rotate(${rotate}deg) translateX(${translateX}) translateY(${translateY})`;
+        
+    }
+  </script>
+</body>
+
+</html>

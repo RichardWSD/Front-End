@@ -20,6 +20,27 @@
             <label>Age:</label>
             <input type="text" v-on:keyup.alt.enter="logAge" v-model="age" />
             <span>{{ age }}</span>
+            <input type="checkbox" v-model="checkVal" >{{checkVal}}
+            <select v-model="selectVal">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>{{selectVal}}
+            <div id="example-4">
+                <input type="radio" id="one" value="One" v-model="picked">
+                <span for="one">One</span>
+                <input type="radio" id="two" value="Two" v-model="picked">
+                <span for="two">Two</span>
+                <span>Picked: {{ picked }}</span>
+            </div>
+            <input v-model.lazy="msg">{{msg}}
+            <input v-model="mulInput[0].a">{{mulInput[0].a}}
+            <input v-model="mulInput[1].b">{{mulInput[1].b}}
+            <div>
+                <input type="text" type="text" :value='dvalue' @input="handleInput" />{{dvalue}}
+            </div>
+            
         </div>
     </body>
 

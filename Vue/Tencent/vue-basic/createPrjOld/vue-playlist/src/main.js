@@ -5,6 +5,10 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+Vue.component("CustomTr",{
+  template: `<div>2222</div>`
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -18,13 +18,21 @@ Vue.component('greeting', {
     }
 });
 
+Vue.component("CustomTr",{
+    template: `<div>2222</div>`
+  });
+
 /* new Vue({
     el: '.test',
     template: '<p>I am a template</p>'
 }); */
 
 new Vue({
-    el: '#vue-app-one'
+    el: '#vue-app-one',
+    data: {
+        someattr: 'href',
+        atValue: 'http://www.baidu.com'
+    }
 });
 
 new Vue({

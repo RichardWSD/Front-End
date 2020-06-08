@@ -1,6 +1,11 @@
 <template>
   <div class="users">
     <h1>Hello Users</h1>
+    <div>{{isB}}</div>
+    <div>
+      <span>{{strChild}}</span>
+      <button @click="strChild = '改变了'">改变文本值</button>
+    </div>
     <ul>
       <li v-for="(user, index) in users" :key="index" v-on:click="user.show=!user.show">
         <h2>{{user.name}}</h2>
@@ -19,7 +24,9 @@ export default {
     users: {
       type: Array,
       required: true
-    }
+    },
+    isB: Boolean,
+    strChild: String
   },
   data() {
     return {};

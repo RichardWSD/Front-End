@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <mytest  :title="title" :massgae="massgae"></mytest>
+    <mytest class="wb" :title="title" :massgae="massgae"></mytest>
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
   },
   components:{
     'mytest':{
-      template:`<div>这是个h1标题{{title}}</div>`,
+      template:`<div class='ts'>这是个h1标题{{title}}</div>`,
       props:['title'],
       //https://www.jianshu.com/p/ce8ca875c337
       inheritAttrs: false,  //不会把未被注册的props呈现为普通的HTML属性

@@ -9,6 +9,12 @@ new Vue({
         },
         logAge: function(){
             console.log('you entered your age');
+        },
+        onCtrlClick(){
+            console.log('onCtrlClick');
+        },
+        onRightClick(){
+            console.log('onRightClick');
         }
     }
 });

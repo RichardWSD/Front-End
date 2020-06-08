@@ -3,7 +3,16 @@ new Vue({
     data: {
         name: '',
         age: '',
-        refName:''
+        refName:'',
+        checkVal: true,
+        selectVal: 'saab',
+        picked: '',
+        msg: '',
+        mulInput:[
+            {a: 'a'},
+            {b: 'b'}
+        ],
+        dvalue: '双向绑定'
     },
     methods: {
         logName: function(){
@@ -16,6 +25,10 @@ new Vue({
             console.log(this.$refs.refName);
 
             this.refName = this.$refs.refName.value;
+        },
+        handleInput(event){
+            debugger
+            this.$emit('input', event.target.value);
         }
     }
 });

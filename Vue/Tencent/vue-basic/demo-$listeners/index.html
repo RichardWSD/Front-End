@@ -14,6 +14,7 @@
  </head>
  <body>
      <div id="app">
+         {{username}}
         <base-input
             v-model="username" 
             label="基础输入组件"
@@ -44,8 +45,12 @@
                 inputListeners () {
                     var vm = this
                     return Object.assign({},
-                        this.$listeners,
+                        // 我们从父级添加所有的监听器
+                        //this.$listeners,
+                        // 然后我们添加自定义监听器，
+                        // 或覆写一些监听器的行为
                         {
+                            // 这里确保组件配合 `v-model` 的工作
                             input: function () {
                                 vm.$emit('input', event.target.value)
                             },

@@ -17,10 +17,18 @@ new Vue({
             this.y = event.offsetY;
         },
         click: function(){
-            alert('you clicked me');
+            debugger
+            let btn = "btn1"
+            this.$refs[btn].click();
+            //alert('you clicked me');
         },
         stopMoving:function(event){
             event.stopPropagation();
+        },
+        log(){
+            event.preventDefault();
+            console.log('log');
+            
         }
     }
 });

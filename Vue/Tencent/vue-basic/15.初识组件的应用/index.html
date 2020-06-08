@@ -11,6 +11,11 @@
         <div id="vue-app-one">
             <h1>Vue App One</h1>
             <greeting></greeting>
+            <a v-bind:[someAttr]="atValue">dddddd</a>
+            <!-- 组件基础->解析DOM模板时的注意事项 -->
+            <table>
+                <custom-tr></custom-tr>
+            </table>
         </div>
         <div id="vue-app-two">
             <h1>Vue App Two</h1>

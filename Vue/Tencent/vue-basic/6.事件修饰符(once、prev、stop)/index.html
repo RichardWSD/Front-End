@@ -22,6 +22,8 @@
             </div>
             <!-- 阻止点击链接跳转 -->
             <p><a v-on:click.prevent="click" href="http://www.thenetninja.co.uk">The Net Ninja</a></p>
+            <!-- .passive 会告诉浏览器你不想阻止事件的默认行为，即使事件处理方法里面写了event.preventDefault() -->
+            <a :ref="'btn'+1" href="http://baidu.com" @click.passive='log'>passive</a>
         </div>
     </body>
 

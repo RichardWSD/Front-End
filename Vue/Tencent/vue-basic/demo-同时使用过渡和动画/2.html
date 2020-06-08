@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的动画</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <style>
+        .custom-appear-class {
+            opacity: 0
+        }
+
+        .custom-appear-active-class {
+            transition: opacity 2s;
+        }
+
+        .custom-appear-to-class {
+            opacity: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <transition appear appear-class="custom-appear-class" appear-to-class="custom-appear-to-class"
+            appear-active-class="custom-appear-active-class" v-on:before-appear="customBeforeAppearHook"
+            v-on:appear="customAppearHook" v-on:after-appear="customAfterAppearHook"
+            v-on:appear-cancelled="customAppearCancelledHook">
+            <div v-if="show">初始渲染的过渡</div>
+        </transition>
+        <button @click="change">Change</button>
+    </div>
+
+
+        <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    show: true
+                },
+                methods: {
+                    customBeforeAppearHook: function () {
+                        console.log("customBeforeAppearHook")
+                    },
+                    customAppearHook: function () {
+                        console.log("customAppearHook")
+                    },
+                    customAfterAppearHook: function () {
+                        console.log("customAfterAppearHook")
+                    },
+                    customAppearCancelledHook: function () {
+                        console.log("customAppearCancelledHook")
+                    },
+                    change: function () {
+                        this.show = !this.show
+                    }
+                }
+            })
+        </script>
+</body>
+
+</html>

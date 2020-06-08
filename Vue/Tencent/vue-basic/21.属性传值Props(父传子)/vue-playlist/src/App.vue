@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <app-header></app-header>
+    <div>父文本值:{{strPar}}</div>
     <!-- 父向子组件传值 -->
-    <users v-bind:users="users"></users>
+    <users v-bind:users="users" isB :str-child="strPar"></users>
     <app-footer></app-footer>
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
         {name:'Henry',position:'Web开发',show:false},
         {name:'Henry',position:'Web开发',show:false},
         {name:'Henry',position:'Web开发',show:false}
-     ]
+     ],
+     strPar: 'p-abc'
     };
   },
   //注册组件

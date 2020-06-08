@@ -9,7 +9,9 @@ new Vue({
         ]
     },
     methods: {
-
+        change(){
+            this.ninjas.reverse();
+        }
     },
     computed: {
 

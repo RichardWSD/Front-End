@@ -13,6 +13,8 @@
             <input type="text" v-on:keyup.enter="logName" />
             <label>Age:</label>
             <input type="text" v-on:keyup.alt.enter="logAge" />
+            <button v-on:click.ctrl.exact="onCtrlClick">A</button>
+            <button v-on:click.right="onRightClick">B</button>
         </div>
     </body>
 

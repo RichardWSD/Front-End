@@ -7,6 +7,8 @@ const readFile = function (fileName){
             if(err) reject(err);
             resolve(data);
         });
+    }).then(res=>{
+      return Promise.resolve(res)
     });
 }
 
@@ -15,10 +17,10 @@ const readFile = function (fileName){
 async function fn(){
     let f1 = await readFile('data/a.txt');
     console.log(f1.toString());
-    let f2 = await readFile('data/b.txt');
+  /*   let f2 = await readFile('data/b.txt');
     console.log(f2.toString());
     let f3 = await readFile('data/c.txt');
-    console.log(f3.toString());
+    console.log(f3.toString()); */
     
 }
 fn();

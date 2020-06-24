@@ -23,8 +23,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h1 {
   color: purple;
+}
+div /deep/ h2{
+  color: red;
 }
 </style>

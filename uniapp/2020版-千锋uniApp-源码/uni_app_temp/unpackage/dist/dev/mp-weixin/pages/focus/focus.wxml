@@ -1,0 +1,1 @@
+<view class="container data-v-31ca684c"><image src="http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2566665806.jpg" class="data-v-31ca684c"></image><button data-event-opts="{{[['tap',[['toPath',['$event']]]]]}}" class="start data-v-31ca684c" bindtap="__e">立即体验</button></view>

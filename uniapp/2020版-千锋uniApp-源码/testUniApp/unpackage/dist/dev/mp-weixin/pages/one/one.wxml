@@ -1,0 +1,1 @@
+<view><text>我是one页</text><button type="primary" data-event-opts="{{[['tap',[['toPath',['$event']]]]]}}" bindtap="__e">toTwo</button><button type="primary" data-event-opts="{{[['tap',[['goBack',['$event']]]]]}}" bindtap="__e">返回</button></view>

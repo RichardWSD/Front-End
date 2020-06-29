@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/focus/focus",
+    "pages/class/class",
+    "pages/dtails/dtails",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/user/user"
+  ],
+  "window": {
+    "defaultTitle": "电影 « 豆瓣",
+    "titleBarColor": "#2C405A"
+  },
+  "usingComponents": {}
+}

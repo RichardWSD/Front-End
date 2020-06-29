@@ -1,0 +1,13 @@
+
+.box111{
+	width:100px;
+	height:100px;
+	background:pink;
+}
+.box222{
+	border:1px solid #4CD964;
+}
+.box333{
+	background:yellow;
+}
+

@@ -1,0 +1,1 @@
+<block a:if="{{$root.g0.length!==0}}"><view class="container data-v-600c5ab2"><image src="{{nowPlayingList.subjects[0].images.small}}" class="data-v-600c5ab2"></image><button data-event-opts="{{[['tap',[['toPath',['$event']]]]]}}" class="start data-v-600c5ab2" onTap="__e">立即体验</button></view></block>

@@ -13,6 +13,7 @@
 
 <body>
   <button id="myBtn">点我</button>
+  <input type="text" id="i1">
   <p id="demo">
     <script>
       const handler = {
@@ -30,6 +31,8 @@
       document.getElementById("demo").innerHTML = proxy.aaa;
       document.getElementById("myBtn").addEventListener("click", myFunction);
       function myFunction() {
+        let el = document.getElementById("i1");
+        el.focus();
         proxy.aaa = '222'
       }
     </script>

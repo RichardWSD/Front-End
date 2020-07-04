@@ -20,7 +20,7 @@ export default {
 
       //通过push跳转
       //this.$router.push('/menu');
-      this.$router.push({name:'menuLink'});
+      this.$router.push({name:'homeLink'}, () => {console.log('111')}, () => {console.log(222)});
     }
   }
 };

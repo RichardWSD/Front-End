@@ -15,6 +15,10 @@
  <body>
      <div id="app">
          {{username}}
+         <label>
+            testFocus
+           <input type="text" @focus="testFocus">
+         </label>
         <base-input
             v-model="username" 
             label="基础输入组件"
@@ -82,6 +86,9 @@
                 },
                 handleBaseInputClick: function(ev){
                     console.log(ev.type)
+                },
+                testFocus(){
+                  console.log(111);
                 }
             }
         })

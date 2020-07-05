@@ -55,6 +55,11 @@
     const wrapper = document.getElementById("wrapper")
     const box = document.getElementById("box")
 
+    // onscroll在左右滑动和上下滑动的时候都会触发
+    box.onscroll = function(e){
+      console.log(e);
+    }
+
     document.getElementById("zoomIn").onclick = () => zoomImg(1.1);
 
     document.getElementById("zoomOut").onclick = () => zoomImg(0.9);

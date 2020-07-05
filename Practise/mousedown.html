@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="bbb">bbb</div>
+  <script>
+    var key = false;//设置了一个标志 false为点击事件 ture为鼠标移动事件
+var firstTime = 0;
+var lastTime = 0;
+var divB = document.getElementById("bbb");
+divB.onclick = function() {
+    if(key){
+        console.log('click');
+        key = false;
+    }
+}
+divB.onmousedown = function() {
+    firstTime = new Date().getTime();
+    console.log('mouseDown');
+}
+divB.onmouseup = function() {
+    console.log('mouseUp');
+//鼠标抬起后 记录时间 超过200ms就是移动事件
+    lastTime = new Date().getTime();
+    if( (lastTime - firstTime) < 200){
+        key = true;
+    }
+}
+  </script>
+</body>
+</html>

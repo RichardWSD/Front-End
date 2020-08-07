@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maixmum-scale=1.0,user-scalable=no">
+  <title>Document</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    html,body{
+        width:100%;
+        height:100%;
+    }
+</style>
+</head>
+<body>
+  <div style="width:10rem;height:100%;background:#f22;"></div>
+  
+  <script>
+    window.onload = function(){
+  document.documentElement.style.fontSize = document.documentElement.offsetWidth / 20 +'px';
+} 
+
+// document.documentElement.style.fontSize 是得到<html>标签并为它设置font-size样式字体大小，因为REM计算的规则是依赖根元素也就是<html>元素的字体大小
+// document.documentElement.offsetWidth  是获取整个视口的宽度
+
+  </script>
+</body>
+</html>

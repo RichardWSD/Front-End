@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- 布局视口宽度（document.documentElement.clientWidth）是取width和initial-scale之间的最大值 -->
+  <!-- 视觉视口宽度 = 375 / initial-scale -->
+
+  <!-- document.documentElement.clientWidth：375     innerWidth：375 -->
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1,maixmum-scale=1.0,user-scalable=no"> -->
+
+   <!-- document.documentElement.clientWidth：750     innerWidth：375 -->
+  <!-- <meta name="viewport" content="width=750,initial-scale=1,maixmum-scale=1.0,user-scalable=no">  -->
+
+  <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
+
+  <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
+  <!-- <meta name="viewport" content="width=750,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
+
+   <!-- document.documentElement.clientWidth：400     innerWidth：375 -->
+  <!-- <meta name="viewport" content="width=400,initial-scale=1,maixmum-scale=1.0,user-scalable=no"> -->
+
+  <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
+  <meta name="viewport" content="width=400,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no">
+  <title>Document</title>
+  <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    html,body{
+        width:100%;
+        height:100%;
+    }
+    span{
+      display: inline-block;
+      width: 375px;
+      height: 50px;
+      float: left;
+    }
+</style>
+</head>
+<body>
+  <div>
+    <span class="aa" style="background:blue;">375px</span>
+    <span style="background:red;">375px</span>
+  </div>
+</body>
+</html>

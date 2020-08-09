@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+
+<body>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <div id="example">
+
+    <span v-for="item in items">{{item.name}}</span><br>
+
+    <span v-on:click="changeMessage">click me</span>
+
+    {{message}}
+
+  </div>
+
+  <script type="text/javascript">
+// https://www.zhihu.com/question/266247389
+    var app = new Vue({
+
+      el: "#example",
+
+      data: {
+
+        items: [
+
+          { name: 'tom' },
+
+          { name: 'bob' }
+
+        ],
+
+        message: "hello"
+
+      },
+
+      methods: {
+
+        changeMessage: function () {
+
+          this.message = 'hello world';
+
+        }
+
+      },
+
+      beforeMount(){
+        setTimeout(() => {
+          
+            this.message ='2528552'
+          }, 1000);
+      },
+
+      // 不会死循环且不会触发更新过程
+      beforeUpdate: function () {
+
+        console.log('>>>>>>beforeUpdate');
+        // this.message ='2528552'
+        // setTimeout(() => {
+          
+        //   this.message ='2528552'
+        // }, 1000);
+
+      },
+
+      //死循环
+      updated: function () {
+
+        console.log('>>>>>>updated');
+
+        // this.items = [{ name: 'tom-new' }, { name: 'bob-new' }];
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>

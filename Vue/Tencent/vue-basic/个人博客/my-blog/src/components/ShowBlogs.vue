@@ -1,6 +1,6 @@
 <template>
   <!-- v-theme和v-rainbow是自定义指令 -->
-  <div v-theme:column="'narrow'" id="show-blogs">
+  <div id="show-blogs">
     <h1>博客总览</h1>
     <input type="text" v-model="search" placeholder="搜索" />
     <!-- key值只能是string或者number -->
@@ -13,6 +13,8 @@
 
       <article>{{blog.content | snippet}}</article>
     </div>
+    <div v-theme:column="{type: 'wide'}">呵呵呵呵呵呵呵</div>
+    <div v-theme:column="{type: 'narrow'}">哈哈哈哈哈哈</div>
   </div>
 </template>
 

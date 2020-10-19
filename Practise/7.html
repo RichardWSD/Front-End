@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      width: 200px;
+      height: 50px;
+      border: 1px solid red;
+    }
+    .parent{
+      position: relative;
+      height: 22px;
+    }
+    .child{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    #aaa{
+      width: 71px;
+      height: 100%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="parent">
+      <button class="child" type="button" onclick="alert(111)">Click Me!</button>
+      <div class="child" id="aaa"></div>
+    </div>
+    
+  </div>
+  <script>
+    let aBtn = document.getElementById('aaa');
+    let container = document.getElementById('container');
+
+    aBtn.addEventListener('mouseover', (e) => {
+      console.log('--');
+    })
+    // container.addEventListener('mouseover', (e) => {
+    //   console.log('++');
+    // })
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #passage{
+        color:yellow
+      }
+      .outside span{
+        color: green;
+        display: block;
+      }
+      [data-color="red"]{
+        color:red;
+      }
+      span{
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outside">
+      <span id="passage" style="color: blue;" data-color="red">example</span>
+   </div>
+   <script>
+     window.name = 'ssss';
+     var apart={
+       name: 'iyunxiao',
+       getName: function(){
+         return this.name
+       }
+     };
+     console.log(apart.getName());
+     var func = apart.getName;
+     console.log(func())
+
+     function person(name){
+       if(name){
+         this.name = name;
+       }
+       console.log(this.name);
+     }
+     person.call(window)
+     person()
+   </script>
+  </body>
+</html>

@@ -11,7 +11,9 @@
         async function fn(){
             try{
                 await Promise.reject('出现问题了');
-            }catch(e){}
+            }catch(e){
+              console.log('---')
+            }
             
             let a = await Promise.resolve('success');
             console.log(a);

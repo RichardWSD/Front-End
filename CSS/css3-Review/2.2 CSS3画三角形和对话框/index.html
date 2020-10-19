@@ -8,10 +8,26 @@
     <title>CSS3画三角形和对话框</title>
    <link rel="stylesheet" href="style.css">
 </head>
-
+<style>
+  div{
+    margin: 200px auto;
+  }
+  .san{
+    width: 0;
+    height: 0;
+    border: 40px solid;
+    border-color: transparent transparent transparent red;
+    margin: 50 auto;
+  }
+</style>
 <body>
+  <!-- 三角形用行内标签不行，显示会有问题。用font-size: 0;解决
+  <div> 
+    <span class="san"></span>
+  </div> -->
     <div class="dialog">Hello Everyone! I'm Panda.</div>
     <div class="sanjiao"></div>
+    
 </body>
 
 </html>

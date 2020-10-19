@@ -33,5 +33,11 @@ export default {
       alert('thanks for logging');
     }
   },
+  activated(){
+    console.log(3333);
+  },
+  deactivated(){
+    console.log(4444);
+  }
 }
 </script>

@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
 	strict:true,
 	state:{
+    profile:{
+      // phone: 'xxx'
+    },
 		products:[
 	        {name:"马云",price:200},
 	        {name:"马化腾",price:140},
@@ -27,6 +30,12 @@ export const store = new Vuex.Store({
 	},
 	//通过事件更改store中的数据
 	mutations:{
+    setProfile(state, payload){
+      state.profile = {
+        phone: payload
+      }
+      // Vue.set(state.profile, 'phone', payload) // state.profile.phone = payload;
+    },
 		reducePrice: (state,payload) =>{
 			// setTimeout(function(){
 				state.products.forEach(product =>{

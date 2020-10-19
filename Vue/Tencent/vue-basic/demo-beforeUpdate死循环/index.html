@@ -51,10 +51,10 @@
       },
 
       beforeMount(){
-        setTimeout(() => {
+        // setTimeout(() => {
           
-            this.message ='2528552'
-          }, 1000);
+        //     this.message ='2528552'
+        //   }, 1000);
       },
 
       // 不会死循环且不会触发更新过程
@@ -62,10 +62,10 @@
 
         console.log('>>>>>>beforeUpdate');
         // this.message ='2528552'
-        // setTimeout(() => {
+        setTimeout(() => {
           
-        //   this.message ='2528552'
-        // }, 1000);
+          this.message ='2528552'
+        }, 1000);
 
       },
 

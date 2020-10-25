@@ -17,7 +17,8 @@ import SlotDemo1 from './components/SlotDemo1'
 export default {
   name: 'app',
   components: {
-    FromHelper
+    FromHelper,
+    SlotDemo1
   },
   data(){
     return {

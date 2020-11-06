@@ -15,7 +15,7 @@ const router=new VueRouter({
   routes:[
     {path:'/',name:'homeLink',component:Home},
     {path:'/menu',name:'menuLink',component:Menu},
-    {path:'/admin',name:'adminLink',component:Admin},
+    {path:'/admin/:id',name:'adminLink',component:Admin},
     {path:'/about',name:'aboutLink',component:About},
     {path:'/login',name:'loginLink',component:Login},
     {path:'/register',name:'registerLink',component:Register},

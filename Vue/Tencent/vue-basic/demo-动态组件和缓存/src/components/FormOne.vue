@@ -34,5 +34,11 @@ export default {
       alert('thanks for submitting');
     }
   },
+  activated(){
+    console.log(11111);
+  },
+  deactivated(){
+    console.log(22222);
+  }
 }
 </script>

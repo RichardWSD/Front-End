@@ -20,7 +20,7 @@
 //		$("#box p[hd]").css({'color':'red','font-size':'25px'});
 		
 //		选择的是#box里所有hd属性的值等于houdun的元素
-//		$("#box p[hd=houdun]").css({'color':'red','font-size':'25px'});
+		$("#box [hd=houdun]").css({'color':'red','font-size':'25px'});
 		
 //		选择的是#box里所有class不等于er的p标签
 //		$("#box p[class!=er]").css({'color':'red','font-size':'25px'});
@@ -35,7 +35,7 @@
 //		$("#box p[class*=un]").css({'color':'red','font-size':'25px'});
 
 //		选择的是#box里有value属性,并且class属性值中含有e,并且hd属性的值是houdun的p标签
-		$("#box p[value][class*=e][hd='houdun']").css({'color':'red','font-size':'25px'});
+		// $("#box p[value][class*=e][hd='houdun']").css({'color':'red','font-size':'25px'});
 		
 		
 		
@@ -47,7 +47,8 @@
 		
 		<div id="box">
 			<p>后盾人 人人做后盾0</p>
-			<p class="one" hd="houdun" value="hhhh">后盾人 人人做后盾1</p>
+      <p class="one" hd="houdun" value="hhhh">后盾人 人人做后盾1</p>
+      <span class="one" hd="houdun" value="hhhh">后盾人 人人做后盾1</span>
 			<p class="er">后盾人 人人做后盾2</p>
 			<p>后盾人 人人做后盾3 <span>我是span</span></p>
 			<p>后盾人 人人做后盾4</p>
@@ -60,7 +61,7 @@
 				<p>我们也是p标签</p>
 				<p>我们也是p标签</p>
 				<p>我们也是p标签</p>
-			</div>
+      </div>
 		</div>
 		
 		

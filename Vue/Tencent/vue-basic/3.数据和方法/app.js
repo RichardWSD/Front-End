@@ -2,7 +2,8 @@ new Vue({
     el: '#vue-app',
     data: {
         name: 'Shaun',
-        job: 'Ninja'
+        job: 'Ninja',
+        _job:'xxxx'
     },
     //用于存储各种方法
     methods: {

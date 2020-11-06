@@ -3,8 +3,8 @@
     <!-- keep-alive用于缓存组件,使用场景:
       1.我们在form-one填写数据后跳到form-two,然后再跳转回form-one时如果不希望数据被清空
       2.form-one请求数据渲染后跳到form-two,再跳回form-one时不希望再请求数据作渲染 -->
-    <keep-alive>
-        <component :is="component"></component>
+    <keep-alive include="form-one">
+        <component :is="component" ></component>
     </keep-alive>
     <button @click="component='form-one'">Show form one</button>
     <button @click="component='form-two'">Show form two</button>

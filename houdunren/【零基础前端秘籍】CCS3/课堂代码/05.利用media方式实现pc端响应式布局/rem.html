@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>有设计稿rem</title>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        span{
+          width: 375px;
+          height: 50px;
+          display: inline-block;
+          float: left;
+        }
+        span.third{
+          width: 230px;
+          height: 50px;
+          display: inline-block;
+          float: left;
+        }
+    </style>
+</head>
+<body>
+  <span style="background: blue;">375px</span>
+  <span style="background: red;">375px</span>
+  <span class="third" style="background: yellow;">230px</span>
+<script>
+    // window.onresize = getRem;
+    // function getRem(){
+    //     document.documentElement.style.fontSize = document.documentElement.offsetWidth / 6.4+'px';
+    // }
+    // getRem();
+</script>
+</body>
+</html>

@@ -9,14 +9,16 @@
     </style>
     <script>
         async function fn(){
-            await Promise.reject('出现问题了');
+            let e = await Promise.reject('出现问题了');
+            console.log(e)
             let a = await Promise.resolve('success');
             console.log(a);
         }
 
         fn().then(res=>{
             console.log(res);
-        }).catch(err=>{
+        })
+        .catch(err=>{
             console.log(err);
         })
     </script>

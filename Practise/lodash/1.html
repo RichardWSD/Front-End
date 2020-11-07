@@ -8,7 +8,31 @@
 <body>
   <script src="./lodash.js"></script>
   <script>
-    console.log(_.round('3.16', 1))
+    function sumBy1(arr, pre){
+      if(!pre){
+        return NaN;
+      }
+      let iteratee = typeof pre === 'function'
+                  ? pre
+                  : (typeof pre === 'string' || typeof pre === 'symbol')
+                    ? (o) => o[pre]
+                    : (val) => val;
+      return arr.reduce((res, cur) => {
+        let val = +iteratee(cur);
+        return res += (val ? val : 0)
+      }, 0);
+    }
+/*     console.log(_.round('3.16', 1))
+    console.log(_.round(4.006, 2))
+    console.log(_.round(4060, -2)) */
+
+    let arr = [{score: 12}, {score: 15}];
+    // let arr = [{score: 12}, {score: 15}];
+    console.log(_.sumBy(arr, (o) => o.score));
+    console.log(_.sumBy(arr, 'score'));
+    console.log(sumBy1(arr, 'score'));
+    console.log(sumBy1(arr, (o) => o.score));
+    console.log(sumBy1(arr));
   </script>
 </body>
 </html>

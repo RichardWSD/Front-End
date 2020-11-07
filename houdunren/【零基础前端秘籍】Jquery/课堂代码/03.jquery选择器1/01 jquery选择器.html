@@ -2,7 +2,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+    <title></title>
+    <style>
+      div p:first-child{
+        color: red;
+      }
+    </style>
 <script src="jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 	
@@ -47,7 +52,7 @@
 //		$("#box p:has(span)").css({'color':'red','font-size':'25px'});
 		
 //		选择的是#box里的非空p标签
-		$("#box p:parent").css({'color':'red','font-size':'25px'});
+	// 	$("#box p:parent").css({'color':'red','font-size':'25px'});
 		
 	})
 	
@@ -66,11 +71,11 @@
 			<p>后盾人 人人做后盾7</p>
 			<p></p>
 			<p></p>
-			<div>
+			<span>
 				<p>我们也是p标签</p>
 				<p>我们也是p标签</p>
 				<p>我们也是p标签</p>
-			</div>
+			</span>
 		</div>
 		
 		

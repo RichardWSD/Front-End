@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>vue测试</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui@2.4.1/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app">
+      <!-- <div class="a" v-if="isShow" v-stat>1</div> -->
+      <el-switch
+        v-model="value"
+        active-color="#13ce66"
+        inactive-color="#ff4949"
+        class="a" v-if="isShow" v-stat>
+      </el-switch>
+      <button @click="isShow=!isShow">显示切换</button>
+    </div>
+    <script>
+        let paramsMap = new WeakMap();
+        const bindEvent = (el, binding) => {
+          console.log(11);
+          paramsMap.set(el, new Array(5 * 1024 * 1024));
+          // initiativeTrigger(el)
+        }
+
+        Vue.directive('stat', {
+          bind(el, binding) {
+            bindEvent(el, binding)
+            // el = null
+          },
+          unbind(el){
+            // console.log(paramsMap, el);
+          },
+          componentUpdated(el, binding){
+            // paramsMap.set(el, binding.value.params);
+          }
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isShow: false,
+                value: true
+            },
+            methods: {}
+        })
+
+        
+
+        
+    </script>
+</body>
+
+</html>

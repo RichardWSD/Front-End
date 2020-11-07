@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="aaa" disabled>
+  <input type="text" id="bbb">
+  <script>
+    let aBtn = document.getElementById('aaa');
+    aBtn.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+    })
+  </script>
+</body>
+</html>

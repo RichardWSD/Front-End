@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      字符串所有排列方式
+     */
+     function dfs2(p, res) {
+      //1.截至条件
+      if(res.length === p.length){
+        console.log(res.join(' '));
+        return;
+      }
+
+      //2.遍历候选节点
+      for(let i = 0; i < p.length; i++) {
+        let c = p[i];
+        //2.1筛选
+        if(c) {
+          res.push(c);
+          p[i] = null;
+          dfs2(p, res);
+          res.pop();
+          p[i] = c;
+        }
+      }
+     }
+
+     dfs2(['A', 'B', 'C'], [])
+
+
+    /* 
+      组合出符合要求的ip地址
+     */
+    function dfs(str, index, level, res) {
+      //1.截至条件
+      if (level === 5 || index === str.length - 1) {
+        if (level === 5 && index === str.length - 1) {
+          console.log(res.join('.'));
+        }
+      }
+
+      //2.候选人
+      for (let i = 1; i < 4; i++) {
+        let x = str.substr(index + 1, i);
+
+        //2.1筛选
+        if (parseInt(x) < 256 && (x === '0' || !x.startsWith('0'))) {
+          res.push(x);
+          dfs(str, index + i, level + 1, res);
+          res.pop();
+        }
+      }
+    }
+
+    dfs('19216801', -1, 1, [])
+  </script>
+</body>
+
+</html>

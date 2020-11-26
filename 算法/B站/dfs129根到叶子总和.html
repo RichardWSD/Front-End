@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Definition for a binary tree node.
+       * function TreeNode(val) {
+       *     this.val = val;
+       *     this.left = this.right = null;
+       * }
+       */
+      /**
+       * @param {TreeNode} root
+       * @return {number}
+       */
+      var sumNumbers = function (root) {
+        if (root === null) {
+          return 0;
+        }
+        let res = [0];
+        dfs(root, root.val, res);
+        return res;
+      };
+
+      function dfs(node, chain, res) {
+        //截至条件
+        if (node.left === null && node.right === null) {
+          res[0] += chain;
+          return;
+        }
+
+        //候选节点
+        if (node.left !== null) {
+          dfs(node.left, chain * 10 + node.left.val, res);
+        }
+        if (node.right !== null) {
+          dfs(node.right, chain * 10 + node.right.val, res);
+        }
+      }
+    </script>
+  </body>
+</html>

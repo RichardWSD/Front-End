@@ -39,6 +39,9 @@ export default {
   },
   deactivated(){
     console.log(22222);
+  },
+  created(){
+    console.log('form-one');
   }
 }
 </script>

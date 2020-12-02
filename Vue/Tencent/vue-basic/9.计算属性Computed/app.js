@@ -18,6 +18,8 @@ new Vue({
     },
     computed: {
         // Vue采用虚拟DOM技术，只有虚拟DOM和真实DOM不同才会触发方法；但是methods则不管怎么都会执行
+        // 如果是在computed中使用返回一个函数，vue底层会在每次计算computed的时候对比新旧值，如果不同则会进行重新渲染
+        // 因为每次都是返回一个新函数，那么每次都得重新渲染，那跟直接使用函数没什么区别
         addToA: function(){
             console.log('addToA');
             return this.a + this.age;

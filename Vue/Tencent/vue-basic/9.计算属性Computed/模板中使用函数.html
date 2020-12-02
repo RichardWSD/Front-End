@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>VueJS Tutorials</title>
+  <link href="styles.css" rel="stylesheet" />
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="vue-app">
+    <div v-if="show()">a</div>
+    <div v-else>b</div>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: '#vue-app',
+    data: {
+      a: 0
+    },
+    created() {
+      setTimeout(() => {
+        this.a = 1;
+      }, 3000);
+    },
+    methods: {
+      show() {
+        return this.a > 0 ? true : false;
+      }
+    }
+  });
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {string} digits
+       * @return {string[]}
+       */
+
+      let m = [
+        [],
+        [],
+        ["a", "b", "c"],
+        ["d", "e", "f"],
+        ["g", "h", "i"],
+        ["j", "k", "l"],
+        ["m", "n", "o"],
+        ["p", "q", "r", "s"],
+        ["t", "u", "v"],
+        ["w", "x", "y", "z"],
+      ];
+      var letterCombinations = function (digits) {
+        let res = [];
+        if (digits.length === 0) return res;
+        dfs(digits, 0, [], res);
+        return res;
+      };
+
+      function dfs(str, index, sb, res) {
+        //1.截至条件
+        if (index === str.length) {
+          res.push(sb.join(""));
+          return;
+        }
+
+        //2.候选节点
+        for (let c of m[str[index] - "0"]) {
+          sb.push(c);
+          dfs(str, index + 1, sb, res);
+          sb.pop();
+        }
+      }
+    </script>
+  </body>
+</html>

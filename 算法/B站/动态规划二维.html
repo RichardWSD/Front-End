@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+       *  题目：给定19216801能组合成几种不同的ip地址
+       *  题目可以转化为：给定长度为X的字符串，拆分成4个255以内的数有多少种拆法
+       *  有两个变化维度：长度X和4个有效数，所以需要二维数组
+       *  核心思想：例如现正分析192这个字串拆分成2个有效数这种情况时
+       *  分析如下 => 最后有效数是2，那么19子串组成有效1位数的组合方法有1种
+       *              最后有效数是92， 那么子串组成有效1位数的组合方法有1种
+       *              最后有效数时192, 那么字串''组成1位数的组合方法有0种
+       *              所以总共1+1+0=2种
+       */
+      function DP(str) {
+        //1.准备数组
+        var len = str.length;
+        var dp = [];
+        for (let i = 0; i < 5; i++) {
+          dp.push(Array(len + 1).fill(0));
+        }
+
+        //1.遍历赋值
+        for (let i = 0; i < 5; i++) {
+          // 当列小于行时，表示例如3个数要组成4个255以内的数，那肯定不可能所以都为0，就不用分析这种情况了
+          for (let j = i; j < len + 1; j++) {
+            // 0个数要组成0个255以内的数，满足为1
+            if (i === 0 && j === 0) {
+              dp[i][j] = 1;
+              continue;
+            }
+            if (i === 0) {
+              dp[i][j] = 0;
+              continue;
+            }
+            for (let x = 1; x <= 3; x++) {
+              if (j - x >= 0 && validate(str.substring(j - x, j))) {
+                dp[i][j] += dp[i - 1][j - x];
+              }
+            }
+          }
+        }
+
+        return dp[4][len];
+      }
+
+      function validate(s) {
+        if (s === "0") return true;
+        if (s.startsWith("0")) return false;
+        return parseInt(s) <= 255;
+      }
+
+      console.log(DP("19216801"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+     * 斐波那契数列求值
+     * 如果用普通递归方式求解的话会导致大部分重复计算，动态规划可以避免这个问题，因为他可以复用之前计算的结果
+     */
+     var count = 0;
+     function dfs(x) {
+       count++;
+       if(x <= 0)return 0;
+       if(x<=2) return 1;
+       return dfs(x-1)+dfs(x-2);
+     }
+
+     function DP(x) {
+       var dp=[0,1,1];
+       let count=0;
+       for (let i = 3; i <= x; i++) {
+         dp.push(dp[i-1]+dp[i-2])
+         count++
+       }
+       console.log('DP执行次数：', count);
+       return dp.pop();
+     }
+
+     console.log(dfs(7));
+     console.log('dfs执行次数：', count);
+
+     console.log(DP(7));
+  </script>
+</body>
+</html>

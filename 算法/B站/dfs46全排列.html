@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {number[]} nums
+       * @return {number[][]}
+       */
+      var permute = function (nums) {
+        let res = [];
+        let pb = [];
+        dfs(nums, pb, [], res);
+        return res;
+      };
+
+      function dfs(p, pb, chain, res) {
+        //1.截至
+        if (chain.length === p.length) {
+          res.push([...chain]);
+          return;
+        }
+
+        //2.候选节点
+        for (let i = 0; i < p.length; i++) {
+          let c = p[i];
+          //筛选
+          if (!pb[i]) {
+            chain.push(c);
+            pb[i] = true;
+            dfs(p, pb, chain, res);
+            chain.pop();
+            pb[i] = false;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

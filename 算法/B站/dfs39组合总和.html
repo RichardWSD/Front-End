@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {number[]} candidates
+       * @param {number} target
+       * @return {number[][]}
+       */
+      var combinationSum = function (candidates, target) {
+        let res = [];
+        dfs(candidates, target, [], res);
+        return res;
+      };
+
+      function dfs(p, t, chain, res) {
+        //1.截至条件
+        let s = sum(chain);
+        if (s >= t) {
+          if (s === t) {
+            cSort = [...chain].sort();
+            let cstr = cSort.toString();
+            if (res.findIndex((x) => x.toString() === cstr) < 0) {
+              res.push([...cSort]);
+            }
+          }
+          return;
+        }
+
+        //2.候选节点
+        for (let i = 0; i < p.length; i++) {
+          let c = p[i];
+          chain.push(c);
+          dfs(p, t, chain, res);
+          chain.pop();
+        }
+      }
+
+      function sum(chain) {
+        let res = 0;
+        for (let i of chain) {
+          res += i;
+        }
+        return res;
+      }
+    </script>
+  </body>
+</html>

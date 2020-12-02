@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var p;
+      var pb;
+      var str = [];
+      function hasPath(matrix, rows, cols, path) {
+        p = Array.apply(null, Array(rows)).map((e) =>
+          Array.apply(null, Array(cols)).fill("")
+        );
+        pb = Array.apply(null, Array(rows)).map((e) =>
+          Array.apply(null, Array(cols)).fill(false)
+        );
+        str = path;
+
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < cols; j++) {
+            p[i][j] = matrix[i * cols + j];
+          }
+        }
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < cols; j++) {
+            if (p[i][j] === str[0]) {
+              let res = [false];
+              pb[i][j] = true;
+              dfs(1, i, j, res);
+              pb[i][j] = false;
+
+              if (res[0]) {
+                return true;
+              }
+            }
+          }
+        }
+      }
+
+      function dfs(index, i, j, res) {
+        //截至条件
+        if (res[0] || index === str.length) {
+          res[0] = true;
+          return;
+        }
+
+        //候选人
+        let nears = getNear(i, j, p.length, p[0].length);
+        for (let loc of nears) {
+          //筛选
+          if (!pb[loc[0]][loc[1]] && p[loc[0]][loc[1]] === str[index]) {
+            pb[loc[0]][loc[1]] = true;
+            dfs(index + 1, loc[0], loc[1], res);
+            pb[loc[0]][loc[1]] = false;
+          }
+        }
+      }
+
+      function getNear(i, j, x, y) {
+        let list = [];
+        if (i - 1 >= 0) list.push([i - 1, j]);
+        if (i + 1 < x) list.push([i + 1, j]);
+        if (j - 1 >= 0) list.push([i, j - 1]);
+        if (j + 1 < y) list.push([i, j + 1]);
+        return list;
+      }
+
+      console.log(hasPath("ABCEHJIGSFCSLOPQADEEMNOEADIDEJFMVCEIFGGS",5,8,"SGGFIECVAASABCEHJIGQEM"))
+    </script>
+  </body>
+</html>

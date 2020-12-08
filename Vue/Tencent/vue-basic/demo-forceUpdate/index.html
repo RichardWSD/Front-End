@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VueJS Tutorials</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="vue-app">
+      <p>{{userInfo.name}}</p>
+      <p>{{ userInfo.age || 0 }}</p>
+      <button @click="updateName">修改userInfo</button>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#vue-app",
+      data() {
+        return {
+          userInfo: { name: "小明" },
+        };
+      },
+      methods: {
+        updateName() {
+          this.userInfo.age = 18;
+          // 迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件
+          this.$forceUpdate();
+        },
+      },
+    });
+  </script>
+</html>

@@ -46,6 +46,9 @@ export default {
       handleClick(tab, event) {
         console.log(tab, event);
       }
+    },
+    beforeMount() {
+      console.log('--', Image);
     }
 }
 </script>

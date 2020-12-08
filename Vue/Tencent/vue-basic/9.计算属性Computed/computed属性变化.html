@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>VueJS Tutorials</title>
+  <link href="styles.css" rel="stylesheet" />
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="vue-app">
+    <div v-if="scanCom.nest.a === 0">a</div>
+    <div v-else>b</div>
+    <button @click="change">点击</button>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: '#vue-app',
+    data: {
+      scan: {
+        nest: {
+          a: 0
+        }
+      }
+    },
+    /* beforeMount() {
+      setTimeout(() => {
+        this.scan.nest.a = 1;
+      }, 3000);
+    }, */
+    computed: {
+      scanCom() {
+        return this.scan;
+      }
+    },
+    methods: {
+      change() {
+        this.scan.nest.a = 1;
+      }
+    }
+  });
+
+</script>
+
+</html>

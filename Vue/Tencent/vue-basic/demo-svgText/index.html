@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #example{ width:400px; height:400px; background:white;}
+body{ background:black;}
+  </style>
+</head>
+
+<body>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <div id="example">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    	<g style="cursor:pointer">
+        	<circle cx="200" cy="200" r="50" fill="transparent" stroke="red" stroke-width="5" ></circle>
+      		<text x="200" y="208" font-size="20" text-anchor="middle">{{msg}}</text>
+        </g>
+    </svg>
+    <button @click="changeMessage">改变文案</button>
+  </div>
+
+  <script type="text/javascript">
+// https://www.zhihu.com/question/266247389
+    var app = new Vue({
+
+      el: "#example",
+
+      data: {
+        msg: '科鲁兹'
+      },
+
+      methods: {
+
+        changeMessage: function () {
+
+          this.msg = 'hello world';
+
+        }
+
+      }
+
+    });
+  </script>
+</body>
+
+</html>

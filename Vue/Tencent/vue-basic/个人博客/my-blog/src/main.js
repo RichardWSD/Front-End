@@ -27,7 +27,7 @@ Vue.use(VueRouter)
 // 	}
 // })
 
-Vue.directive('theme',{
+let dire = Vue.directive('theme',{
 	bind(el,binding,vnode){
 		if (binding.value == 'wide') {
 			el.style.maxWidth = "1260px";
@@ -41,6 +41,7 @@ Vue.directive('theme',{
 		}
 	}
 })
+console.log(dire);
 
 // 自定义过滤器
 // Vue.filter("to-uppercase",function(value){

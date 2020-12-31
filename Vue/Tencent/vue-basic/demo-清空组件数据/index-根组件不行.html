@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div id="example">
+    <button @click="setData">设置数据</button>
+    <button @click="clean">清空数据</button>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    Vue.config.devtools = true;
+
+    var app = new Vue({
+      el: "#example",
+      data: {
+        msg: '',
+        arr: []
+      },
+      methods: {
+        clean() {
+          console.log(Object.assign(this.$data, this.$options.data())); 
+        },
+        setData() {
+          this.msg = '科鲁兹';
+          this.arr = [1,2,3];
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>

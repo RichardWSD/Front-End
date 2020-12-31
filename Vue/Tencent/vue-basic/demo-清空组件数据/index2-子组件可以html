@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>vue测试</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+  <style>
+
+  </style>
+ </head>
+ <body>
+     <div id="app">
+        <child></child>
+    </div>
+    <script>
+        Vue.component('child',{
+            template: `<div>
+                <button @click="setData">设置数据</button>
+                <button @click="clean">清空数据</button>
+              </div>`,
+            data: function() {
+                return {
+                  msg: '',
+                  arr: []
+                }
+            },
+            methods: {
+              clean() {
+                console.log(Object.assign(this.$data, this.$options.data())); 
+              },
+              setData() {
+                this.msg = '科鲁兹';
+                this.arr = [1,2,3];
+              }
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+               
+            }
+        })
+    </script>
+ </body>
+</html>

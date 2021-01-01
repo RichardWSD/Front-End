@@ -11,12 +11,20 @@
     <button @click="setData">设置数据</button>
     <button @click="clean">清空数据</button>
   </div>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="./vue.js"></script>
   <script type="text/javascript">
     Vue.config.devtools = true;
 
     var app = new Vue({
       el: "#example",
+      // 返回函数的形式可以
+      /* data() {
+        return {
+          msg: '',
+          arr: []
+        }
+      }, */
+      //直接返回对象不可以
       data: {
         msg: '',
         arr: []

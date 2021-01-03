@@ -32,7 +32,7 @@
         // 因为base-input的外层是一个label元素，所以默认情况下使用v-on:focus是无效的，所以需要配合$listeners使用，该属性可以把事件的监听指向组件中某个特定的元素
         // 注意：如果父级的事件添加了.native修饰符，在$listeners中不会体现出来的
         Vue.component('base-input',{
-            inheritAttrs: false,
+            inheritAttrs: false, 
             props: ['label','value'],
             template: `
                 <label id="base-label">

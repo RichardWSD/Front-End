@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>VueJS Tutorials</title>
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+    }
+    li {
+      width: 100px;
+    }
+    a {
+      text-decoration: none;
+    }
+    .router-link-active {
+      border-bottom: 4px solid blue;
+    }
+    /* 这个得定义在router-link-active下面，因为同时有这两个class的时候可以进行覆盖 */
+    .router-link-exact-active {
+      border-bottom: 4px solid red;
+    }
+  </style>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul class="nav">
+      <router-link to="/foo" tag="li">Home</router-link>
+      <router-link to="/community" tag="li">Community</router-link>
+  </ul>
+  <router-view></router-view>
+  </div>
+</body>
+
+<script>
+const Foo = { template: '<div>foo</div>' }
+const Community = { template: `
+<div class="community">
+  <div class="nav">
+    <router-link to="/community/Download">下载</router-link>
+  </div>
+  <router-view></router-view>
+</div>
+` };
+const Download = { template: '<div>download</div>' }
+
+const routes = [
+  { path: '/foo', component: Foo },
+  {
+      path: '/community',
+      // redirect: '/community/Download',
+      component: Community,
+      children: [
+        {
+          path: '/community/Download',
+          name: 'download',
+          component: Download
+        },
+      ]
+  }
+]
+
+const router = new VueRouter({
+  routes // (缩写) 相当于 routes: routes
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+</script>
+
+</html>

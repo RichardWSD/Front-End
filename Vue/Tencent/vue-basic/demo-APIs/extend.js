@@ -7,7 +7,13 @@ var Profile = Vue.extend({
       lastName: 'White',
       alias: 'Heisenberg'
     }
-  }
+  },
+  // extend和组件中data必须声明成函数形式，否则会报错
+ /*  data: {
+    firstName: 'Walter',
+    lastName: 'White',
+    alias: 'Heisenberg'
+  } */
 })
 // 创建 Profile 实例，并挂载到一个元素上。
 new Profile().$mount('#mount-point')

@@ -27,12 +27,53 @@
     <!-- <div>{{ $data.a }}</div>
     <div>{{ _data.a }}</div>
     <div>{{ a }}</div> -->
+
+    <!-- computed -->
+    <!-- <parent-com></parent-com> -->
+
+    <!-- errorCaptured -->
+    <!-- <cat name="my cat">
+      <kitten></kitten>
+    </cat> -->
+
+    <!-- extends -->
+    <!-- {{num}}
+    <button @click="add">ADD</button> -->
+
+    <!-- provide-inject -->
+    <!-- <parent></parent> -->
+
+    <!-- delimiters -->
+    <!-- ${msg} -->
+
+    <!-- slots -->
+    <blog-post>
+      <template v-slot:header>
+        <h1>About Me</h1>
+      </template>
+
+      <p>Here's some page content, which will be included in vm.$slots.default, because it's not inside a named slot.</p>
+
+      <template v-slot:footer>
+        <p>Copyright 2016 Evan You</p>
+      </template>
+    
+      <p>If I have some content down here, it will also be included in vm.$slots.default.</p>
+    </blog-post>
+    
+    <!-- scopedSlots -->
+    <!-- <my-component>
+      <h1 slot-scope="props">{{props.text}}</h1>
+      <h1 slot="another" slot-scope="props">{{props.text}}</h1>
+    </my-component> -->
   </div>
 
   <!-- extend -->
   <!-- <div id="mount-point"></div> -->
+
+  <script src="slots.js"></script>
 </body>
 
-<script src="renderError.js"></script>
+
 
 </html>

@@ -47,7 +47,7 @@
     <!-- ${msg} -->
 
     <!-- slots -->
-    <blog-post>
+    <!-- <blog-post>
       <template v-slot:header>
         <h1>About Me</h1>
       </template>
@@ -59,19 +59,31 @@
       </template>
     
       <p>If I have some content down here, it will also be included in vm.$slots.default.</p>
-    </blog-post>
+    </blog-post> -->
     
     <!-- scopedSlots -->
     <!-- <my-component>
       <h1 slot-scope="props">{{props.text}}</h1>
       <h1 slot="another" slot-scope="props">{{props.text}}</h1>
     </my-component> -->
+
+    <!-- v-text -->
+    <!-- <span v-text="msg"></span> -->
+
+    <!-- v-for -->
+    <!-- <div v-for="(val, key, index) in obj">
+      {{ val }} --- {{key}} --- {{index}}
+    </div> -->
+
+    <!-- v-on -->
+    <button v-on:click="click('hello', $event)">点击</button>
+    <button v-on="{ mousedown: mousedown, mouseup: mouseup }">对象语法</button>
   </div>
 
   <!-- extend -->
   <!-- <div id="mount-point"></div> -->
 
-  <script src="slots.js"></script>
+  <script src="v-on.js"></script>
 </body>
 
 

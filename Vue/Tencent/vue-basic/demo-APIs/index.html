@@ -76,14 +76,46 @@
     </div> -->
 
     <!-- v-on -->
-    <button v-on:click="click('hello', $event)">点击</button>
-    <button v-on="{ mousedown: mousedown, mouseup: mouseup }">对象语法</button>
+    <!-- <button v-on:click="click('hello', $event)">点击</button>
+    <button v-on="{ mousedown: mousedown, mouseup: mouseup }">对象语法</button> -->
+
+    <!-- v-bind -->
+    <!-- 通过 prop 修饰符绑定 DOM attribute -->
+    <!-- <div v-bind:text-content.prop="text"></div>
+    <parent-com :text="text" :a="text" b="text"></parent-com> -->
+
+    <!-- v-model -->
+    <!-- 在“change”时而非“input”时更新 -->
+    <!-- <input v-model.lazy="msg">{{msg}} -->
+
+    <!-- v-once -->
+    <!-- <div v-once>{{msg}}</div>
+    <button @click="change">改变msg</button> -->
+
+    <!-- ref -->
+    <!-- <p ref="p">hello</p>
+    <div v-for="i in 3" :key="i" ref="list">{{i}}</div>
+    <button @click="getRef">获取引用</button> -->
+
+    <!-- is -->
+    <!-- div会被提到table外面 -->
+    <!-- <table>
+      <tr>
+        <div>111</div>
+      </tr>
+    </table> -->
+    <!-- 变通方式让div渲染在table内 -->
+    <table>
+      <tr is="row"></tr>
+    </table>
+    <!-- 使用字符串模板不存在限制 -->
+    <my-table></my-table>
   </div>
 
   <!-- extend -->
   <!-- <div id="mount-point"></div> -->
 
-  <script src="v-on.js"></script>
+  <script src="is.js"></script>
 </body>
 
 

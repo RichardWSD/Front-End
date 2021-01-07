@@ -92,3 +92,25 @@ mongoose.connect('mongodb://localhost:27017/blog', function (err) {
     markdown: markdown语法解析生成模块
 */
 
+/* 
+   所有请求都会到这个中间件来
+    app.use((req, res, next) => {
+      next() //到下一个中间件
+      res.end('xxxx') //直接返回了
+    })
+    --------------------------------------------------
+    app.use('user', (req, res, next) => {
+      console.log(1)
+      next() // 执行完这个1回调会到2回调
+      // next('route') //这个会跳过这个中间件后面的回调，直接跳到下一个中间件（打印出3）
+    }, (req, res, next) => {
+      console.log(2)
+    })
+
+    app.use('user', (req, res, next) => {
+      console.log(3)
+    })
+    ---------------------------------------------------
+
+    中间件分为应用级别、路由级别、错误处理、内置、第三方中间件
+*/

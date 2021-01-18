@@ -1,9 +1,9 @@
-import jsonp from 'common/js/jsonp'
-import {commonParams, options} from './config'
+// import jsonp from 'common/js/jsonp'
+import {commonParams} from './config'
 import axios from 'axios'
 
 export function getRecommend() {
-  const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
+/*   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
 
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
@@ -11,7 +11,13 @@ export function getRecommend() {
     needNewCode: 1
   })
 
-  return jsonp(url, data, options)
+  return jsonp(url, data, options) */
+
+  const url = '/api/getRecommend'
+
+  return axios.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }
 
 export function getDiscList() {
@@ -37,7 +43,7 @@ export function getDiscList() {
 }
 
 export function getSongList(disstid) {
-  const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+ /*  const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
 
   const data = Object.assign({}, commonParams, {
     disstid,
@@ -50,5 +56,25 @@ export function getSongList(disstid) {
     needNewCode: 0
   })
 
-  return jsonp(url, data, options)
+  return jsonp(url, data, options) */
+
+  const url = '/api/getSongList'
+
+  const data = Object.assign({}, commonParams, {
+    disstid,
+    type: 1,
+    json: 1,
+    utf8: 1,
+    onlysong: 0,
+    platform: 'yqq',
+    hostUin: 0,
+    needNewCode: 0,
+    format: 'json'
+  })
+
+  return axios.get(url, {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }

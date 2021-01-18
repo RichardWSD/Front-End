@@ -36,13 +36,13 @@ window.onload = function(){
 	
 	var arrColor = ['red','blue','yellow','green','black','gray'];
 	
-	for(var i=0;i<arrNum.length;i++){
+/* 	for(var i=0;i<arrNum.length;i++){
 		var oPath = createTag('path',{fill : arrColor[i]});
 		oSvg.appendChild(oPath);
-	}
+	} */
 	
 	$('#div1').animate({
-		move : 'auto'
+		move : 'auto' // 其实这个值是随便写的，只要不为空就行，可以随便写成{ aa: 'bb' }都可以
 	},{
 		duration : 500,
 		easing : 'swing',

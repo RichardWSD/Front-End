@@ -93,6 +93,21 @@ apiRoutes.get('/getSongList', function (req, res) {
   })
 })
 
+apiRoutes.get('/getPlaySongVkey', function (req, res) {
+  var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+  axios.get(url, {
+    headers: {
+      referer: 'https://u.y.qq.com/',
+      host: 'u.y.qq.com',
+    },
+    params: req.query
+  }).then((response) => {
+    res.json(response.data)
+  }).catch((e) => {
+    console.log(e)
+  })
+})
+
 app.use('/api', apiRoutes)
 
 var compiler = webpack(webpackConfig)

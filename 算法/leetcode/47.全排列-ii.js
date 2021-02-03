@@ -1,0 +1,52 @@
+/*
+ * @lc app=leetcode.cn id=47 lang=javascript
+ *
+ * [47] 全排列 II
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function (nums) {
+  let m = new Map();
+  for (const i of nums) {
+    m.set(i, m.has(i) ? m.get(i) + 1 : 1);
+  }
+  let len = m.size;
+  let p = [];
+  let pb = [];
+  let index = 0;
+  for (let [k, v] of m) {
+    p[index] = k;
+    pb[index] = v;
+    index++;
+  }
+
+  let res = [];
+  dfs(nums.length, p, pb, [], res);
+  return res;
+};
+
+function dfs(size, p, pb, chain, res) {
+  //1.截至条件
+  if (chain.length === size) {
+    res.push([...chain]);
+    return;
+  }
+
+  //2.候选节点
+  for (let i = 0; i < p.length; i++) {
+    let c = p[i];
+    //2.1筛选
+    if (pb[i] > 0) {
+      chain.push(c);
+      pb[i]--;
+      dfs(size, p, pb, chain, res);
+      pb[i]++;
+      chain.pop();
+    }
+  }
+}
+// @lc code=end

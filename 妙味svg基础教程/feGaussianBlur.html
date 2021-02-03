@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <svg height="250" width="250">
+    <defs>
+      <filter id="p1" x="0" y="0">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+      </filter>
+    </defs>
+    <rect width="120" height="120" stroke="green" stroke-width="3" fill="purple" filter="url(#p1)" />
+  </svg>
+</body>
+</html>

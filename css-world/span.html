@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      cursor: pointer;
+      color: #fff;
+      background-color: #474d55;
+      /* 设置成display: flex或者float都可以使span可以设置宽高 */
+      /* float: right; */
+      display: flex;
+      padding: 7px 12px;
+      user-select: none;
+    }
+
+    span.save-button {
+      color: #69c170;
+    }
+
+    span.delete-button {
+      color: #ee6b52;
+    }
+  </style>
+</head>
+<body>
+  <!-- 可以看到两个span之间有空格，可以通过删除标签之间的空白来消除
+  或者给父元素设置font-size:0，然后在需要设置字体大小的元素设置大小 -->
+  <span class="save-button" >保存</span>
+  <span class="delete-button" >删除</span>
+</body>
+</html>

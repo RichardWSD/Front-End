@@ -30,6 +30,7 @@ const { sinh } = require("core-js/fn/number");
   return num;
 }; */
 
+// https://leetcode-cn.com/problems/reverse-integer/solution/wei-yun-suan-ji-jian-jie-fa-by-ijzqardmbd/
 var reverse = function(x) {
   let result = 0;
   while(x !== 0) {

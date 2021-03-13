@@ -9,6 +9,7 @@
  * @param {number} n
  * @return {string}
  */
+//  https://leetcode-cn.com/problems/count-and-say/solution/tong-guo-zheng-ze-he-bing-xiang-tong-yuan-su-wan-c/
 var countAndSay = function(n) {
   let prev = '1'
   for(let i = 1; i < n; i++){

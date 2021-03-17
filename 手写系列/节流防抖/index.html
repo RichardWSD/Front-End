@@ -45,7 +45,7 @@
      */
     function throttle(func, wait, type) {
       if (type === 1) {
-        let previous = 0;
+        let previous = Date.now();
       } else if (type === 2) {
         let timeout;
       }

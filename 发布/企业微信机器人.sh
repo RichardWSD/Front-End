@@ -1,5 +1,6 @@
 #!/bin/bash
 # 在linux上使用crontab来定时运行脚本  查看机器定时任务 crontab -l
+# 命令： /bin/bash /home/work/weixinScpirt/nightWarnSecondGroup.sh &>/dev/null
 curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=61b28766-1a36-4f55-824c-c3546e8add4e' \
    -H 'Content-Type: application/json' \
    -d '

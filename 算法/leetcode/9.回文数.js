@@ -13,6 +13,7 @@ const {
  * @param {number} x
  * @return {boolean}
  */
+//  https://leetcode-cn.com/problems/palindrome-number/solution/ji-jian-jie-fa-by-ijzqardmbd-2/
 var isPalindrome = function (x) {
   if (x < 0) return false;
   if (x < 10) return true;

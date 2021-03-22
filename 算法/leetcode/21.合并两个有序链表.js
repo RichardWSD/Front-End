@@ -17,6 +17,7 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+//  https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/hua-jie-suan-fa-21-he-bing-liang-ge-you-xu-lian-bi/
 var mergeTwoLists = function(l1, l2) {
   if(l1 == null){
       return l2;

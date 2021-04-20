@@ -9,18 +9,26 @@
     </style>
     <script>
         async function fn(){
-            let e = await Promise.reject('出现问题了');
-            console.log(e)
+            /* let e = await Promise.reject('出现问题了');
+            console.log(111,e)
             let a = await Promise.resolve('success');
-            console.log(a);
+            console.log(a); */
+            const x = 1 + y;
+            console.log(333)
         }
 
         fn().then(res=>{
             console.log(res);
         })
         .catch(err=>{
+          console.log(2222);
             console.log(err);
         })
+
+        new Promise(() => {
+          const x = 1 + y;
+        })
+        console.log('xxxx')
     </script>
 </head>
 <body>

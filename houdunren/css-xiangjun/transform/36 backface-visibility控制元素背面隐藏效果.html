@@ -28,11 +28,13 @@
             transform-style: preserve-3d;
         }
 
+        /* 第二种方式让父元素转，不过要加上transform-style: preserve-3d才有效果 */
         body:hover main {
             transform: rotateY(-180deg);
         }
 
-        /* body:hover main div:nth-child(1) {
+        /* wsd: 第一种方式让子元素转 */
+       /*  body:hover main div:nth-child(1) {
             transform: rotateY(-180deg);
         }
 

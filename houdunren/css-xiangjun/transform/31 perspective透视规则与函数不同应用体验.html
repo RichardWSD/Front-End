@@ -14,12 +14,16 @@
             justify-content: center;
             align-items: center;
         }
-
+        /* perspective的值好比左你观察山峰的距离，值越小代表离山峰越近的观察 */
         main {
             display: flex;
+            /* wsd: 这个相当于桌面上放了一排水杯，然后你一起看这排水杯一样, 观察的是main里面的元素 */
             perspective: 600px;
             border: solid 5px silver;
-            /* transform: rotateY(45deg); */
+            /* 设置旋转的时候用函数形式的perspective，至于为什么我也没听懂
+               这个是对main这个元素设置的透视 */
+            /* transform: perspective(600px) rotateY(45deg); */
+            /* transform: perspective(600px) */
         }
 
         div {
@@ -28,6 +32,7 @@
             height: 200px;
             background: #f1c40f;
             transform: rotateY(45deg);
+            /* transform: perspective(600px) rotateY(45deg); */
         }
     </style>
 </head>

@@ -24,17 +24,33 @@
             transform: perspective(900px) rotateY(-60deg);
         }
 
-        div {
+        main div {
             position: absolute;
             width: 200px;
             height: 200px;
             background: #f1c40f;
         }
 
-        div:nth-child(2) {
+        main div:nth-child(2) {
             background: #2ecc71;
             transform: translateZ(-500px);
         }
+
+        
+        /* .container {
+          width: 400px;
+          height: 400px;
+          border: 1px solid red; */
+          /* position: relative; */
+        /* }
+        .container div {
+          width: 200px;
+          height: 200px;
+          background: blue; */
+          /* wsd: 直接这样就能让元素重叠，都不用父元素relative */
+          /* position: absolute;
+        } */
+
     </style>
 </head>
 
@@ -43,6 +59,11 @@
         <div></div>
         <div></div>
     </main>
+
+    <!-- <div class="container">
+      <div></div>
+      <div></div>
+    </div> -->
 </body>
 
 </html>

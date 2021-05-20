@@ -32,13 +32,35 @@
 				left: 300px;
 				top: 150px;
 			}
+
+      .hd11 {
+        width: 50%;
+        height: 100px;
+        background-color: chocolate;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+
+      .hd111 {
+        width: 50%;
+        height: 50px;
+        background-color: gold;
+        position: relative;
+        left: 10px;
+        top: 10px;
+      }
 		</style>
 	</head>
 	<body>
 		<!--每个有定位属性的元素，都独占一层，即每层都只有一个元素，不会影响别的元素的布局-->
 		<div id="box">
 			
-			<div class="hd1"></div>
+			<div class="hd1">
+        <div class="hd11">
+          <div class="hd111"></div>
+        </div>
+      </div>
 			<div class="hd2"></div>
 			
 			

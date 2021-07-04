@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: aqua;
+      }
+
+      .content {
+        position: absolute;
+        bottom: 40%;
+        width: 300px;
+        height: 300px;
+        background-color: blueviolet;
+      }
+
+      .filter {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+        /* filter: blur(5px); */
+        backdrop-filter: blur(5px);
+        background: rgba(222,222,222,.5);
+        font-size: 32px;
+        z-index: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content"></div>
+      <div class="filter">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus
+        voluptatem velit quod placeat? Cupiditate, corporis, et tempore
+        laudantium consequatur labore distinctio nisi inventore totam vero cum
+        est saepe quos ad
+      </div>
+    </div>
+  </body>
+</html>

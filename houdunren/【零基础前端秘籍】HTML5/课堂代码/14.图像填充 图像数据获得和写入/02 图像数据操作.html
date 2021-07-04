@@ -19,13 +19,16 @@
 		
 //		创建图片资源
 		var newimg = new Image();
-		newimg.src = 'xiaogou.jpg';
+		newimg.src = './xiaogou.jpg';
+    newimg.onload = function() {
+      var guize = cv.createPattern(newimg,'repeat');
+      //		画一个矩形区域
+      cv.rect(10,10,700,450);
+      cv.fillStyle = guize;
+      cv.fill();
+    }
 		
-		var guize = cv.createPattern(newimg,'repeat');
-//		画一个矩形区域
-		cv.rect(10,10,700,450);
-		cv.fillStyle = guize;
-		cv.fill();
+		
 	</script>
 		
 		

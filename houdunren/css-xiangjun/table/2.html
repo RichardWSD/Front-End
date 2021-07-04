@@ -6,7 +6,7 @@
     <title>后盾人</title>
     <style>
         table {
-            width: 100%;
+            /* width: 100%; */
         }
 
         table caption {
@@ -19,7 +19,11 @@
         table tr td {
             height: 100px;
             text-align: center;
-            /* vertical-align: middle; */
+            /* 元素底 padding 边缘和表格行的顶部对齐 */
+            vertical-align: top; 
+        }
+        span {
+          padding: 15px;
         }
     </style>
 </head>
@@ -29,7 +33,7 @@
         <thead>
             <caption>课程介绍</caption>
             <tr>
-                <td>编号</td>
+                <td><span>编号</span></td>
                 <td>标题</td>
             </tr>
         </thead>

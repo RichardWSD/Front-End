@@ -18,7 +18,8 @@
  * @param {number} targetSum
  * @return {boolean}
  */
-var hasPathSum = function(root, targetSum) {
+// 二叉树
+/* var hasPathSum = function(root, targetSum) {
   if(!root) {
     return false;
   }
@@ -29,6 +30,33 @@ var hasPathSum = function(root, targetSum) {
   let left = hasPathSum(root.left, targetSum);
   let right = hasPathSum(root.right, targetSum);
   return left || right;
+}; */
+
+var hasPathSum = function(root, targetSum) {
+  if(!root) {
+    return false;
+  }
+  const queNode = [root]
+  const queVal = [root.val]
+  while(queNode.length) {
+    const now = queNode.shift()
+    const temp = queVal.shift()
+    if(!now.left && !now.right) {
+      if(temp === targetSum) {
+        return true
+      }
+      continue
+    }
+    if(now.left) {
+      queNode.push(now.left)
+      queVal.push(now.left.val + temp)
+    }
+    if(now.right) {
+      queNode.push(now.right)
+      queVal.push(now.right.val + temp)
+    }
+  }
+  return false
 };
 // @lc code=end
 

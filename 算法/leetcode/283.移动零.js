@@ -16,8 +16,8 @@
     }
   }
 }; */
-
-// https://leetcode-cn.com/problems/move-zeroes/solution/yi-dong-ling-shuang-zhi-zhen-by-zxhnext-t27s/
+// 数组
+// 双指针
 const moveZeroes = (nums) => {
   const length = nums.length;
   let left = 0;

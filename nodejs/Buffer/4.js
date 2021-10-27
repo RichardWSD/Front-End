@@ -13,6 +13,7 @@ console.log(bf);
  */
 
  var bf4 = new Buffer(10);
+//  buffer.copy(targetBuffer, [targetStart], [sourceStart], [sourceEnd])
 
 /*  bf.copy(bf4)
  console.log(bf4);

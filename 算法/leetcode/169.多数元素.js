@@ -19,7 +19,9 @@
   }
 }; */
 
-// https://leetcode-cn.com/problems/majority-element/solution/yi-ban-by-shetia/
+// 数组
+// 排序
+// 方法：投票法
 var majorityElement = function(nums) {
   let x = 0
   let m = 0

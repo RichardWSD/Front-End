@@ -32,9 +32,10 @@ function depth(root){
   if(!root) {
     return 0;
   }
-  return Math.max(1 + depth(root.left), 1 + depth(root.right));
+  return Math.max(depth(root.left), depth(root.right)) + 1;
 }; */
 
+// 二叉树
 // 自底向上（优化）
 var isBalanced = function (root) {
   return balanced(root) !== -1

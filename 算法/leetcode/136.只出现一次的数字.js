@@ -9,6 +9,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+// 数组
 var singleNumber = function(nums) {
   return nums.reduce((res, cur) => res ^ cur)
 };

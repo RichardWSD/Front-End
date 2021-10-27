@@ -9,8 +9,9 @@
  * @param {number} n
  * @return {number[]}
  */
-//  https://leetcode-cn.com/problems/counting-bits/solution/bi-te-wei-ji-shu-by-leetcode-solution-0t1i/
- var countBits = function(n) {
+// 动态规划
+// 动态规划——最高有效位
+/* var countBits = function(n) {
   const bits = new Array(n + 1).fill(0);
   let highBit = 0;
   for (let i = 1; i <= n; i++) {
@@ -20,6 +21,25 @@
       bits[i] = bits[i - highBit] + 1;
   }
   return bits;
+}; */
+
+// 动态规划——最低有效位
+/* var countBits = function(n) {
+  const bits = new Array(n + 1).fill(0);
+  for (let i = 1; i <= n; i++) {
+      bits[i] = bits[i >> 1] + (i & 1);
+  }
+  return bits;
+}; */
+
+// 动态规划——最低设置位
+var countBits = function(n) {
+  const bits = new Array(n + 1).fill(0);
+  for (let i = 1; i <= n; i++) {
+      bits[i] = bits[i & (i - 1)] + 1;
+  }
+  return bits;
 };
+
 // @lc code=end
 

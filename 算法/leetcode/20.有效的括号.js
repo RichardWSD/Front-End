@@ -30,7 +30,7 @@
   return !stack.length;
 }; */
 
-// https://leetcode-cn.com/problems/valid-parentheses/solution/you-xiao-de-gua-hao-by-leetcode-solution/
+// 字符串
 var isValid = function(s) {
   const n = s.length;
   if (n % 2 === 1) {

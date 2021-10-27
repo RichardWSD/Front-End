@@ -28,11 +28,34 @@
 };
  */
 
-var maxDepth = function(root) {
+/* var maxDepth = function(root) {
   if(!root) {
     return 0;
   }
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+}; */
+
+// 二叉树
+var maxDepth = function(root) {
+  if(root === null) {
+    return 0
+  }
+  let queue = [root], ans = 0
+  while(queue.length) {
+    let size = queue.length
+    while(size > 0) {
+      const node = queue.shift()
+      if(node.left) {
+        queue.push(node.left)
+      }
+      if(node.right) {
+        queue.push(node.right)
+      }
+      size--
+    }
+    ans++
+  }
+  return ans
 };
 // @lc code=end
 

@@ -9,6 +9,8 @@
  * @param {number[]} prices
  * @return {number}
  */
+// 数组
+// 动态规划
 var maxProfit = function(prices) {
   let min = Number.MAX_SAFE_INTEGER;
   let max = 0;

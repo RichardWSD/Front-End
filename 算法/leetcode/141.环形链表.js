@@ -17,21 +17,21 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+// 双指针
 var hasCycle = function(head) {
   if(!head || !head.next) {
     return false
   }
 
-  let s = head, f = head.next.next
-  while(s && f) {
-    if(s === f) {
-      return true
-    } else if(f.next === null) {
+  let s = head, f = head.next
+  while(s !== f) {
+    if(!f || !f.next) {
       return false
-    }
-    s = s.next, f = f.next.next
+    } 
+    s = s.next
+    f = f.next.next
   }
-  return false
+  return true
 };
 // @lc code=end
 

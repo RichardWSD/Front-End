@@ -9,7 +9,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-//  https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/solution/zhao-dao-suo-you-shu-zu-zhong-xiao-shi-d-mabl/
+//  数组
  var findDisappearedNumbers = function(nums) {
   const n = nums.length;
   for (const num of nums) {

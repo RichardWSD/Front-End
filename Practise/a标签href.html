@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .big {
+      width: 100px;
+      height: 100vh;
+      border: 2px solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="big"></div>
+  <a href="javascript:console.log(11)" onclick="log()">点击</a>
+  <a href="#" onclick="log()">返回页面顶部</a>
+  <a href="http://baidu.com" onclick="return false">return false</a>
+  <a href="http://baidu.com" onclick="fun(event)">函数返回值</a>
+  <a href="javascript:console.log(11)" onclick="log();return false">href代码不执行</a>
+  <a href="javascript:getUrl()">页面内容被href返回值替换</a>
+  <script>
+    function fun(e) {
+      return false
+    }
+    function log() {
+      console.log(22);
+    }
+    function getUrl(){
+      return 'http://baidu.com'
+    }
+  </script>
+</body>
+</html>

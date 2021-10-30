@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        margin: 50px auto;
+        height: 300px;
+        width: 300px;
+        border: 2px solid green;
+      }
+      p {
+        margin: 22px 0;
+      }
+
+      .father {
+        margin-top: -20px;
+        background: blue;
+        height: 100px;
+        width: 100px;
+      }
+      .son {
+        margin-top: 50px;
+      }
+      .a {
+        margin-top: -20px;
+        margin-bottom: 50px;
+        height: 100px;
+        width: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>第一行</p>
+      <div></div>
+      <p>第二行</p>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="father div">
+        <div class="son"></div>
+      </div>
+    </div>
+    <hr />
+    <!-- <div class="container"> -->
+      <div class="a"></div>
+    <!-- </div> -->
+  </body>
+</html>

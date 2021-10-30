@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        /* 这里height定高了，所以child的margin-bottom只能影响兄弟元素的位置，对next是没有影响的 */
+        height: 100px;
+        background: blue;
+        /* overflow: scroll; */
+      }
+      .child {
+        height: 80px;
+        margin-bottom: 100px;
+        background: brown;
+      }
+      .next {
+        height: 100px;
+        background: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="child"></div>
+      <!-- <div class="next"></div> -->
+    </div>
+    <div class="next"></div>
+  </body>
+</html>

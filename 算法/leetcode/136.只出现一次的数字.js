@@ -9,12 +9,9 @@
  * @param {number[]} nums
  * @return {number}
  */
+// 数组
 var singleNumber = function(nums) {
-  let res = 0;
-  for(let i of nums) {
-    res ^= i;
-  }
-  return res;
+  return nums.reduce((res, cur) => res ^ cur)
 };
 // @lc code=end
 

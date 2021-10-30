@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .remove {
+      position: absolute;
+      left: -1000px
+    }
+  </style>
+</head>
+<body>
+  <button onclick="show()">点击我显示</button>
+  <div id="wrapper" class="remove">
+    <img src="https://cloud-minapp-37161.cloud.ifanrusercontent.com/1lhCTIc9vmCLOFQT.gif" alt="">
+  </div>
+  
+  <script>
+    function show() {
+      w = document.getElementById('wrapper')
+      console.log(w.style.left = '0');
+    }
+  </script>
+</body>
+</html>

@@ -23,6 +23,7 @@
               args = arguments;
               
           if (timer) clearTimeout(timer);
+          // 立即执行这种这样写是错误的
           if (immediate) {
             let callNow = !timer;
             timer = setTimeout(() => {
@@ -35,6 +36,19 @@
             }, wait)
           }
         }
+    }
+    //这种立即执行的debounce才是正确的
+    function debounce(event, time, flag) {
+      let timer = null;
+      return function (...args) {
+        clearTimeout(timer);
+        if (flag && !timer) {
+          event.apply(this, args);
+        }
+        timer = setTimeout(() => {
+          event.apply(this, args);
+        }, time);
+      };
     }
 
     /**

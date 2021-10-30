@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后盾人</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -200px;
+            width: 400px;
+            height: 400px;
+            border: solid 5px silver;
+            transform-style: preserve-3d;
+            transform: perspective(900px) rotateX(-45deg) rotateY(45deg);
+        }
+
+        div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            width: 200px;
+            height: 200px;
+            transition: 1s;
+        }
+
+        div:nth-child(1) {
+            background: #e67e22;
+        }
+
+        main:hover div:nth-of-type(1) {
+            /* wsd: 这个是沿着x轴和z轴的对角线转，向量运算，哪么方向值大，越偏向哪边  */
+            transform: perspective(900px) rotate3d(1, 0, 1, 180deg);
+            /* transform: perspective(900px) rotate3d(1, 1, 0, 90deg); */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div></div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .contents {
+      width: 600px;
+      height: 500px;
+      border: 50px solid red;
+      padding: 80px;
+      display: contents;
+    }
+
+    .flow {
+      border: 2px solid green;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="contents">
+    <div class="flow">
+      display：contents 使 div 不产生任何框 ，因此不会渲染其背景 边框 和 内边距 ，但颜色 / 字体等继承的属性还是会对其子元素产生效果
+      即在盒子上添加 display : contents , 当前盒子若设置了 background border padding width height 等属性会失效
+    </div>
+  </div>
+</body>
+</html>

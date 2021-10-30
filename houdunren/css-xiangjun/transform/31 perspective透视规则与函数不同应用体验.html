@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后盾人</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* perspective的值好比左你观察山峰的距离，值越小代表离山峰越近的观察 */
+        main {
+            display: flex;
+            border: solid 5px silver;
+             /* perspective属性有两种书写形式：
+                一种用在舞台元素上（动画元素们的共同父辈元素）；
+                第二种就是用在当前动画元素上，与transform的其他属性写在一起
+                参见张鑫旭的解释：https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/
+            */
+            perspective: 600px;
+            /* transform: perspective(600px) rotateY(45deg); */
+            /* transform: perspective(600px) */
+        }
+
+        div {
+            margin-right: 100px;
+            width: 200px;
+            height: 200px;
+            background: #f1c40f;
+            transform: rotateY(45deg);
+            /* transform: perspective(600px) rotateY(45deg); */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div></div>
+        <div></div>
+    </main>
+</body>
+
+</html>

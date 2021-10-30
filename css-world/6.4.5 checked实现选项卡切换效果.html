@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+        }
+        #tab>input{
+            /* opacity: 0; */
+            /* position: absolute; */
+            top: 0px;
+            left: 0px; 
+            /* 见absolute.html */
+        }
+        #tab .label{
+            overflow: hidden;
+        }
+        #tab .label > label{
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #dedede;
+            text-align: center;
+            margin-left: -1px;
+            /* 用来取消边框的1px实现扁平效果（？） */
+        }
+        .content li{
+            display: none;
+        }
+        /* 先把所有的都隐藏起来 ，每次把需要显示的一个放出来*/
+        input:nth-of-type(1):checked~.label>label:nth-of-type(1){
+            background-color: red;
+            color: #fff;
+        }
+        /* #a~b  选择每个#a后面的同级b */
+        /* ntn-of-type：属于其父元素的第X个的每个  如上面：属于其父元素的第一个input的每个input   */
+        /*加号：相邻兄弟选择器，如 h1+p  选择紧跟在h1后面的p*/
+        input:nth-of-type(2):checked~.label>label:nth-of-type(2){
+            background-color: red;
+            color: #fff;
+        }
+        input:nth-of-type(3):checked~.label>label:nth-of-type(3){
+            background-color: red;
+            color: #fff;
+        }
+        input:nth-of-type(1):checked~.content li:nth-of-type(1){
+            display: block;
+        }
+        input:nth-of-type(2):checked~.content li:nth-of-type(2){
+            display: block;
+        }
+        input:nth-of-type(3):checked~.content li:nth-of-type(3){
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <!-- 这里是把label和input绑定了嗷（通过label的for属性） -->
+        <input checked type="radio" name="name" id="name1">
+        <input  type="radio" name="name" id="name2">
+        <input  type="radio" name="name" id="name3">
+        <div class="label">
+            <label for="name1">页面1</label>
+            <label for="name2">页面2</label>
+            <label for="name3">页面3</label>
+        </div>
+        <div class="content">
+            <ul>
+                <li>内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

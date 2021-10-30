@@ -11,9 +11,9 @@ class XiaojiejieItem extends Component {
     //子组件接收到父组件传递过来的参数，父组件render函数重新被执行，这个生命周期就会被执行
     //也就是说这个组件第一次存在于Dom中，函数是不会被执行的
     //如果已经存在于Dom中，函数才会被执行
-    // componentWillReceiveProps(){
-    //     console.log('child - componentWillReceiveProps')
-    // }
+    componentWillReceiveProps(){
+        console.log('child - componentWillReceiveProps')
+    }
 
     // //当组件从页面中删除的时候执行
     // componentWillUnmount(){

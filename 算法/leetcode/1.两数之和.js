@@ -10,6 +10,7 @@
  * @param {number} target
  * @return {number[]}
  */
+// 数组
 var twoSum = function (nums, target) {
   const prevNums = {};                    // 存储出现过的数字，和对应的索引
   

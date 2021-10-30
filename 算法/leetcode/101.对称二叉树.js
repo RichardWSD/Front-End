@@ -37,6 +37,7 @@
   }
 }; */
 
+// 二叉树
 var isSymmetric = function(root) {
   var q = [root, root], n, m
   while (q.length) {

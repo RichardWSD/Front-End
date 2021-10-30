@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .width {
+        /* 参照的是父元素content的宽 */
+        width: 100%;
+      }
+
+      .nav {
+        background-color: #cd0000;
+        padding: 10px;
+        border: 5px;
+        width: 400px;
+      }
+      .nav-a {
+        display: block;
+        margin: 0 10px;
+        padding: 9px 10px;
+        border-bottom: 1px solid #b70000;
+        border-top: 1px solid #de3636;
+        color: #fff;
+      }
+      .nav-a:first-child {
+        border-top: 0;
+      }
+      .nav-a + .nav-a + .nav-a {
+        border-bottom: 0;
+      }
+
+      .father {
+        width: 400px;
+        height: 400px;
+        background: red;
+        position: relative;
+        padding: 10px;
+        border: 5px solid;
+        margin: 10px;
+      }
+
+      .child {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background: blue;
+      }
+
+      .father1 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+        position: relative;
+      }
+      
+      .father1::after {
+        width: 100%;
+        height: 50px;
+        border: 2px solid blue;
+        position: absolute;
+        content: '';
+      }
+    </style>
+  </head>
+  <body>
+    <h4>无宽度，借助流动性</h4>
+    <div class="nav">
+      <a href="" class="nav-a">导航1</a>
+      <a href="" class="nav-a">导航2</a>
+      <a href="" class="nav-a">导航3</a>
+    </div>
+    <h4>width:100%，非定位情况下width只是父元素content的width</h4>
+    <div class="nav">
+      <a href="" class="nav-a width">导航1</a>
+      <a href="" class="nav-a width">导航2</a>
+      <a href="" class="nav-a width">导航3</a>
+    </div>
+    <h4>绝对定位情况, 伪元素的宽是包括父元素content+padding的宽</h4>
+    <div class="father">
+      <div class="child"></div>
+    </div>
+    <h4>伪元素</h4>
+    <div class="father1">
+    </div>
+  </body>
+</html>

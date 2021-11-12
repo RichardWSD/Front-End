@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <!-- 
+      当前，在样式表中使用时, :scope 等效于 :root，因为目前尚无一种方法来显式建立作用域元素
+      https://developer.mozilla.org/zh-CN/docs/Web/CSS/:scope
+     -->
+    <style scoped>
+      p{color: blue;}
+      :scope {background-color: red;}
+    </style>
+    <p>在作用域内，背景色应该红色</p>
+  </section>
+  <p>在作用域外，默认背景色</p>
+</body>
+</html>

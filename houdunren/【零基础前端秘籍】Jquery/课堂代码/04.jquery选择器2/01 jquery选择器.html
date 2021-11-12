@@ -20,7 +20,7 @@
 //		$("#box p[hd]").css({'color':'red','font-size':'25px'});
 		
 //		选择的是#box里所有hd属性的值等于houdun的元素
-		$("#box [hd=houdun]").css({'color':'red','font-size':'25px'});
+		// $("#box [hd=houdun]").css({'color':'red','font-size':'25px'});
 		
 //		选择的是#box里所有class不等于er的p标签
 //		$("#box p[class!=er]").css({'color':'red','font-size':'25px'});
@@ -36,8 +36,9 @@
 
 //		选择的是#box里有value属性,并且class属性值中含有e,并且hd属性的值是houdun的p标签
 		// $("#box p[value][class*=e][hd='houdun']").css({'color':'red','font-size':'25px'});
-		
-		
+    
+    // elem[class~=value]  匹配 附带 class 属性的 elem元素，其中class属性的值是以空格隔开的值列表，value是值列表中的一个独立值
+		$("#box p[class~=houdunliu]").css({'color':'red','font-size':'25px'});
 		
 	})
 	

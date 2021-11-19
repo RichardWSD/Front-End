@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <input type="search" id="input" placeholder="输入城市名称或拼音" />
+<ul> 
+    <li data-search="重庆市chongqing">重庆市</li>
+    <li data-search="哈尔滨市haerbing">哈尔滨市</li>
+    <li data-search="长春市changchun">长春市</li>
+</ul>
+<script>
+  var eleStyle = document.createElement('style');
+document.head.appendChild(eleStyle);
+// 文本框输入
+input.addEventListener("input", function() {
+  console.log(this.value);
+    var value = this.value.trim();
+    
+    eleStyle.innerHTML = value ? '[data-search]:not([data-search*="'+ value +'"]) { display: none; }' : '';
+});
+</script>
+</body>
+</html>

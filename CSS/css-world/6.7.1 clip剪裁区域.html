@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      border: solid;
+    }
+    .child {
+      position: absolute;
+      width: 200px;
+      height: 100px;
+      background: blue;
+      outline: 10px solid;
+      /* clip的坐标是相对于左上角而言的，往右2000px，往下2000px裁剪，书中所描述的有问题 */
+      clip: rect(0px, 2000px, 2000px, 0px)
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+</html>

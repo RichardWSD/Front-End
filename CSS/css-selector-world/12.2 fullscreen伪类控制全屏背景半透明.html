@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :fullscreen .cs-img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      ::backdrop {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>点击查看大图</h4>
+    <div id="img" class="cs-img-x">
+      <img class="cs-img" src="./images/mm1.jpeg" />
+    </div>
+    <script>
+      (function () {
+        var runPrefixMethod = function (element, method) {
+          var usablePrefixMethod;
+          ["webkit", "moz", "ms", ""].forEach(function (prefix) {
+            if (usablePrefixMethod) return;
+            if (prefix === "") {
+              // 无前缀，方法首字母小写
+              method = method.slice(0, 1).toLowerCase() + method.slice(1);
+            }
+
+            var typePrefixMethod = typeof element[prefix + method];
+
+            if (typePrefixMethod + "" !== "undefined") {
+              if (typePrefixMethod === "function") {
+                usablePrefixMethod = element[prefix + method]();
+              } else {
+                usablePrefixMethod = element[prefix + method];
+              }
+            }
+          });
+
+          return usablePrefixMethod;
+        };
+
+        if (typeof window.screenX === "number") {
+          img.addEventListener("click", function () {
+            if (
+              runPrefixMethod(document, "FullScreen") ||
+              runPrefixMethod(document, "IsFullScreen")
+            ) {
+              runPrefixMethod(document, "CancelFullScreen");
+            } else {
+              runPrefixMethod(this, "RequestFullScreen");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

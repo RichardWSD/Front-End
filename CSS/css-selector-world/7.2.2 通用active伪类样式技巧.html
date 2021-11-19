@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    [href]:active,
+    button:active,
+    [type=reset]:active,
+    [type=button]:active,
+    [type=submit]:active {
+      background-image: linear-gradient(rgba(0,0,0,.05), rgba(100,200,0,.5));
+    }
+    [href] img:active {
+      outline: 999px solid rgba(0, 0, 0, .05);
+      outline-offset: -999px;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  </style>
+</head>
+<body>
+  <a href="">我是🐂</a>
+  <a href=""><img src="./images/icon-group@2x.png" alt="" srcset=""></a>
+</body>
+</html>

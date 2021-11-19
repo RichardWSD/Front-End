@@ -15,7 +15,10 @@
   </div>
   <script>
     console.log(document.querySelectorAll('#myId div div').length); 
+    // querySelectorAll全局匹配性
     console.log(document.querySelector('#myId').querySelectorAll('div div').length);
+    // 限制不是全局匹配
+    console.log(document.querySelector('#myId').querySelectorAll(':scope div div').length);
   </script>
 </body>
 </html>

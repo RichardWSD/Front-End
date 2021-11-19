@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      <square-img src="./images/mm1.jpeg" alt="直角头像"></square-img>
+    </p>
+    <p class="cs-radius">
+      <square-img src="./images/mm1.jpeg" alt="圆角头像"></square-img>
+    </p>
+    <script>
+      class HTMLSquareImgElement extends HTMLElement {
+        constructor() {
+          super();
+
+          var shadow = this.attachShadow({
+            mode: "open",
+          });
+
+          // 创建图片、提示元素以及样式
+          var img = document.createElement("img");
+          img.src = this.getAttribute("src");
+          img.width = img.height = this.getAttribute("size") || 150;
+          var span = document.createElement("span");
+          span.textContent = this.getAttribute("alt") || "";
+          var style = document.createElement("style");
+          style.textContent = `:host {
+              display: inline-block;
+              font-size: 12px;
+              color: #fff;
+              text-align: center;
+              line-height: 24px;
+              position: relative;
+          }
+          span:not(:empty) {
+              position: absolute;
+              background-color: rgba(0,0,0,.5);
+              left: 0; right: 0; bottom: 0;
+          }
+          :host-context(.cs-radius) {
+              border-radius: 50%;
+              overflow: hidden;
+          }
+          img {
+              display: block;
+              object-fit: cover;
+          }`;
+          shadow.appendChild(style);
+          shadow.appendChild(span);
+          shadow.appendChild(img);
+        }
+      }
+      // 定义square-img自定义元素
+      customElements.define("square-img", HTMLSquareImgElement);
+    </script>
+  </body>
+</html>

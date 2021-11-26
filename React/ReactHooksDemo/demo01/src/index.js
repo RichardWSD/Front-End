@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Example from './Example9';
+import Example from './Example8';
 
 ReactDOM.render(
   <Example />,

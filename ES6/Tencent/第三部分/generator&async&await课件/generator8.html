@@ -20,10 +20,10 @@
         let g1 = gen();
 
         let username = g1.next().value;
-
+        console.log('username', username);
         //console.log(g1.next(username).value);
         //把username作为上一次yield的返回值
-        g1.next(username).value.then(res=>{
+        g1.next('ccc').value.then(res=>{
             console.log(res.data);
         });
 

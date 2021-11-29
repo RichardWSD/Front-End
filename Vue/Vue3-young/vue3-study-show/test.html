@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://www.unpkg.com/vue@next"></script>
+    <script src="https://www.unpkg.com/vue-router@next"></script>
+    <script>
+      const { createApp } = Vue;
+      const { createRouter, createWebHashHistory } = VueRouter;
+
+      const App = {
+        template: `
+          <router-view v-slot="{Component}">
+            <keep-alive>
+              <component :is="Component" />  
+            </keep-alive>
+          </router-view>
+        `,
+      };
+
+      const Index = {
+        template: `
+          <div>Index Page</div>
+        `,
+      };
+
+      const Detail = {
+        template: `
+          <div>Detail Page</div>
+        `,
+      };
+
+      const router = createRouter({
+        history: createWebHashHistory(),
+        routes: [
+          { path: "/", component: Index },
+          { path: "/detail", component: Detail },
+        ],
+      });
+
+      createApp(App).use(router).mount("#app");
+    </script>
+  </body>
+</html>

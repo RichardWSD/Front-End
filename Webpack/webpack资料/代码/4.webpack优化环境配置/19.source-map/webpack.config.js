@@ -45,6 +45,16 @@ module.exports = {
           name: '[hash:10].[ext]',
           outputPath: 'media'
         }
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/env']
+          }
+        },
+        exclude: /node_modules/
       }
     ]
   },
@@ -62,7 +72,7 @@ module.exports = {
     open: true,
     hot: true
   },
-  devtool: 'eval-source-map'
+  devtool: 'hidden-source-map'
 };
 
 /*
@@ -88,11 +98,14 @@ module.exports = {
       只能精确的行
     cheap-module-source-map：外部
       错误代码准确信息 和 源代码的错误位置 
-      module会将loader的source map加入
+      module会将loader的source map加入（这个的意思是如果没有module，我们定位的代码是转换过的代码，即比如babel-loader处理过后的代码；如果有module，则定位到的代码原始代码）
+      官网上另外打包后的代码和生成后的代码分别指bundle，webpack处理后模块代码
 
     内联 和 外部的区别：1. 外部生成了文件，内联没有 2. 内联构建速度更快
+    inline和eval都是内联，区别是eval在每个文件后面都加入sourceURL，inline则是在bundle末尾单独加入所有文件的sourceURL
 
     开发环境：速度快，调试更友好
+      不配置devtool(默认eval)
       速度快(eval>inline>cheap>...)
         eval-cheap-souce-map
         eval-source-map
@@ -104,6 +117,7 @@ module.exports = {
       --> eval-source-map  / eval-cheap-module-souce-map
 
     生产环境：源代码要不要隐藏? 调试要不要更友好
+      不配置devtool(默认none)
       内联会让代码体积变大，所以在生产环境不用内联
       nosources-source-map 全部隐藏
       hidden-source-map 只隐藏源代码，会提示构建后代码错误信息

@@ -17,10 +17,9 @@ new Vue({
             this.y = event.offsetY;
         },
         click: function(){
-            debugger
-            let btn = "btn1"
-            this.$refs[btn].click();
-            //alert('you clicked me');
+            /* let btn = "btn1"
+            this.$refs[btn].click(); */
+            alert('you clicked me');
         },
         stopMoving:function(event){
             event.stopPropagation();

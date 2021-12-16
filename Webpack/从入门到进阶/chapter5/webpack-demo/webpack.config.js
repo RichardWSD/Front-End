@@ -17,7 +17,12 @@ module.exports = {
   ],
   module: {
     rules: [
-
+      // loader执行顺序： 从下到上，从右到左
+      /* loader分类：
+            配置（即这里写的这种方式）
+            内联 import Styles from 'style-loader!css-loader?modules!./styles.css';
+            CLI webpack --module-bind jade-loader --module-bind 'css=style-loader!css-loader'
+      */
       // loader的加载顺序永远遵循: pre > inline > normal > post
       {
         test: /\.js$/, use: {

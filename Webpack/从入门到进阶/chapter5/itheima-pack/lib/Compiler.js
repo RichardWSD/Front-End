@@ -3,7 +3,7 @@ const fs = require('fs')
 const parser = require('@babel/parser')
 const traverse = require('@babel/traverse').default
 const generator = require('@babel/generator').default
-const ejs = require('ejs')
+const ejs = require('ejs') // 使用ejs拼接模板
 const { SyncHook } = require('tapable')
 class Compiler {
   constructor(config) {
@@ -80,9 +80,10 @@ class Compiler {
 
     // 准备一个依赖数组,用于存储当前模块的所有依赖
     let dependencies = []
-
+    // 解析成AST语法树
     let ast = parser.parse(source)
     // console.log(ast.program.body)
+    // 遍历语法树做替换
     traverse(ast, {
       CallExpression(p) {
         if (p.node.callee.name === 'require') {

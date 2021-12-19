@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new HelloWorldPlugin(),
+    // new HelloWorldPlugin(),
     // new HTMLPlugin({
     //   filename: 'index.html',
     //   template: './src/index.html'
@@ -46,5 +46,6 @@ module.exports = {
       // }
     ]
   },
-  mode: 'development'
+  mode: 'development',
+  devtool: 'none'
 }

@@ -93,7 +93,10 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("let news = __webpack_require__(/*! ./news.js */ \"./src/news.js\")\r\nconsole.log(news.content)\r\n\r\n// require('./index.css')\n\n//# sourceURL=webpack:///./src/index.js?");
+let news = __webpack_require__(/*! ./news.js */ "./src/news.js")
+console.log(news.content)
+
+// require('./index.css')
 
 /***/ }),
 
@@ -104,7 +107,22 @@ eval("let news = __webpack_require__(/*! ./news.js */ \"./src/news.js\")\r\ncons
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = {\r\n  content: '后天2222222要下雨了!!!'\r\n}\n\n//# sourceURL=webpack:///./src/message.js?");
+module.exports = {
+  content: '后天2222222要下雨了!!!'
+}
+
+/***/ }),
+
+/***/ "./src/message.js?ab=1":
+/*!*****************************!*\
+  !*** ./src/message.js?ab=1 ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  content: '后天2222222要下雨了!!!'
+}
 
 /***/ }),
 
@@ -115,7 +133,13 @@ eval("module.exports = {\r\n  content: '后天2222222要下雨了!!!'\r\n}\n\n//
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("let message = __webpack_require__(/*! ./message.js */ \"./src/message.js\")\r\n\r\nmodule.exports = {\r\n  content: '后天2222222有个大新闻,爆炸消息!!!内容是:' + message.content\r\n}\n\n//# sourceURL=webpack:///./src/news.js?");
+
+    let message1 = __webpack_require__(/*! ./message.js?ab=1 */ "./src/message.js?ab=1");
+    let message = __webpack_require__(/*! ./message.js */ "./src/message.js")
+
+module.exports = {
+  content: '后天2222222有个大新闻,爆炸消息!!!内容是:' + message.content
+}
 
 /***/ })
 

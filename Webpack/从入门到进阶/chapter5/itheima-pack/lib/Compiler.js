@@ -4,7 +4,7 @@ const parser = require('@babel/parser')
 const traverse = require('@babel/traverse').default
 const generator = require('@babel/generator').default
 const ejs = require('ejs') // 使用ejs拼接模板
-const { SyncHook } = require('tapable')
+const { SyncHook, AsyncSeriesHook } = require('tapable')
 class Compiler {
   constructor(config) {
     this.config = config
@@ -23,6 +23,7 @@ class Compiler {
       emit: new SyncHook(),
       afterEmit: new SyncHook(),
       done: new SyncHook(['modules']),
+      doneAsync: new AsyncSeriesHook()
     }
     // 获取plugins数组中的所有插件对象, 调用其apply方法
     if (Array.isArray(this.config.plugins)) {
@@ -143,7 +144,13 @@ class Compiler {
     this.emitFile()
     // 文件发射完了!
     this.hooks.afterEmit.call()
-    this.hooks.done.call(this.modules)
+    this.hooks.done.call(this.modules, () => {
+      console.log('done回调');
+    })
+    this.hooks.doneAsync.callAsync(null, (err) => {
+      if(err)
+      console.log('doneAysn回调');
+    })
     // console.log(this.modules)
   }
 }

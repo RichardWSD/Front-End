@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "itheima-build": "itheima-pack"
   },
   "devDependencies": {
     "webpack": "^4.33.0",

@@ -9,11 +9,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    // new HelloWorldPlugin(),
-    // new HTMLPlugin({
-    //   filename: 'index.html',
-    //   template: './src/index.html'
-    // })
+    new HelloWorldPlugin(),
+    // 这个插件需要用正常的webpack来用
+    /* new HTMLPlugin({
+      filename: 'index.html',
+      template: './src/index.html'
+    }) */
   ],
   module: {
     rules: [

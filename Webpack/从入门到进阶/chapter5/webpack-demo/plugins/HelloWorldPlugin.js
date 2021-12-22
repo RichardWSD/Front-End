@@ -12,5 +12,10 @@ module.exports = class HelloWorldPlugin {
     compiler.hooks.emit.tap('HelloWorldPlugin', (compilation) => {
       console.log('文件发射结束了!!!', compilation)
     })
+
+    compiler.hooks.doneAsync.tapAsync('HelloWorldPlugin', (compilation) => {
+      // throw new Error('我是doneAsync的tap的错误')
+      console.log('我是doneAsync的tap')
+    })
   }
 }

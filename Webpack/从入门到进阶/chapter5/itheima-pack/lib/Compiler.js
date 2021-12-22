@@ -23,6 +23,7 @@ class Compiler {
       emit: new SyncHook(),
       afterEmit: new SyncHook(),
       done: new SyncHook(['modules']),
+      // doneAsync: new AsyncSeriesHook(['name'])
       doneAsync: new AsyncSeriesHook()
     }
     // 获取plugins数组中的所有插件对象, 调用其apply方法
@@ -147,8 +148,7 @@ class Compiler {
     this.hooks.done.call(this.modules, () => {
       console.log('done回调');
     })
-    this.hooks.doneAsync.callAsync(null, (err) => {
-      if(err)
+    this.hooks.doneAsync.callAsync(() => {
       console.log('doneAysn回调');
     })
     // console.log(this.modules)

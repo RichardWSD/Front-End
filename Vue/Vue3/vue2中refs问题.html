@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+
+<body>
+  <div id="example">
+    <div v-for="item in items" ref="items">
+      {{item.name}}
+      <span v-for="i2 in item.items" ref="item2">{{i2}} -> </span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: "#example",
+      data: {
+        items: [
+          { name: 'tom', items: ['tom1','tom2'] },
+          { name: 'bob', items: ['bob1', 'bob2'] }
+        ],
+      },
+      mounted() {
+        console.log(this.$refs.items)
+        console.log(this.$refs.item2)
+      },
+    });
+  </script>
+</body>
+
+</html>

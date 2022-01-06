@@ -15,3 +15,5 @@ function test1(a: string, b?: string, c: string = 'jojo') {
     console.log(b);
     console.log(c);
 }
+
+test('a','b','c')

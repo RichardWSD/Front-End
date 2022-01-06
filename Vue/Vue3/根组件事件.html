@@ -17,20 +17,21 @@
   <script type="text/javascript">
     const app =  Vue.createApp({
       template: `<my-button @expand="onExpand"></my-button>`,
-      methods: {
-        // 监听 'expand' 事件
-        onExpand(event) {
-          console.log(event)
-        }
-      },
       onExpand(event) {
           console.log(event)
         }
     });
 
     app.component('my-button', {
-      template: `<div v-on:click="$emit('expand', $event)">我是自定义按钮</div>`,
-      emits: ['expand']
+      template: `<div @expand="onExpand">
+          我是Button父组件
+          <child />
+        </div>`,
+      components: {
+        'child': {
+          template: `<div v-on:click="$emit('expand', $event)">我是自定义按钮</div>`
+        }
+      }
     })
 
     app.mount('#example')

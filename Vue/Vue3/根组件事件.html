@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue3.js"></script>
+</head>
+
+<body>
+  <div id="example">
+    
+  </div>
+
+  <script type="text/javascript">
+    const app =  Vue.createApp({
+      template: `<my-button @expand="onExpand"></my-button>`,
+      methods: {
+        // 监听 'expand' 事件
+        onExpand(event) {
+          console.log(event)
+        }
+      },
+      onExpand(event) {
+          console.log(event)
+        }
+    });
+
+    app.component('my-button', {
+      template: `<div v-on:click="$emit('expand', $event)">我是自定义按钮</div>`,
+      emits: ['expand']
+    })
+
+    app.mount('#example')
+  </script>
+</body>
+
+</html>

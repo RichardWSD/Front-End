@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue3.js"></script>
+</head>
+
+<body>
+  <div id="example">
+    
+  </div>
+
+  <script type="text/javascript">
+    const app =  Vue.createApp({
+      template: `<div>
+        {{msg}}
+        <child :theme="msg"></child>
+        <button @click="change">chagne</button>
+        </div>`,
+      setup() {
+        const msg = Vue.ref('abc')
+        const change = () => {
+          msg.value = msg.value + 's'
+        }
+        return {
+          msg,
+          change
+        }
+      },
+      components: {
+        child: {
+          template: `<div>child theme: {{theme}}</div>`,
+          props: ['theme'],
+          setup(props) {
+            const {theme} = Vue.toRefs(props)
+            // const theme = props['theme']
+            console.log(props);
+            return {
+              theme
+            }
+          }
+        }
+      }
+    });
+
+    app.mount('#example')
+  </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 new Vue({
   el: '#app'

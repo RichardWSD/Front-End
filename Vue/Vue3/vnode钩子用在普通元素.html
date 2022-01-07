@@ -16,25 +16,15 @@
 
   <script type="text/javascript">
     const app =  Vue.createApp({
-      template: `<my-button>施劳德拉夫的</my-button>`,
-      // template: `<div>施劳德拉夫的</div>`,
-    },{
-      onExpand(event) {
-          console.log(event)
+      template: `<div @vnodeMounted="loaded">施劳德拉夫的</div>`,
+      methods: {
+        loaded() {
+          console.log(111)
         }
+      },
     });
 
-    app.component('my-button', {
-      template: `<div @click="$emit('expand', 'sdlflsdlf')">
-          我是Button
-        </div>`,
-    })
-
     app.mount('#example')
-
-    setTimeout(() => {
-      app._instance.emit('expand', 'abc')
-    }, 2000);
   </script>
 </body>
 

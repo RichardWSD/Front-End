@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+
+<body>
+  <div id="example">
+   
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.optionMergeStrategies.myOption = (toVal, fromVal) => {
+      console.log(fromVal, toVal)
+      return fromVal || toVal
+    }
+
+    Vue.mixin({
+      created: function () {
+        var myOption = this.$options.myOption
+          console.log(myOption)
+      },
+      myOption: 'goodbye!'
+    })
+
+    new Vue({
+      myOption: 'hello!'
+    })
+  </script>
+</body>
+
+</html>

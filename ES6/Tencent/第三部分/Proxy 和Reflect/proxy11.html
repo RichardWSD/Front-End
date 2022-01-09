@@ -15,8 +15,8 @@
         let newSum = new Proxy(sum, {
             //target:函数名 context:this指向 args:参数数组
             apply(target, context, args){
-                //console.log(target, context, args);
-                //console.log(...arguments);
+                console.log(target, context, args);
+                console.log(...arguments);
                 return Reflect.apply(...arguments);
             }
         });

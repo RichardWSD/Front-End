@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue3.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    const { ref, watch, nextTick } = Vue
+    const firstName = ref('')
+    const lastName = ref('')
+
+    watch([firstName, lastName], (newValues, prevValues) => {
+      console.log('=>', newValues, prevValues)
+    })
+
+    firstName.value = 'John' // logs: ["John", ""] ["", ""]
+    lastName.value = 'Smith' // logs: ["John", "Smith"] ["John", ""]
+  </script>
+  <script>
+    const app = Vue.createApp({
+      template: `<button @click="changeValues">change</button>`,
+      setup(props) {
+        const changeValues = async () => {
+          console.log('====================');
+          firstName.value = 'John1'
+          await nextTick()
+          lastName.value = 'Smith1'
+        }
+
+        return { changeValues }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

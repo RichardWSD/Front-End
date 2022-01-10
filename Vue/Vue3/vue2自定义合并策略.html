@@ -16,10 +16,14 @@
   </div>
 
   <script type="text/javascript">
-    Vue.config.optionMergeStrategies.myOption = (toVal, fromVal) => {
-      console.log(fromVal, toVal)
-      return fromVal || toVal
+    Vue.config.optionMergeStrategies.myOption = (parent, child) => {
+      console.log(parent, child)
+      return child || parent
     }
+
+    new Vue({
+      myOption: 'hello!'
+    })
 
     Vue.mixin({
       created: function () {
@@ -30,7 +34,7 @@
     })
 
     new Vue({
-      myOption: 'hello!'
+      myOption: 'hello!222'
     })
   </script>
 </body>

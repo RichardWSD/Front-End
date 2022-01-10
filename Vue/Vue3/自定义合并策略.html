@@ -16,11 +16,11 @@
       custom: 'hello!'
     })
 
-    app.config.optionMergeStrategies.custom = (toVal, fromVal) => {
-      console.log(fromVal, toVal)
+    app.config.optionMergeStrategies.custom = (parent, child) => {
+      console.log(child, parent)
       // => "goodbye!", undefined
       // => "hello", "goodbye!"
-      return fromVal || toVal
+      return child || parent
     }
 
     app.mixin({
@@ -30,6 +30,10 @@
       }
     })
 
+
+    
+
+    
     app.mount('#app')
   </script>
 </body>

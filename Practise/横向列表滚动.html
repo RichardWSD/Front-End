@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .tabs-wrapper {
+      overflow: hidden;
+    }
+    .tabs-nav {
+      width: 500px;
+      display: flex;
+      border: 2px solid;
+      overflow-x: auto;
+      margin: 100px auto;
+    }
+    .tab {
+      flex: 1 0 100px;
+      height: 30px;
+    }
+  </style>
+  <script>
+    function scrollto() {
+      const nav = document.querySelector('.tabs-nav')
+      nav.scrollLeft += 100
+    }
+    
+  </script>
+</head>
+<body>
+  <div class="tabs-wrapper">
+    <div class="tabs-nav">
+      <div class="tab">标签1 </div>
+      <div class="tab">标签2 </div>
+      <div class="tab">标签3 </div>
+      <div class="tab">标签4 </div>
+      <div class="tab">标签5 </div>
+      <div class="tab">标签6 </div>
+      <div class="tab">标签7 </div>
+      <div class="tab">标签8 </div>
+    </div>
+  </div>
+  
+  <button onclick="scrollto()">滚动100px</button>
+  
+</body>
+</html>

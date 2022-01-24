@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>{{object.foo}}</div>
+    <button @click="changeObj">change</button>
+  </div>
+
+  <script setup type="text/javascript">
+    const app = Vue.createApp({
+      data() {
+        return {
+          object: { foo: 'bar' }
+        }
+      },
+      methods: {
+        changeObj() {
+          this.object.foo = 'bar2'
+        }
+      },
+    })
+
+    const vm = app.mount('#app')
+
+    vm.$watch('object', (newVal, oldVal) => {
+      // 当变更（不是替换）对象或数组并使用 deep 选项时，旧值将与新值相同，因为它们的引用指向同一个对象/数组。
+      console.log(newVal, oldVal);
+    }, {
+      deep: true
+    })
+
+    
+  </script>
+</body>
+
+</html>

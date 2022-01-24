@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="addToCart">Add to cart</button>
+    <p>Cart({{ cart }})</p>
+  </div>
+
+  <script type="text/javascript">
+    const app = Vue.createApp({
+      data() {
+        return {
+          cart: 0
+        }
+      },
+      renderTracked({ key, target, type }) {
+        console.log({ key, target, type })
+        /* 当组件第一次渲染时，这将被记录下来:
+        {
+          key: "cart",
+          target: {
+            cart: 0
+          },
+          type: "get"
+        }
+        */
+      },
+      methods: {
+        addToCart() {
+          this.cart += 1
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

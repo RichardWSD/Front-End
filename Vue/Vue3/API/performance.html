@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./vue3.js"></script>
+  <script src="../vue3.js"></script>
 </head>
 
 <body>
@@ -16,21 +16,17 @@
 
   <script type="text/javascript">
     const app =  Vue.createApp({
-      template: `<my-button v-on:click="handleClick"></my-button>`,
-      methods: {
-        handleClick() {
-          console.log(11111);
-        }
-      },
+      template: `<my-button>施劳德拉夫的</my-button>`,
     });
 
     app.component('my-button', {
-      template: `<div v-on:click="$emit('click', $event)">我是自定义按钮</div>`,
-      emits: ['click']
+      template: `<div @click="$emit('expand', 'sdlflsdlf')">
+          我是Button
+        </div>`,
     })
 
+    app.config.performance = true
     app.mount('#example')
-
   </script>
 </body>
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="addToCart">Add to cart</button>
+    <p>Cart({{ cart }})</p>
+  </div>
+
+  <script type="text/javascript">
+    const app = Vue.createApp({
+      data() {
+        return {
+          cart: 0
+        }
+      },
+      renderTriggered({ key, target, type }) {
+        console.log({ key, target, type })
+      },
+      methods: {
+        addToCart() {
+          this.cart += 1
+          /* 这将导致 renderTriggered 被调用
+            {
+              key: "cart",
+              target: {
+                cart: 1
+              },
+              type: "set"
+            }
+          */
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

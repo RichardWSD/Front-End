@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="example">
+
+  </div>
+
+  <script type="text/javascript">
+    const { ref, reactive, toRef } = Vue
+    const state = reactive({
+      foo: 1,
+      bar: 2
+    })
+
+    const fooRef = toRef(state, 'foo')
+    // 即使源 property 不存在，toRef 也会返回一个可用的 ref。这使得它在使用可选 prop 时特别有用，可选 prop 并不会被 toRefs 处理
+    const foo2Ref = toRef(state, 'foo2')
+
+    fooRef.value++
+    console.log(state.foo) // 2
+
+    state.foo++
+    console.log(fooRef.value) // 3
+
+    foo2Ref.value = 1
+    console.log(foo2Ref.value, state);
+  </script>
+</body>
+
+</html>

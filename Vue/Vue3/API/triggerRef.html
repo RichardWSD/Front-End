@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="example">
+
+  </div>
+
+  <script type="text/javascript">
+    const { triggerRef, shallowRef, watchEffect } = Vue
+    const shallow = shallowRef({
+      greet: 'Hello, world'
+    })
+
+    // 第一次运行时记录一次 "Hello, world"
+    watchEffect(() => {
+      console.log(shallow.value.greet)
+    })
+
+    // 这不会触发作用 (effect)，因为 ref 是浅层的
+    shallow.value.greet = 'Hello, universe'
+
+    // 记录 "Hello, universe"
+    triggerRef(shallow)
+  </script>
+</body>
+
+</html>

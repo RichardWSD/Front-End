@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue3.js"></script>
+</head>
+
+<body>
+  <div id="example">
+
+  </div>
+
+  <script type="text/javascript">
+    const { ref, reactive, markRaw, isReactive } = Vue
+    const foo = markRaw({
+      nested: {}
+    })
+
+    console.log(`foo reactive: ${isReactive(foo)}, foo.nested reactive: ${isReactive(foo.nested)}`);
+
+    const bar = reactive({
+      // 虽然 `foo` 被标记为原始，但 foo.nested 不是。
+      foo,
+      nested: foo.nested
+    })
+
+    // 原始选择退出仅在根级别，因此，如果将嵌套在内的、未标记的原始对象添加进响应式对象，然后再次访问该响应式对象，就会得到原始对象被代理后的版本
+    console.log(`bar.foo reactive: ${isReactive(bar.foo)}, bar.foo.nested reactive: ${isReactive(bar.foo.nested)}, bar.nested reactive: ${isReactive(bar.nested)}`);
+
+    console.log(foo.nested === bar.nested) // false
+  </script>
+</body>
+
+</html>

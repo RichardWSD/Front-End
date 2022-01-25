@@ -24,7 +24,7 @@
     <!-- <div v-if="msg.val">{{ msg.val }}</div>
     <div v-else>---</div>
     <button @click="del">delete</button> -->
-    
+
     <!-- data -->
     <!-- <div>{{ $data.a }}</div>
     <div>{{ _data.a }}</div>
@@ -34,9 +34,9 @@
     <!-- <parent-com></parent-com> -->
 
     <!-- errorCaptured -->
-    <cat name="my cat">
+    <!-- <cat name="my cat">
       <kitten></kitten>
-    </cat>
+    </cat> -->
 
     <!-- extends -->
     <!-- {{num}}
@@ -62,7 +62,7 @@
     
       <p>If I have some content down here, it will also be included in vm.$slots.default.</p>
     </blog-post> -->
-    
+
     <!-- scopedSlots -->
     <!-- <my-component>
       <h1 slot-scope="props">{{props.text}}</h1>
@@ -101,23 +101,23 @@
 
     <!-- is -->
     <!-- div会被提到table外面 -->
-    <!-- <table>
+    <table>
       <tr>
         <div>111</div>
       </tr>
-    </table> -->
+    </table>
     <!-- 变通方式让div渲染在table内 -->
-<!--     <table>
+    <table>
       <tr is="row"></tr>
-    </table> -->
+    </table>
     <!-- 使用字符串模板不存在限制 -->
-    <!-- <my-table></my-table> -->
+    <my-table></my-table>
   </div>
 
   <!-- extend -->
   <!-- <div id="mount-point"></div> -->
 
-  <script src="errorCaptured.js"></script>
+  <script src="is.js"></script>
 </body>
 
 

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    
+    <slot></slot>
   </div>
 </template>
 
@@ -17,5 +17,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  span {
+    color: red;
+  }
 </style>

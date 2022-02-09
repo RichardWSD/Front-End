@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      display: block;
+    }
+    .ul {
+      position: absolute;
+      display: none;
+      width: 300px;
+      background: hsla(0, 0%, 100%, .75);
+      /* https://www.zhangxinxu.com/wordpress/2019/11/css-backdrop-filter/ */
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="drop()">点我下拉</button>
+  <div id="ul" class="ul">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+  <img src="mm.jpg" width="256" height="170">
+
+  <script>
+    function drop() {
+      const el = document.querySelector('#ul')
+      el.style.display = 'block'
+    }
+  </script>
+</body>
+
+</html>

@@ -1,13 +1,14 @@
-
-function deepClone(obj) {
-  if (typeof obj !== 'object' && typeof obj !== 'function') {
-      return obj;
+const deepClone = obj => {
+  if (obj === null) return null;
+  let clone = Object.assign({}, obj);
+  Object.keys(clone).forEach(
+    key =>
+      (clone[key] =
+        typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
+  );
+  if (Array.isArray(obj)) {
+    clone.length = obj.length;
+    return Array.from(clone);
   }
-  var o = Array.isArray(obj) ? [] : {};
-  for (key in obj) {
-      if (Object.prototype.hasOwnProperty.call(key, obj)) {
-          o[key] === typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key];
-      }
-  }
-  return o;
-}
+  return clone;
+};

@@ -9,75 +9,58 @@
 
 <body>
 
-  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <div id="example">
-
     <span v-for="item in items">{{item.name}}</span><br>
-
     <span v-on:click="changeMessage">click me</span>
-
     {{message}}
-
   </div>
 
   <script type="text/javascript">
-// https://www.zhihu.com/question/266247389
+    // https://www.zhihu.com/question/266247389
     var app = new Vue({
-
       el: "#example",
 
       data: {
-
         items: [
-
           { name: 'tom' },
-
           { name: 'bob' }
-
         ],
-
         message: "hello"
-
       },
 
       methods: {
-
         changeMessage: function () {
-
           this.message = 'hello world';
-
         }
-
       },
 
-      beforeMount(){
+      beforeMount() {
         // setTimeout(() => {
-          
         //     this.message ='2528552'
         //   }, 1000);
       },
 
+      /* 
+        在 this.item 处打个断点调试就知道了
+          beforeUpdate 中修改数据由于 has[id] === true 所以不会导致执行 watcher.run()，所以没有循环触发问题
+          updated 中 has[id] === null，所以循环触发
+      */
       // 不会死循环且不会触发更新过程
       beforeUpdate: function () {
-
         console.log('>>>>>>beforeUpdate');
         // this.message ='2528552'
-        setTimeout(() => {
-          
-          this.message ='2528552'
-        }, 1000);
-
+        /*  setTimeout(() => {
+           this.message ='2528552'
+         }, 1000); */
+        // this.items = [{ name: 'tom-new' }, { name: 'bob-new' }];
       },
 
       //死循环
       updated: function () {
-
         console.log('>>>>>>updated');
-
-        // this.items = [{ name: 'tom-new' }, { name: 'bob-new' }];
-
+        this.items = [{ name: 'tom-new' }, { name: 'bob-new' }];
       }
-
     });
   </script>
 </body>

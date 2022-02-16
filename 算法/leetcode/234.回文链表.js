@@ -16,7 +16,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// 双指针
+/* // 双指针
 var isPalindrome = function(head) {
   if (head == null) return true;
 
@@ -59,7 +59,22 @@ function endOfFirstHalf(head) {
       slow = slow.next;
   }
   return slow;
-}
+} */
+
+// 复制到数组中后用双指针法
+var isPalindrome = function(head) {
+  const vals = [];
+  while (head !== null) {
+      vals.push(head.val);
+      head = head.next;
+  }
+  for (let i = 0, j = vals.length - 1; i < j; ++i, --j) {
+      if (vals[i] !== vals[j]) {
+          return false;
+      }
+  }
+  return true;
+};
 
 // @lc code=end
 

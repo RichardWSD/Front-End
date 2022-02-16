@@ -23,13 +23,13 @@
 // 排序
 // 方法：投票法
 var majorityElement = function(nums) {
-  let x = 0
-  let m = 0
+  let count = 0
+  let candidate
   for(let n of nums){
-    if(m === 0) x = n
-    m += x === n ? 1 : -1
+    if(count === 0) candidate = n
+    count += candidate === n ? 1 : -1
   }
-  return x
+  return candidate
 };
 
 // @lc code=end

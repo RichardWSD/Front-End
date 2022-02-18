@@ -1,7 +1,7 @@
 /*
  * @Author: Richard
  * @Date: 2022-02-16 15:15:16
- * @LastEditTime: 2022-02-18 19:07:23
+ * @LastEditTime: 2022-02-18 19:40:59
  * @LastEditors: Richard
  * @Description: 
  *  递归算法空间复杂度：递归深度n*每次递归所要的辅助空间，如果每次递归所需要的辅助空间为常数，则递归空间复杂度o（n）
@@ -238,6 +238,11 @@ function bstSort(nums) {
   }
 }
 
+/**
+ * @description: 
+ * @param {*} array
+ * @return {*}
+ */
 function countSort(array) {
   //1.得到数列的最大值和最小值，并算出差值d
   let max = array[0];

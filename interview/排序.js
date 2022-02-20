@@ -1,7 +1,7 @@
 /*
  * @Author: Richard
  * @Date: 2022-02-16 15:15:16
- * @LastEditTime: 2022-02-18 19:40:59
+ * @LastEditTime: 2022-02-20 21:14:42
  * @LastEditors: Richard
  * @Description: 
  *  递归算法空间复杂度：递归深度n*每次递归所要的辅助空间，如果每次递归所需要的辅助空间为常数，则递归空间复杂度o（n）
@@ -23,6 +23,7 @@ function swap(nums, i, j) {
  * @description: 冒泡排序
  * 时间复杂度： O(n^2)
  * 空间复杂度： O(1)
+ * 稳定
  * @param {*} nums
  * @return {*}
  */
@@ -39,6 +40,7 @@ function bubbleSort(nums) {
  * @description: 选择排序
  * 时间复杂度： O(n^2)
  * 空间复杂度： O(1)
+ * 不稳定，不过可以改造成稳定的
  * @param {*} nums
  * @return {*}
  */
@@ -78,6 +80,7 @@ function insertionSort(nums) {
  * @description: 希尔排序
  * 时间复杂度：有点复杂
  * 空间复杂度： O(1)
+ * 不稳定
  * @param {*} nums
  * @return {*}
  */
@@ -98,12 +101,47 @@ function shellSor(nums) {
 }
 
 /**
+ * @description: 归并排序
+ * 时间复杂度：O(nlogn)
+ * 空间复杂度： O(n)
+ * 稳定
+ * @param {*} nums
+ * @param {*} left
+ * @param {*} right
+ * @return {*}
+ */
+function mergeSort(nums, left, right) {  // 需要左右边界确定排序范围
+  if (left >= right) return;
+  let mid = parseInt((left + right) / 2);
+
+  mergeSort(nums, left, mid);                           // 先对左右子数组进行排序
+  mergeSort(nums, mid + 1, right);
+
+  let temp = Array(right - left + 1).fill(0)                // 临时数组存放合并结果
+  let i = left, j = mid + 1;
+  let cur = 0;
+  while (i <= mid && j <= right) {                            // 开始合并数组
+    if (nums[i] <= nums[j]) temp[cur] = nums[i++];
+    else temp[cur] = nums[j++];
+    cur++;
+  }
+  while (i <= mid) temp[cur++] = nums[i++];
+  while (j <= right) temp[cur++] = nums[j++];
+
+  for (let k = 0; k < temp.length; k++) {             // 合并数组完成，拷贝到原来的数组中
+    nums[left + k] = temp[k];
+  }
+}
+
+
+/**
  * @description: 快速排序（有时称为分区交换排序）
  * 核心思想：取第一个元素作为分界点，把整个数组分成左右两侧，
  *        左边的元素小于或者等于分界点元素，而右边的元素大于分界点元素，然后把分界点移到中间位置，
  *        对左右子数组分别进行递归，最后就能得到一个排序完成的数组
  * 时间复杂度： O(nlogn) 
  * 空间复杂度： O(logn)
+ * 不稳定
  * @param {*} arr
  * @param {*} startIndex
  * @param {*} endIndex
@@ -152,6 +190,7 @@ function quickSort(arr, startIndex, endIndex) {
 * 核心思想：首先构造一个最大堆，然后依次把堆顶元素与最后一个元素交换，递归执行最后就形成了从堆顶到堆尾的排好序的数组
 * 时间复杂度：O(nlogn)
 * 空间复杂度：O(1)
+* 稳定
 * @param array     待调整的堆
 */
 function heapSort(array) {
@@ -202,6 +241,7 @@ function heapSort(array) {
  * 核心思想：用数组内的所有元素构建一个搜索二叉树，然后用中序遍历重新将所有的元素填充回原来的数组中
  * 时间复杂度： 最坏：O(n^2) 最好：O(nlogn)
  * 空间复杂度：O(n)
+ * 稳定
  * @param {*} nums
  * @return {*}
  */
@@ -239,7 +279,10 @@ function bstSort(nums) {
 }
 
 /**
- * @description: 
+ * @description: 计数排序
+ * 时间复杂度： O(n + r)
+ * 空间复杂度：O(n + r)
+ * 稳定
  * @param {*} array
  * @return {*}
  */
@@ -274,5 +317,101 @@ function countSort(array) {
   return sortedArray;
 }
 
-console.log(countSort(arr));
+/**
+ * @description: 桶排序
+ * 时间复杂度： 最好：O(n)   最坏：O(nlogn)
+ * 空间复杂度：O(n)
+ * 稳定
+ * @param {*} array
+ * @return {*}
+ */
+function bucketSort(array) {
 
+  //1.得到数列的最大值和最小值，并算出差值d
+  let max = array[0];
+  let min = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
+  }
+  let d = max - min;
+
+  //2.初始化桶
+  let bucketNum = array.length;
+  let bucketList = Array(bucketNum)
+  for (i = 0; i < bucketList.length; i++) {
+    bucketList[i] = [];
+  }
+
+
+  //3.遍历原始数组，将每个元素放入桶中
+  for (let i = 0; i < array.length; i++) {
+    let num = parseInt((array[i] - min) * (bucketNum - 1) / d);
+    bucketList[num].push(array[i]);
+  }
+
+  //4.对每个桶内部进行排序
+  for (let i = 0; i < bucketList.length; i++) {
+    //采用归并排序或归并的优化版本,这里我先用着js的原生排序
+    bucketList[i].sort((a, b) => a - b);
+  }
+
+  //5.输出全部元素
+  let sortedArray = Array(array.length).fill(0)
+  let index = 0;
+  for (list of bucketList) {
+    for (element of list) {
+      sortedArray[index] = element;
+      index++;
+    }
+  }
+  return sortedArray;
+}
+
+/**
+ * @description: 基数排序
+ * 时间复杂度：-
+ * 空间复杂度：-
+ * 稳定
+ * @param {*} nums
+ * @return {*}
+ */
+function radixSort(nums) {
+  let max = -1;
+  let min = 1;
+  for (let num of nums) {         // 计算最大最小值
+    max = Math.max(max, num);
+    min = Math.min(min, num);
+  }
+  max = Math.max(max, -min);     // 求得绝对值最大的值
+  let digits = 0;
+  while (max > 0) {              // 计算绝对值最大的值的位数
+    max /= 10;
+    digits++;
+  }
+  let buckets = Array(19).fill(0); // 建一个包含所有位数的数组
+  for (let i = 0; i < buckets.length; i++) {
+    buckets[i] = []
+  }
+  let pos;
+  let cur;
+  for (let i = 0, mod = 1; i < digits; i++, mod *= 10) { // 对十进制每一位进行基数排序
+    for (let num of nums) {                 // 扫描数组将值放入对应的桶
+      pos = parseInt(num / mod) % 10;
+      buckets[pos + 9].push(num);
+    }
+    cur = 0;
+    for (let bucket of buckets) { // 将桶内元素放回到数组里面
+      if (bucket != null) {
+        for (let integer of bucket) {
+          nums[cur++] = integer;
+        }
+        bucket.length = 0                // 将桶清空
+      }
+    }
+  }
+}

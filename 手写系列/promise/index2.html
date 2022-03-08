@@ -18,7 +18,13 @@
       return 222
     }).then(console.log) */
 
-    console.log(Promise.resolve(2).finally(() => {}));
+    // console.log(Promise.resolve(2).finally(() => {}));
+
+    // promise吃掉错误，因为执行excute的时候会try..catch
+    let promise = new Promise(() => {
+        throw new Error('error')
+    });
+    console.log(2333333);
   </script>
 </body>
 </html>

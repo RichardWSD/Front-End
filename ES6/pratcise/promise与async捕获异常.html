@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    try {
+      // 1.Uncaught (in promise) 1111
+      // Promise.reject('1111')
+
+      //2.如果这里给写 await 是可以捕获的，看例5
+      //  aa()
+
+      //3.正常情况
+      // bb()
+
+      // 4.要显示返回值才能打印出来，不然就相当于return undefined阿
+      returnDemo().then(console.log)
+
+      // 5.async 内部一定要加上 await，不然就相当于例2 / 例1
+      // catchError()
+    } catch (error) {
+      console.log('error', error);
+    }
+
+    // 这里函数内部没有用到 await，就相当于普通function
+    async function aa() {
+      // throw new Error('111')
+      Promise.reject('11')
+      // return Promise.reject('11')
+    }
+
+    function bb() {
+      throw new Error('111')
+    }
+
+    async function returnDemo() {
+      await 123
+      // return 123
+      // await Promise.resolve(123)
+      // return Promise.resolve(123)
+    }
+
+    async function catchError() {
+      try {
+        await Promise.reject('1111111')  // 捕获到, ES6入门教程 async实现原理中留意到  return gen.throw(e);
+        // Promise.reject('1111111')  // 捕获不到
+      } catch (error) {
+        console.log('catchError:',error);
+      }
+    }
+  </script>
+</body>
+</html>

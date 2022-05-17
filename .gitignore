@@ -260,5 +260,13 @@ paket-files/
 __pycache__/
 *.pyc
 /Front-End/Vue/Tencent/vue-basic/新建文件夹
-/Python/Python3零基础入门学习视频+源码+课件+习题/视频/*.mp4
+/Python/**/*.mp4
+/Python/**/*.wav
+/Python/**/*.zip
+/Python/**/*.rar
+/Python/**/*.swf
+/Python/**/*.ogg
+/Python/**/*.exe
+/Python/**/*.tar.gz
+/Python/**/*.msi
 /Wxmini/代码和资料/代码/03小程序初体验

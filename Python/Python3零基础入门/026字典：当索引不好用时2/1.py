@@ -25,8 +25,8 @@ print(dict1)
 
 a = {1: 'one', 2: 'two', 3: 'three'}
 print(id(a)) #查看a变量的地址
-print(id(b))
-print(id(c))
+# print(id(b))
+# print(id(c))
 
 print(a.pop(2)) #弹出键为2的项
 print(a.popitem()) #字典是没顺序的所以这个是随机弹的

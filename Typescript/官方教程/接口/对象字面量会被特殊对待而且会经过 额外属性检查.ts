@@ -14,7 +14,10 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
   return newSquare;
 }
 
+
+
 // 对象字面量会被特殊对待而且会经过 额外属性检查，当将它们赋值给变量或作为参数传递的时候。 如果一个对象字面量存在任何“目标类型”不包含的属性时，你会得到一个错误
+// var mySquare = createSquare({ colour: "red", width: 100 });
 // 绕开这些检查办法
 // 1。使用类型断言
 var mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);

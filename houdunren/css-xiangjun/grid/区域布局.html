@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      /* grid-template-rows: 80px 1fr 50px;
+      grid-template-columns: 100px 1fr 50px 60px;
+      grid-template-areas: "header header header header"
+        "nav main main aside"
+        "footer footer footer footer"; */
+      grid-template:
+        "header header header header"80px "nav main main aside"auto "footer footer footer footer"50px/100px auto 50px 60px;
+    }
+
+    main {
+      /* 完整的写法，推荐使用下面的简写方式*/
+      /* grid-area: main-start/main-start/main-end/main-end; */
+      grid-area: main;
+      background: #e9eeef;
+    }
+
+    header {
+      background: #2ec56c;
+      grid-area: header;
+    }
+
+    nav {
+      background: #e1732c;
+      grid-area: nav;
+    }
+
+    aside {
+      grid-area: aside;
+      background: #eebc31;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #904fa9;
+    }
+  </style>
+</head>
+
+<body>
+  <header></header>
+  <nav></nav>
+  <main></main>
+  <aside></aside>
+  <footer></footer>
+</body>
+
+</html>

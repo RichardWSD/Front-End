@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      place-content: center center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    main {
+      display: grid;
+      grid: 10vh / repeat(4, 1fr);
+      place-items: center center;
+    }
+
+    div {
+      background-clip: content-box;
+      border: solid 1px #ddd;
+      color: white;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    div:nth-child(1) {
+      background-color: #3498db;
+    }
+
+    div:nth-child(2) {
+      background-color: #f1c40f;
+    }
+
+    div:nth-child(3) {
+      background-color: #2ecc71;
+    }
+
+    div:nth-child(4) {
+      background-color: #9b59b6;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div href="">后盾人</div>
+    <div href="">向军老师</div>
+    <div href="">HDCMS</div>
+    <div href="">后盾人</div>
+  </main>
+</body>
+
+</html>

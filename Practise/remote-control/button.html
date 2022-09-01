@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .button-group {
+      padding-top: 20px;
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+
+    .outter-circle {
+      position: relative;
+      margin-left: 10px;
+      width: 280px;
+      height: 280px;
+      background-color: lightcyan;
+      border-radius: 100%;
+      overflow: hidden;
+      transform-origin: center;
+      transform: rotate(45deg);
+    }
+
+    .inner-parts {
+      float: left;
+      width: 140px;
+      height: 140px;
+      line-height: 140px;
+      text-align: center;
+    }
+
+    .silver {
+      background-color: silver;
+    }
+
+    .gold {
+      background-color: gold;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .brown {
+      background-color: brown;
+    }
+
+    .inner-circle {
+      position: absolute;
+      margin-top: 70px;
+      margin-left: 70px;
+      width: 140px;
+      height: 140px;
+      line-height: 140px;
+      text-align: center;
+      border-radius: 100%;
+      background-color: lightblue;
+    }
+
+    .rotate {
+      display: inline-block;
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="button-group">
+    <div class="outter-circle">
+      <div class="inner-parts brown" data-type="volAdd">
+        <span class="rotate">+</span>
+      </div>
+      <div class="inner-parts silver" data-type="chaAdd">
+        <span class="rotate">+</span>
+      </div>
+      <div class="inner-parts blue" data-type="chaDes">
+        <span class="rotate">-</span>
+      </div>
+      <div class="inner-parts gold" data-type="volDes">
+        <span class="rotate">-</span>
+      </div>
+
+      <div class="inner-circle" data-type="ok">
+        <span class="ok rotate">ok</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

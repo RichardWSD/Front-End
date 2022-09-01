@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .button-group {
+      padding-top: 20px;
+      width: 300px;
+      height: 300px;
+      background-color: #000b36;
+    }
+
+    .outter-circle {
+      position: relative;
+      z-index: 0;
+      margin-left: 10px;
+      width: 280px;
+      height: 280px;
+      background-color: #000b36;
+      border-radius: 100%;
+      transform-origin: center;
+      transform: rotate(45deg);
+    }
+
+    .inner-parts {
+      float: left;
+      width: 140px;
+      height: 140px;
+      line-height: 140px;
+      text-align: center;
+      background-color: #e89e43;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-btn {
+      width: 60px;
+      height: 60px;
+      background-color: #bd3124;
+      border-radius: 100%;
+      box-shadow: 0 0 5px 5px #4c182b;
+      transform: scale(1);
+      opacity: 0.9;
+      position: absolute;
+      left: 110px;
+      top: 110px;
+    }
+
+    .arrow {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #fff;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    .arrow-right {
+      transform: rotate(90deg);
+    }
+
+    .arrow-down {
+      transform: rotate(180deg);
+    }
+
+    .arrow-left {
+      transform: rotate(-90deg);
+    }
+
+    .pointer {
+      width: 180px;
+      height: 4px;
+      background-color: #fff;
+      position: relative;
+    }
+
+    .pointer::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      background-color: #fff;
+      top: -4px;
+      left: 12px;
+    }
+
+    .pointer-wrapper {
+      position: absolute;
+      z-index: -1;
+      left: 122px;
+      top: 138px;
+      transform-origin: 18px 2px;
+      transform: rotate(-135deg);
+    }
+
+    .top-part {
+      clip-path: path('M0 120 A140 140 0 0 1 120 0 L120 80 A70 70 0 0 0 80 120 Z');
+    }
+
+    .right-part {
+      clip-path: path('M20 0 A140 140 0 0 1 140 120 L60 120 A70 70 0 0 0 20 80 Z');
+    }
+
+    .left-part {
+      clip-path: path('M0 20 A140 140 0 0 0 120 140 L120 60 A70 70 0 0 1 80 20 Z');
+    }
+
+    .bottom-part {
+      clip-path: path('M20 60 A70 70 0 0 0 60 20 L140 20 A140 140 0 0 1 20 140 Z');
+    }
+  </style>
+</head>
+
+<body>
+  <div class="button-group">
+    <div class="outter-circle">
+      <div class="inner-parts top-part" onclick="alert(111)" data-type="volAdd">
+        <span class="arrow"></span>
+      </div>
+      <div class="inner-parts right-part" data-type="chaAdd">
+        <span class="arrow arrow-right"></span>
+      </div>
+      <div class="inner-parts left-part" data-type="chaDes">
+        <span class="arrow arrow-left"></span>
+      </div>
+      <div class="inner-parts bottom-part" data-type="volDes">
+        <span class="arrow arrow-down"></span>
+      </div>
+      <div class="pointer-wrapper">
+        <div class="pointer"></div>
+      </div>
+      <div class="circle-btn"></div>
+    </div>
+  </div>
+</body>
+
+</html>

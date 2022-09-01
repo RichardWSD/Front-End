@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /**
+* Quarter Circles
+*/
+
+    .main {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+
+    .quarter {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .quarter:hover {
+      background-color: pink;
+    }
+
+    .quarter1 {
+      top: 0;
+      left: 0;
+      background-color: red;
+      border-radius: 100% 0 0 0;
+    }
+
+    .quarter2 {
+      top: 0;
+      right: 0;
+      background-color: blue;
+      border-radius: 0 100% 0 0;
+    }
+
+    .quarter3 {
+      bottom: 0;
+      left: 0;
+      background-color: orange;
+      border-radius: 0 0 0 100%;
+    }
+
+    .quarter4 {
+      bottom: 0;
+      right: 0;
+      background-color: green;
+      border-radius: 0 0 100% 0;
+    }
+
+    .cutout {
+      width: 50%;
+      height: 50%;
+      background-color: white;
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  </style>
+  <title>Quatre Circle Outline</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="quarter quarter1" id="quarter1"></div>
+    <div class="quarter quarter2"></div>
+    <div class="quarter quarter3"></div>
+    <div class="quarter quarter4"></div>
+    <div class="cutout"></div>
+  </div>
+  <script>
+    const q1 = document.getElementById('quarter1')
+    q1.onclick = click
+    function click() {
+      console.log('click');
+    }
+  </script>
+</body>
+
+</html>

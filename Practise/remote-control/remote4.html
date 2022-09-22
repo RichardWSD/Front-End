@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 330px;
+      height: 310px;
+      background-color: #000b36;
+    }
+
+    .control {
+      position: relative;
+      left: 20px;
+      top: 20px;
+    }
+
+    .semi-circle {
+      width: 280px;
+      height: 140px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      border: 2px solid #fff;
+      border-bottom: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .outter-circle {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      width: 260px;
+      height: 260px;
+      background-color: #000b36;
+      border-radius: 100%;
+      overflow: hidden;
+      transform-origin: center;
+      transform: rotate(45deg);
+    }
+
+    .inner-parts {
+      float: left;
+      width: 130px;
+      height: 130px;
+      line-height: 130px;
+      text-align: center;
+      background-color: #e89e43;
+    }
+
+    .cover-circle {
+      position: absolute;
+      left: 65px;
+      top: 65px;
+      width: 130px;
+      height: 130px;
+      line-height: 130px;
+      text-align: center;
+      border-radius: 100%;
+      background-color: #000b36;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rotate {
+      display: inline-block;
+      transform: rotate(-45deg);
+    }
+
+    .separate {
+      width: 40px;
+      height: 260px;
+      position: absolute;
+      left: 110px;
+      background-color: #000b36;
+    }
+
+    .separate-left {
+      transform: rotate(-90deg);
+    }
+
+    .circle-btn {
+      position: absolute;
+      left: 115px;
+      top: 115px;
+      width: 60px;
+      height: 60px;
+      background-color: #bd3124;
+      border-radius: 100%;
+      box-shadow: 0 0 5px 5px #4c182b;
+      transform: scale(1);
+      opacity: 0.9;
+    }
+
+    .arrow {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #fff;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    .arrow-right {
+      transform: rotate(90deg);
+    }
+
+    .arrow-down {
+      transform: rotate(180deg);
+    }
+
+    .arrow-left {
+      transform: rotate(-90deg);
+    }
+
+    .pointer {
+      width: 145px;
+      height: 4px;
+      position: absolute;
+      left: 145px;
+      top: 145px;
+      transform-origin: 0 0;
+      transform: rotate(-90deg);
+    }
+
+    .pointer::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 0 6px 18px;
+      border-color: transparent transparent transparent #bd3124;
+      position: absolute;
+      left: 147px;
+      top: -3px;
+    }
+
+    .scale {
+      width: 50%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: right;
+      background: linear-gradient(to right, #fff 8px, transparent 8px);
+    }
+
+    .scale45 {
+      transform: rotate(45deg);
+    }
+
+    .scale90 {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="control">
+      <div class="outter-circle">
+        <div class="inner-parts">
+          <span class="arrow"></span>
+        </div>
+        <div class="inner-parts">
+          <span class="arrow arrow-right"></span>
+        </div>
+        <div class="inner-parts">
+          <span class="arrow arrow-left"></span>
+        </div>
+        <div class="inner-parts">
+          <span class="arrow arrow-down"></span>
+        </div>
+        <div class="separate"></div>
+        <div class="separate separate-left"></div>
+        <div class="cover-circle"></div>
+      </div>
+      <div class="circle-btn"></div>
+      <div class="semi-circle">
+        <div class="scale"></div>
+        <div class="scale scale45"></div>
+        <div class="scale scale90"></div>
+      </div>
+      <div class="pointer"></div>
+    </div>
+
+
+  </div>
+</body>
+
+</html>

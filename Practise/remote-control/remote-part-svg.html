@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .arrow {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #fff;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    .pointer {
+      transition: transform .5s;
+    }
+
+    .arg-button {
+      width: 140px;
+      height: 140px;
+    }
+  </style>
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg" style="width:300px;height:300px;background-color: #000b36;"
+    viewBox="0 0 300 300">
+    <symbol id="arg-button">
+      <path d="M10 130 A140 140 0 0 1 130 10 L130 90 A70 70 0 0 0 90 130 Z" style="fill:#e89e43;" />
+    </symbol>
+    <g transform="rotate(0,150,150)" class="pointer">
+      <line x1="150" y1="0" x2="150" y2="168" style="stroke:#fff;stroke-width: 4px;"></line>
+      <circle cx="150" cy="150" r="6" style="fill: #fff;"></circle>
+    </g>
+
+    <g transform="rotate(45, 150, 150)">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arg-button">
+        <use xlink:href="#arg-button" x="0" y="0" />
+        <foreignObject x="68" y="68" width="24" height="24">
+          <div class="arrow"></div>
+        </foreignObject>
+      </svg>
+    </g>
+
+    <g transform="rotate(135, 150, 150)">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arg-button">
+        <use xlink:href="#arg-button" x="0" y="0" />
+        <image transform="rotate(45,70,70)" x="50" y="40" width="60" heighnat="60" xlink:href="./images/wide"></image>
+      </svg>
+    </g>
+
+    <g transform="rotate(-45, 150, 150)">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arg-button">
+        <use xlink:href="#arg-button" x="0" y="0" />
+        <image transform="rotate(45,70,70)" x="50" y="40" width="60" height="60" xlink:href="./images/narrow"></image>
+      </svg>
+    </g>
+    <g transform="rotate(-135, 150, 150)">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arg-button">
+        <use xlink:href="#arg-button" x="0" y="0" />
+        <foreignObject x="68" y="68" width="24" height="24">
+          <div class="arrow"></div>
+        </foreignObject>
+      </svg>
+    </g>
+
+
+
+    <circle cx="150" cy="150" r="30" style="stroke: #bd3124;fill: #bd3124;fill-opacity: 0.9;"></circle>
+
+
+  </svg>
+</body>
+
+</html>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>VueJS Tutorials</title>
-        <link href="styles.css" rel="stylesheet" />
-        <script src="https://unpkg.com/vue"></script>
-    </head>
-    <body>
-        <div id="app">
-            <!-- 这种原生的标签本来就有click事件,不用加.native,加了反而没效果 -->
-            　　<a href="#" v-on:click.native="clickFun">click me</a>
 
-            <!-- 我们自定义的组件是没有click事件的,可以通过.native给我们自定义的组件加上原生click事件 -->
-            <!-- 组件上使用 v-on 只会监听自定义事件 (组件用 $emit 触发的事件)。如果要监听原生事件，可以使用 .native 修饰符 -->
-            <my-component v-on:click.native="clickFun"></my-component>
-            </div>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <title>VueJS Tutorials</title>
+  <link href="styles.css" rel="stylesheet" />
+  <script src="../vue.js"></script>
+</head>
 
-    <script src="app.js"></script>
+<body>
+  <div id="app">
+    <!-- 这种原生的标签本来就有click事件,不用加.native,加了反而没效果 -->
+    　　<a href="#" v-on:click.native="clickFun">click me</a>
+
+    <!-- 我们自定义的组件是没有click事件的,可以通过.native给我们自定义的组件加上原生click事件 -->
+    <!-- 组件上使用 v-on 只会监听自定义事件 (组件用 $emit 触发的事件)。如果要监听原生事件，可以使用 .native 修饰符 -->
+    <!-- <my-component @click.native="clickFun"></my-component> -->
+    <my-component @pointerdown="clickFun"></my-component>
+  </div>
+</body>
+
+<script src="app.js"></script>
+
 </html>

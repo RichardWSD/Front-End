@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <div>父文本值:{{strPar}}</div>
+    <div>父文本值:{{ strPar }}</div>
     <!-- 父向子组件传值 -->
     <users v-bind:users="users" isB :str-child="strPar"></users>
+    <button @click="strPar = '哈哈哈'">改变文本</button>
     <app-footer></app-footer>
   </div>
 </template>
@@ -19,25 +20,25 @@ export default {
   data() {
     return {
       //title: "这是我的第一个vue脚手架项目"
-      users:[
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false},
-        {name:'Henry',position:'Web开发',show:false}
-     ],
-     strPar: 'p-abc'
+      users: [
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false },
+        { name: "Henry", position: "Web开发", show: false }
+      ],
+      strPar: "p-abc"
     };
   },
   //注册组件
   components: {
-    "users": Users,
-    "app-header":Header,
-    "app-footer":Footer
+    users: Users,
+    "app-header": Header,
+    "app-footer": Footer
   }
 };
 </script>

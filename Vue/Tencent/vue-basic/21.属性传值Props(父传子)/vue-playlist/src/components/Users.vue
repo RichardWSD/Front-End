@@ -1,15 +1,19 @@
 <template>
   <div class="users">
     <h1>Hello Users</h1>
-    <div>{{isB}}</div>
+    <div>{{ isB }}</div>
     <div>
-      <span>{{strChild}}</span>
-      <button @click="strChild = '改变了'">改变文本值</button>
+      <span>{{ strChild }}</span>
+      <!-- <button @click="strChild = '改变了'">改变文本值</button> -->
     </div>
     <ul>
-      <li v-for="(user, index) in users" :key="index" v-on:click="user.show=!user.show">
-        <h2>{{user.name}}</h2>
-        <h3 v-show="user.show">{{user.position}}</h3>
+      <li
+        v-for="(user, index) in users"
+        :key="index"
+        v-on:click="user.show = !user.show"
+      >
+        <h2>{{ user.name }}</h2>
+        <h3 v-show="user.show">{{ user.position }}</h3>
       </li>
     </ul>
   </div>
@@ -30,6 +34,12 @@ export default {
   },
   data() {
     return {};
+  },
+  mounted() {
+    console.log("子组件挂载");
+  },
+  updated() {
+    console.log("子组件更新");
   }
 };
 </script>

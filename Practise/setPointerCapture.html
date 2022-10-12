@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .thumb {
+      width: 50px;
+      height: 50px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="thumb" class="thumb"></div>
+  <script>
+    const thumb = document.querySelector('#thumb')
+    thumb.onpointerdown = function (event) {
+      // 把所有指针事件（pointerup 之前发生的）重定向到 thumb
+      thumb.setPointerCapture(event.pointerId);
+
+      // 开始跟踪指针的移动
+      thumb.onpointermove = function (event) {
+        // 移动滑动条：在 thumb 上监听即可，因为所有指针事件都被重定向到了 thumb
+        let newLeft = event.clientX
+        thumb.innerText = `${newLeft}\n${event.offsetX}`
+      };
+
+      // 当结束(pointerup)时取消对指针移动的跟踪
+      thumb.onpointerup = function (event) {
+        thumb.onpointermove = null;
+        thumb.onpointerup = null;
+        // ...这里还可以处理“拖动结束”相关的逻辑
+      };
+    };
+  </script>
+</body>
+
+</html>

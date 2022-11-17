@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fetch() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject('err')
+        }, 1000);
+      })
+    }
+
+    function load(onError) {
+      const p = fetch()
+      // catch返回的是一个Promise，与then方法返回的一样
+      return p.catch(err => {
+        // return 1111
+        return new Promise((resolve, reject) => {
+          // resolve(p)，p是这个promise,只要p还没fulfilled，那上面这个new的Promise就没fulfilled, 
+          // 这个new的Promise没有fulfilled，catch返回的Promise就没有fulfilled，所以下面then方法的回调就不会执行
+          const retry = () => resolve(load(onError))
+          onError(retry, reject)
+        })
+      })
+    }
+
+    const p = load((retry) => {
+      retry()
+      console.log(99)
+    })
+      .then(res => {
+        console.log('----')
+        console.log(res)
+      })
+    console.log('p ==> ', p)
+  </script>
+</body>
+
+</html>

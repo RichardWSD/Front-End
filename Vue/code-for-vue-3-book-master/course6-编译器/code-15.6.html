@@ -1,5 +1,5 @@
 <script>
-  
+
   const State = {
     initial: 1,
     tagOpen: 2,
@@ -8,16 +8,16 @@
     tagEnd: 5,
     tagEndName: 6
   }
-  
+
   function isAlpha(char) {
     return char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z'
   }
-  
+
   function tokenize(str) {
     let currentState = State.initial
     const chars = []
     const tokens = []
-    while(str) {
+    while (str) {
       const char = str[0]
       switch (currentState) {
         case State.initial:
@@ -91,13 +91,13 @@
           break
       }
     }
-  
+
     return tokens
   }
-  
+
   function parse(str) {
     const tokens = tokenize(str)
-
+    console.log('tokens ==> ', JSON.parse(JSON.stringify(tokens)))
     const root = {
       type: 'Root',
       children: []
@@ -276,9 +276,9 @@
   }
 
   const ast = parse(`<div><p>Vue</p><p>Template</p></div>`)
+  console.log('template ast ==> ', JSON.parse(JSON.stringify(ast)))
   transform(ast)
-
-  console.log(ast)
+  console.log('js ast ==> ', JSON.parse(JSON.stringify(ast)))
 
   console.log(generate(ast.jsNode))
 

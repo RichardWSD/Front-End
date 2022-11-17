@@ -1,5 +1,5 @@
 <script>
-  
+
   const State = {
     initial: 1,
     tagOpen: 2,
@@ -8,16 +8,16 @@
     tagEnd: 5,
     tagEndName: 6
   }
-  
+
   function isAlpha(char) {
     return char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z'
   }
-  
+
   function tokenize(str) {
     let currentState = State.initial
     const chars = []
     const tokens = []
-    while(str) {
+    while (str) {
       const char = str[0]
       switch (currentState) {
         case State.initial:
@@ -91,10 +91,10 @@
           break
       }
     }
-  
+
     return tokens
   }
-  
+
   function parse(str) {
     const tokens = tokenize(str)
 
@@ -150,11 +150,11 @@
   }
 
   function transformElement(node) {
-    // console.log(`进入：${JSON.stringify(node)}`)
+    console.log(`进入：${JSON.stringify(node)}`)
 
-    // return () => {
-    //   console.log(`退出：${JSON.stringify(node)}`)
-    // }
+    return () => {
+      console.log(`退出：${JSON.stringify(node)}`)
+    }
   }
 
   function transformText(node, context) {
@@ -164,7 +164,7 @@
       console.log(`退出：${JSON.stringify(node)}`)
     }
   }
-  
+
 
   function traverseNode(ast, context) {
     context.currentNode = ast

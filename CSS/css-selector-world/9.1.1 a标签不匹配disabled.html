@@ -7,14 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    textarea:empty {
-      border: 6px double deepskyblue;
+    :disabled {
+      border: 1px solid lightgray;
+      background: #f0f0f3;
+    }
+
+    :enabled {
+      border: 1px solid deepskyblue;
+      background: lightskyblue;
     }
   </style>
 </head>
 
 <body>
-  <textarea name="" id="" cols="30" rows="10" placeholder="请输入"></textarea>
+  <a href disabled>有链接同时disabled</a>
 </body>
 
 </html>

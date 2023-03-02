@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: relative;
+      width: 200px;
+    }
+
+    .child {
+      width: 100%;
+      height: 100px;
+      background-color: blue;
+      /* 由于定位元素默认z-index为auto，从层叠水平上来看与z-index为0是一样的，所以会覆盖tran元素 */
+      position: absolute;
+    }
+
+    .tran {
+      height: 20px;
+      width: 100%;
+      background-color: red;
+      position: absolute;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="tran"></div>
+    <div class="child"></div>
+  </div>
+</body>
+
+</html>

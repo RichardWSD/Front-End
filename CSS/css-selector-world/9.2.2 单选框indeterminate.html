@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    textarea:empty {
-      border: 6px double deepskyblue;
+    :indeterminate+label {
+      background: skyblue;
     }
   </style>
 </head>
-
-<body>
-  <textarea name="" id="" cols="30" rows="10" placeholder="请输入"></textarea>
+<input type="radio" name="radio"><label>文案1</label>
+<input type="radio" name="radio"><label>文案2</label>
+<input type="radio"><label>没有name</label>
 </body>
 
 </html>

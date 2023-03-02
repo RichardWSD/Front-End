@@ -7,18 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <style>
-    .hide-text {
-      text-indent: 100%;
-      white-space: nowrap;
-      overflow: hidden;
+    p {
+      text-align: right;
+    }
+
+    p>span {
+      position: relative;
+    }
+
+    p>span>img {
+      position: absolute;
+      right: 0;
     }
   </style>
 </head>
 
 <body>
-  <div style="position: absolute">
-    <p class="hide-text" style="position: absolute">坚挺</p>
-  </div>
+  <p>
+    <span>
+      <img src="./images/mm1.jpeg" />
+    </span>
+  </p>
 </body>
 
 </html>

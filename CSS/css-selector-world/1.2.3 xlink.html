@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* attribute selector属性选择器包括 ID、类、属性值匹配选择器 */
+
+    /* 当加入默认namespace后， all universal and type selectors (but not attribute selectors) 
+       apply only to elements in that namespace.
+       所以当加入默认namespace后，[href]这种属性选择器就选择不到了，要先选择标签后再选择属性（或者不要写默认namespace）才行
+       *|*[href](选择所有命名空间下有href属性的标签)  
+       *|a[href](选择所有命名空间下有href属性的a标签)  
+    */
+    @namespace "http://www.w3.org/1999/xhtml";
+    @namespace svg url('http://www.w3.org/2000/svg');
+    @namespace xlink 'http://www.w3.org/1999/xlink';
+
+    a {
+      color: orangered;
+      text-decoration: underline dashed;
+      font-weight: bold;
+    }
+
+    /* *|*[href] {
+      fill: green;
+      color: green;
+    } */
+
+    *|a[xlink|href] {
+      fill: green;
+      color: green;
+    }
+
+    /* [href] {
+      fill: palevioletred;
+    } */
+  </style>
+</head>
+
+<body>
+  <p>
+    <a href="#" lang="cn">This is an ordinary HTML link</a>
+    <br>
+    <a xlink:href="#" lang="cn">This is an ordinary HTML link</a>
+  </p>
+
+  <svg width="1000px" viewBox="0 0 1000 20" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <a xlink:href="#abc">
+      <text x="0" y="15">
+        This is a link with xlink
+      </text>
+    </a>
+    <a href="#abc">
+      <text x="500" y="15">
+        This is a link without namespace
+      </text>
+    </a>
+  </svg>
+
+</body>
+
+</html>

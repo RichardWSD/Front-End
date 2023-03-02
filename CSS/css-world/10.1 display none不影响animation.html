@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ani {
+      animation: run 2s ease-out;
+    }
+
+    @keyframes run {
+      /* 50% {
+        color: red;
+      } */
+
+      0% {
+        color: orange;
+        /* display为none配合opacity和animation有过度效果 */
+        display: none;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div class="ani">受到了法律的负担</div>
+</body>
+
+</html>

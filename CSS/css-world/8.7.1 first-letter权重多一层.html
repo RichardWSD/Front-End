@@ -7,14 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    textarea:empty {
-      border: 6px double deepskyblue;
+    p:first-letter {
+      color: red;
+    }
+
+    p>span {
+      color: blue !important;
     }
   </style>
 </head>
 
 <body>
-  <textarea name="" id="" cols="30" rows="10" placeholder="请输入"></textarea>
+  <p><span>第一个</span>字符看看会不会变红？</p>
 </body>
 
 </html>

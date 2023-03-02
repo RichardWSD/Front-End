@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 如果一个line box里没有文字、保留的空格、非0的margin或padding或border的inline元素、
+    或其他in-flow内容（比如图片、inline-block或inline-table元素），
+    且不以保留的换行符结束的话，就会被视作高度为0的line box 
+-->
+<!-- 问题里的<div><span></span></div>就刚好符合这种特殊情况，设置成inline-block就不符合了。
+    题主也可以试着把display改成inline-table，或者设置非0的margin、padding、border等，
+    总之只要不满足上述任一种情况，那么就会受“幽灵空白像素”（官方说法应该叫"strut"元素）的影响从而出现行高 
+-->
+
+<body>
+  <!-- https://segmentfault.com/q/1010000014296346 -->
+  <div>
+    <!-- <span style="border: 2px solid;"></span> -->
+    <span></span>
+  </div>
+</body>
+
+</html>

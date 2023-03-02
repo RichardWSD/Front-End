@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <!-- 布局视口宽度（document.documentElement.clientWidth）是取width和initial-scale之间的最大值 -->
-  <!-- 视觉视口宽度 = 375 / initial-scale -->
+  <!-- 注意测试过程中会出现即使手动刷新页面也没有按如期变化的情况，这是需要重新打开一个新的标签页看效果 -->
+  <!-- 布局视口宽度 layout viewport（document.documentElement.clientWidth）
+        是取width和ideal viewport / initial-scale之间的最大值 
+  -->
+  <!-- 视觉视口宽度 visual viewport（也就是设置多少 px 可以刚好占满屏幕宽度），
+       可以通过 window.innerWidth 来取值 
+  -->
+  <!-- ideal viewport = 375（iphone6），是不变的，
+       可以通过 window.outerWidth 或者 screen.width 来取值 
+  -->
+  <!-- 如果不设置meta viewport标签，那么移动设备上浏览器默认的宽度值为800px，980px，1024px等这些 -->
+  <!-- 在iphone和ipad上，无论你给viewport设的宽的是多少，如果没有指定默认的缩放值，则iphone和ipad会自动计算这个缩放值，
+       以达到当前页面不会出现横向滚动条(或者说viewport的宽度就是屏幕的宽度)的目的
+  -->
 
   <!-- document.documentElement.clientWidth：375     innerWidth：375 -->
   <!-- <meta name="viewport" content="width=device-width,initial-scale=1,maixmum-scale=1.0,user-scalable=no"> -->
 
-   <!-- document.documentElement.clientWidth：750     innerWidth：375 -->
-  <!-- <meta name="viewport" content="width=750,initial-scale=1,maixmum-scale=1.0,user-scalable=no">  -->
+  <!-- document.documentElement.clientWidth：750     innerWidth：375 -->
+  <!-- <meta name="viewport" content="width=750,initial-scale=1,maixmum-scale=1.0,user-scalable=no"> -->
 
   <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
   <!-- <meta name="viewport" content="width=device-width,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
@@ -17,36 +30,56 @@
   <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
   <!-- <meta name="viewport" content="width=750,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
 
-   <!-- document.documentElement.clientWidth：400     innerWidth：375 -->
+  <!-- document.documentElement.clientWidth：400     innerWidth：375 -->
   <!-- <meta name="viewport" content="width=400,initial-scale=1,maixmum-scale=1.0,user-scalable=no"> -->
 
   <!-- document.documentElement.clientWidth：750     innerWidth：750 -->
   <!-- <meta name="viewport" content="width=400,initial-scale=0.5,maixmum-scale=1.0,user-scalable=no"> -->
 
   <!-- document.documentElement.clientWidth：375     innerWidth：188 -->
-  <meta name="viewport" content="width=device-width,initial-scale=2,user-scalable=no">
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=2,user-scalable=no"> -->
+
+  <!-- document.documentElement.clientWidth：600     innerWidth：600 -->
+  <!-- 如果没有显示设置 initial-scale 的值，那么默认不是 1，而是 ideal viewport / width, 也就是 0.625 = 375 / 600 -->
+  <!-- <meta name="viewport" content="width=600"> -->
   <title>Document</title>
   <style>
-    *{
-        margin:0;
-        padding:0;
+    * {
+      margin: 0;
+      padding: 0;
     }
-    html,body{
-        width:100%;
-        height:100%;
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
-    span{
+
+    span {
       display: inline-block;
       width: 375px;
       height: 50px;
       float: left;
     }
-</style>
+
+    .w1000 {
+      width: 1000px;
+      height: 50px;
+      background-color: pink;
+    }
+
+    .clearfix {
+      overflow: hidden;
+    }
+  </style>
 </head>
+
 <body>
-  <div>
+  <div class="clearfix">
     <span class="aa" style="background:blue;">375px</span>
     <span style="background:red;">375px</span>
   </div>
+  <!-- <div class="w1000">1000px</div> -->
 </body>
+
 </html>

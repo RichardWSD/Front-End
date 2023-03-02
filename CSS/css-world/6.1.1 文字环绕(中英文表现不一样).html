@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>数组去重</title>
+  <style>
+    /* 图片浮动，英文文字不会发生环绕效果，可以用word-break:break-all;解决 */
+    .img-left1 {
+      border: 3px solid #005588;
+      width: 300px;
+      /* word-break:break-all; */
+    }
+
+    img {
+      float: left;
+      width: 150px;
+    }
+
+    /* 图片浮动，中文文字会发生环绕效果 */
+    .img-left2 {
+      border: 3px solid #005588;
+      width: 300px;
+    }
+
+    /* 取消文字环绕效果 */
+    .img-left3 {
+      border: 3px solid #005588;
+      width: 300px;
+      word-break: break-all;
+    }
+
+    .a {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='img-left1'>
+    <img src='./images/icon-group.png'>
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  </div>
+
+  <div class='img-left2'>
+    <img src='./images/icon-group.png'>
+    这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文这是一段中文
+  </div>
+
+  <!-- 给文字外面加一个div标签，然后给样式设置为overflow:hidden,使该盒子成为绝缘容器取消环绕效果 -->
+  <div class='img-left3'>
+    <img src='./images/icon-group.png'>
+    <div class='a'>
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </div>
+  </div>
+</body>
+
+</html>

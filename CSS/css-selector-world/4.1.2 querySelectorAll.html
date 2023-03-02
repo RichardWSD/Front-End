@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="myId">
     <div class="lonely">单身如我</div>
@@ -13,12 +15,17 @@
       <div class="inner">内外开花</div>
     </div>
   </div>
+  <div>
+    <div></div>
+  </div>
   <script>
-    console.log(document.querySelectorAll('#myId div div').length); 
+    console.log(document.querySelectorAll('#myId div div').length);
     // querySelectorAll全局匹配性
     console.log(document.querySelector('#myId').querySelectorAll('div div').length);
+    console.log(document.querySelectorAll('div div').length);
     // 限制不是全局匹配
     console.log(document.querySelector('#myId').querySelectorAll(':scope div div').length);
   </script>
 </body>
+
 </html>

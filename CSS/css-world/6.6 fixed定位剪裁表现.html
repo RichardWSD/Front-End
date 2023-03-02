@@ -7,28 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    img {
-      width: 100px;
-      height: 50px;
+    html {
+      /* overflow: auto; */
     }
 
-    .alt {
-      text-indent: -400px;
+    .fix {
+      border: 2px solid red;
+      width: 100px;
+      height: 100px;
+      position: fixed;
+    }
+
+    .fixwrap {
       overflow: hidden;
     }
 
-    span {
-      text-indent: 100px;
+    main {
+      border: 2px solid;
+      width: 100px;
+      height: 120vh;
     }
   </style>
 </head>
 
 <body>
-  <span>非替换元素以外的 display 计算值为 inline 的内联元素设置 text-indent 值无效</span>
-  <br>
-  <img class="alt" alt="任意球">
-  <br>
-  <img>
+  <!-- <main></main> -->
+  <div class="fixwrap">
+    <div class="fix"></div>
+  </div>
+
 </body>
 
 </html>

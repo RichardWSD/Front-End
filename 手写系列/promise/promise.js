@@ -173,11 +173,11 @@ Promise.prototype.catch = function(onRejected) {
 /* finally */
 Promise.prototype.finally = function(fn) {
   return this.then(function(value) {
-      return Promise.resolve(value).then(function() {
+      return Promise.resolve(fn()).then(function() {
           return value;
       })
   }, function(error) {
-      return Promise.resolve(reason).then(function() {
+      return Promise.resolve(fn()).then(function() {
           throw error;
       });
   });

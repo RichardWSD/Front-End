@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./promise.js"></script>
+  <script>
+    const promise = new Promise(function (resolve, reject) {
+      resolve('ok');
+      setTimeout(function () { throw new Error('test') }, 0)
+    });
+    promise.then(function (value) { console.log(value) })
+      .catch((e) => {
+        console.log('promise catch:', e);
+      })
+
+    try {
+      setTimeout(function () { throw new Error('常规错误测试') }, 0)
+    } catch (error) {
+      console.log('常规错误 catch:', error);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      width: 100px;
+      height: 100px;
+      border: 2px solid;
+    }
+
+    .wrapper {
+      white-space: nowrap;
+      word-spacing: -6px;
+      position: absolute;
+    }
+
+    .child {
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+
+    }
+
+    .child:nth-child(1) {
+      background-color: aqua;
+      transform: translateX(300px);
+    }
+
+    .child:nth-child(2) {
+      background-color: antiquewhite;
+    }
+
+    .child:nth-child(3) {
+      background-color: goldenrod;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="wrapper">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+    </div>
+  </div>
+</body>
+
+</html>
